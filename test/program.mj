@@ -1,0 +1,14 @@
+program MJAUProgram
+int a;
+{
+	void metoda()
+	{
+		if( a>5 && b<=3 || a+b!=4 ){
+			do {
+				a++;
+				b--;
+			}
+			while (a<10);
+		};
+	}
+}

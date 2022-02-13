@@ -1,0 +1,237 @@
+package rs.ac.bg.etf.pp1;
+
+import java_cup.runtime.*;
+import org.apache.log4j.*;
+import rs.ac.bg.etf.pp1.ast.*;
+
+parser code {:
+
+	Logger log = Logger.getLogger(getClass());
+   
+   
+    // slede redefinisani metodi za prijavu gresaka radi izmene teksta poruke
+     
+    public void report_fatal_error(String message, Object info) throws java.lang.Exception {
+      done_parsing();
+      report_error(message, info);
+    }
+  
+    public void syntax_error(Symbol cur_token) {
+        report_error("Sintaksna greska", cur_token);
+    }
+  
+    public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
+        report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
+    }
+
+    public void report_error(String message, Object info) {
+    	StringBuilder msg = new StringBuilder(message); 
+    	if (info instanceof Symbol)
+            msg.append (" na liniji ").append(((Symbol)info).left);
+        log.error(msg.toString());
+    }
+
+
+:}
+
+
+
+scan with {:
+	Symbol s = this.getScanner().next_token();
+	if (s != null && s.value != null) 
+		log.info(s.toString() + " " + s.value.toString());
+	return s;
+:}
+
+
+
+terminal PROG, READ, PRINT, RETURN, VOID, CONST, IF, ELSE, DO, WHILE, BREAK, CONTINUE, GOTO, TRUE, FALSE, CLASS, EXTENDS, NEW, DOT, RECORD, THIS, SUPER, IS_EQ, IS_NEQ, IS_GRE, IS_GEQ, IS_LESS, IS_LEQ, AND_AND, OR_OR, PLUS_PLUS, MINUS_MINUS, PLUS, MINUS, TIMES, DIV, PERCENT, EQUAL, SEMI, COLON, COMMA, LPAREN, RPAREN, LBRACE, RBRACE, LBRACKET, RBRACKET, INT, CHAR, BOOL, NULL;
+terminal Integer NUMBER;
+terminal String IDENT;
+terminal Character CHARACTER;
+
+nonterminal Program, PreMethodDeclList, PreMethodDecl, BoolValue, Type, PrimitiveType;
+nonterminal VarDecls, VarList, VarDecl, ConstDecl, RecordDecl, VarDeclsList;
+nonterminal MethodDeclList, MethodDecl, FormPars, TypeOrVoid, OptionalVarDeclsList, FormParsList;
+nonterminal BlockOfStatements, StatementList, Label, Statement, StatementOrBlockOfStatements, NonLabeledStatement;
+nonterminal DesignatorStatement, Expr, OptionalActPars, ActPars, Designator, DesignationList;
+nonterminal Term, AdditionTermList, AddOp, MultipleFactorList, MulOp, Factor;
+nonterminal Condition, CondTerm, CondFact, RelOp;
+nonterminal ClassDecl, ClassExtension, ClassBody, ClassConstructor;
+
+precedence left ELSE;
+
+
+
+Program ::= (Program) PROG IDENT PreMethodDeclList LBRACE MethodDeclList RBRACE;
+
+
+
+PreMethodDeclList ::= (NonEmptyPreMethodDeclList) PreMethodDeclList PreMethodDecl
+					| (EmptyPreMethodDeclList);
+
+PreMethodDecl ::= (PreMethodDeclConst) ConstDecl
+				| (PreMethodDeclVar) VarDecls
+				| (PreMethodDeclClass) ClassDecl 
+				| (PreMethodDeclRecord) RecordDecl
+				| (PreMethodDeclError) error SEMI:l
+		   			{: parser.report_error("Greska u deklaraciji u liniji " + lleft + ".", null);  :};
+				 
+ConstDecl ::= (ConstIntDecl) CONST INT IDENT EQUAL NUMBER SEMI
+			| (ConstCharDecl) CONST CHAR IDENT EQUAL CHARACTER SEMI
+			| (ConstBoolDecl) CONST BOOL IDENT EQUAL BoolValue SEMI;
+	
+VarDeclsList ::= (MultiVarDecls) VarDeclsList VarDecls
+			   | (SingleVarDecls) VarDecls;
+		
+VarDecls ::= (VarDecls) Type VarList SEMI;
+
+VarList ::= (MultiVar) VarList COMMA VarDecl
+		  | (SingleVar) VarDecl;
+		  
+VarDecl ::= (VarDeclArr) IDENT LBRACKET RBRACKET
+		  | (VarDeclNotArr) IDENT;
+
+
+ClassDecl ::= (ClassDecl) CLASS IDENT ClassExtension LBRACE VarDecls ClassBody RBRACE;
+
+ClassExtension ::= (YesClassExtension) EXTENDS IDENT
+				 | (NoClassExtension);
+
+ClassBody ::= (YesClassBodyYesConst) LBRACE ClassConstructor MethodDeclList RBRACE
+			| (YesClassBodyNoConst) LBRACE MethodDeclList RBRACE
+			| (NoClassBody);
+			
+ClassConstructor ::= (ClassConstructor) IDENT LPAREN RPAREN OptionalVarDeclsList BlockOfStatements;
+
+RecordDecl ::= (RecordDecl) RECORD IDENT LBRACE VarDeclsList RBRACE;
+
+BoolValue ::= (BoolValueTrue) TRUE
+			| (BoolValueFalse) FALSE;
+
+Type ::= (TypeNonPrimitive) IDENT
+	   | (TypePrimitive) PrimitiveType;
+
+PrimitiveType ::= (PrimitiveTypeInt) INT | (PrimitiveTypeChar) CHAR | (PrimitiveTypeBool) BOOL;
+
+MethodDeclList ::= (MethodDecls) MethodDecl MethodDeclList
+				 | (NoMethodDecls);
+
+MethodDecl ::= (MethodDecl) TypeOrVoid IDENT LPAREN FormPars RPAREN
+			   OptionalVarDeclsList
+			   BlockOfStatements;
+
+TypeOrVoid ::= (NotVoidType) Type | (VoidType) VOID;	
+				
+FormPars ::= (YesFormalParams) FormParsList
+		   | (NoFormalParams);
+
+FormParsList ::= (MultiFormalParam) FormParsList COMMA Type VarDecl
+			   | (SingleFormalParam) Type VarDecl;
+		   
+OptionalVarDeclsList ::= (YesVarDeclsList) VarDeclsList
+					   | (NoVarDeclsList);
+
+StatementOrBlockOfStatements ::= (SingleStatement) Statement
+							   | (MultiStatement) BlockOfStatements;
+	   
+BlockOfStatements ::= (BlockOfStatements) LBRACE StatementList RBRACE;
+
+StatementList ::= (NonEmptyStatementListStmt) StatementList Statement
+				| (NonEmptyStatementListBlck) StatementList BlockOfStatements
+				| (EmptyStatementList);
+
+Statement ::= (StatementWithoutLabel) NonLabeledStatement
+			| (StatementWithLabel) Label COLON NonLabeledStatement;
+
+NonLabeledStatement ::= (DesignatorStmt) DesignatorStatement SEMI
+					  | (BreakStmt) BREAK SEMI
+					  | (ContinueStmt) CONTINUE SEMI
+					  | (ReturnStmt) RETURN Expr SEMI
+					  | (ReadStmt) READ LPAREN Designator RPAREN SEMI
+					  | (PrintStmt) PRINT LPAREN Expr RPAREN SEMI
+					  | (PrintStmtWithWidth) PRINT LPAREN Expr COMMA NUMBER RPAREN SEMI
+					  | (GotoStmt) GOTO Label SEMI
+					  | (IfStmt) IF LPAREN Condition RPAREN StatementOrBlockOfStatements SEMI
+					  | (IfElseStmt) IF LPAREN Condition RPAREN StatementOrBlockOfStatements ELSE StatementOrBlockOfStatements SEMI
+					  | (DoWhileStmt) DO StatementOrBlockOfStatements WHILE LPAREN Condition RPAREN SEMI;
+
+Condition ::= (LastCondTerm) CondTerm
+			| (NonLastCondTerm) Condition OR_OR CondTerm;
+	
+CondTerm ::= (LastCondFact) CondFact
+		   | (NonLastCondFact) CondTerm AND_AND CondFact;
+
+CondFact ::= (CondFactJustExpr) Expr
+		   | (CondFactRelOp) Expr RelOp Expr;
+		  
+RelOp ::= (RelOpEq) IS_EQ
+		| (RelOpNeq) IS_NEQ
+		| (RelOpGre) IS_GRE
+		| (RelOpGeq) IS_GEQ
+		| (RelOpLess) IS_LESS
+		| (RelOpLeq) IS_LEQ;
+
+Label ::= (Label) IDENT;
+
+DesignatorStatement ::= (DesignatorStatementAssign) Designator EQUAL Expr
+					  | (DesignatorStatementFuncCall) Designator LPAREN OptionalActPars RPAREN
+					  | (DesignatorStatementInc) Designator PLUS_PLUS
+					  | (DesignatorStatementDec) Designator MINUS_MINUS;
+					  
+Designator ::= (DesignatorIdent) IDENT DesignationList
+			 | (DesignatorThis) THIS DesignationList 		/* Just a guess, TODO check if proper */
+			 | (DesignatorSuper) SUPER DesignationList;		/* Just a guess, TODO check if proper */
+
+DesignationList ::= (DesignationObjectAccess) DOT IDENT DesignationList
+				  | (DesignationArrayAccess) LBRACKET Expr RBRACKET DesignationList
+				  | (DesignationNone);
+				  
+Expr ::= (JustTermExpr) Term
+	   | (MultiAddOpExpr) Term AdditionTermList
+	   | (MinusJustTermExpr) MINUS Term
+	   | (MinusMultiAddOpExpr) MINUS Term AdditionTermList
+	   | (NullExpr) NULL;
+	   
+AdditionTermList ::= (NonLastTerm) AdditionTermList AddOp Term
+				   | (LastTerm) AddOp Term;
+
+AddOp ::= (AddOpPlus) PLUS | (AddOpMinus) MINUS;
+
+Term ::= (SingleFactorTerm) Factor
+	   | (MultiFactorTerm) Factor MultipleFactorList;
+
+MultipleFactorList ::= (NonLastFactor) MultipleFactorList MulOp Factor
+					 | (LastFactor) MulOp Factor;
+
+MulOp ::= (MulOpTimes) TIMES | (MulOpDiv) DIV | (MulOpPercent) PERCENT;
+
+Factor ::= (FactorNumberConst) NUMBER
+		 | (FactorCharConst) CHARACTER
+		 | (FactorBoolConst) BoolValue
+		 | (FactorExprInParens) LPAREN Expr RPAREN 
+		 | (FactorNew) NEW Type
+		 | (FactorNewArray) NEW Type LBRACKET Expr RBRACKET
+		 | (FactorDesignator) Designator
+		 | (FactorDesignatorCall) Designator LPAREN OptionalActPars RPAREN;
+
+OptionalActPars ::= (YesActPars) ActPars
+				  | (NoActPars);
+
+ActPars ::= (LastExprActPars) Expr
+		  | (NonLastExprActPar) Expr COMMA ActPars;
+		  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
