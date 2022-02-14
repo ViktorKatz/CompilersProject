@@ -1,0 +1,55 @@
+INFO  21:55:41,941 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  21:55:42,018 - #2 program
+INFO  21:55:42,019 - #54 MJAUProgram
+INFO  21:55:42,019 - #17 class
+INFO  21:55:42,020 - #54 Sipak
+INFO  21:55:42,021 - #45 {
+INFO  21:55:42,024 - #49 int
+INFO  21:55:42,024 - #54 a
+INFO  21:55:42,026 - #42 ,
+INFO  21:55:42,026 - #54 b
+INFO  21:55:42,026 - #40 ;
+INFO  21:55:42,027 - #46 }
+INFO  21:55:42,028 - #45 {
+INFO  21:55:42,029 - #46 }
+INFO  21:55:42,031 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    EmptyPreMethodDeclList(
+    ) [EmptyPreMethodDeclList]
+    PreMethodDeclClass(
+      ClassDecl(
+        ClassName(
+         Sipak
+        ) [ClassName]
+        NoClassExtension(
+        ) [NoClassExtension]
+        VarDecls(
+          TypePrimitive(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+          ) [TypePrimitive]
+          MultiVar(
+            SingleVar(
+              VarDeclNotArr(
+               a
+              ) [VarDeclNotArr]
+            ) [SingleVar]
+            VarDeclNotArr(
+             b
+            ) [VarDeclNotArr]
+          ) [MultiVar]
+        ) [VarDecls]
+        NoClassBody(
+        ) [NoClassBody]
+      ) [ClassDecl]
+    ) [PreMethodDeclClass]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  21:55:42,032 - ===================================
+INFO  21:55:42,043 - Deklarisan(a) promenljiva b na liniji 4
+INFO  21:55:42,043 - Deklarisan(a) promenljiva a na liniji 4

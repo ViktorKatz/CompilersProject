@@ -1,0 +1,161 @@
+INFO  22:58:10,087 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  22:58:10,109 - #2 program
+INFO  22:58:10,109 - #54 MJAUProgram
+INFO  22:58:10,110 - #49 int
+INFO  22:58:10,111 - #54 a
+INFO  22:58:10,112 - #42 ,
+INFO  22:58:10,112 - #54 b
+INFO  22:58:10,112 - #42 ,
+INFO  22:58:10,112 - #54 c
+INFO  22:58:10,113 - #42 ,
+INFO  22:58:10,113 - #54 t
+INFO  22:58:10,113 - #41 ;
+INFO  22:58:10,113 - #50 char
+INFO  22:58:10,114 - #54 agh
+INFO  22:58:10,115 - #42 ,
+INFO  22:58:10,115 - #54 gd
+INFO  22:58:10,116 - #47 [
+INFO  22:58:10,116 - #48 ]
+INFO  22:58:10,116 - #41 ;
+INFO  22:58:10,116 - #21 record
+INFO  22:58:10,116 - #54 r
+INFO  22:58:10,116 - #45 {
+INFO  22:58:10,116 - #49 int
+INFO  22:58:10,118 - #54 asd
+INFO  22:58:10,118 - #41 ;
+INFO  22:58:10,118 - #50 char
+INFO  22:58:10,118 - #54 vas
+INFO  22:58:10,118 - #42 ,
+INFO  22:58:10,118 - #54 bkf
+INFO  22:58:10,118 - #47 [
+INFO  22:58:10,118 - #48 ]
+INFO  22:58:10,118 - #41 ;
+INFO  22:58:10,118 - #51 bool
+INFO  22:58:10,118 - #54 te
+INFO  22:58:10,119 - #47 [
+INFO  22:58:10,119 - #48 ]
+INFO  22:58:10,119 - #42 ,
+INFO  22:58:10,119 - #54 s
+INFO  22:58:10,120 - #42 ,
+INFO  22:58:10,120 - #54 f
+INFO  22:58:10,120 - #41 ;
+INFO  22:58:10,120 - #46 }
+INFO  22:58:10,120 - #45 {
+INFO  22:58:10,121 - #46 }
+INFO  22:58:10,122 - Program(
+ MJAUProgram
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      NonEmptyPreMethodDeclList(
+        EmptyPreMethodDeclList(
+        ) [EmptyPreMethodDeclList]
+        PreMethodDeclVar(
+          VarDecls(
+            TypePrimitive(
+              PrimitiveType(
+              ) [PrimitiveType]
+            ) [TypePrimitive]
+            MultiVar(
+              MultiVar(
+                MultiVar(
+                  SingleVar(
+                    VarDeclNotArr(
+                     a
+                    ) [VarDeclNotArr]
+                  ) [SingleVar]
+                  VarDeclNotArr(
+                   b
+                  ) [VarDeclNotArr]
+                ) [MultiVar]
+                VarDeclNotArr(
+                 c
+                ) [VarDeclNotArr]
+              ) [MultiVar]
+              VarDeclNotArr(
+               t
+              ) [VarDeclNotArr]
+            ) [MultiVar]
+          ) [VarDecls]
+        ) [PreMethodDeclVar]
+      ) [NonEmptyPreMethodDeclList]
+      PreMethodDeclVar(
+        VarDecls(
+          TypePrimitive(
+            PrimitiveTypeDerived1(
+            ) [PrimitiveTypeDerived1]
+          ) [TypePrimitive]
+          MultiVar(
+            SingleVar(
+              VarDeclNotArr(
+               agh
+              ) [VarDeclNotArr]
+            ) [SingleVar]
+            VarDeclArr(
+             gd
+            ) [VarDeclArr]
+          ) [MultiVar]
+        ) [VarDecls]
+      ) [PreMethodDeclVar]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclRecord(
+      RecordDecl(
+       r
+        MultiVarDecls(
+          MultiVarDecls(
+            SingleVarDecls(
+              VarDecls(
+                TypePrimitive(
+                  PrimitiveType(
+                  ) [PrimitiveType]
+                ) [TypePrimitive]
+                SingleVar(
+                  VarDeclNotArr(
+                   asd
+                  ) [VarDeclNotArr]
+                ) [SingleVar]
+              ) [VarDecls]
+            ) [SingleVarDecls]
+            VarDecls(
+              TypePrimitive(
+                PrimitiveTypeDerived1(
+                ) [PrimitiveTypeDerived1]
+              ) [TypePrimitive]
+              MultiVar(
+                SingleVar(
+                  VarDeclNotArr(
+                   vas
+                  ) [VarDeclNotArr]
+                ) [SingleVar]
+                VarDeclArr(
+                 bkf
+                ) [VarDeclArr]
+              ) [MultiVar]
+            ) [VarDecls]
+          ) [MultiVarDecls]
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeDerived2(
+              ) [PrimitiveTypeDerived2]
+            ) [TypePrimitive]
+            MultiVar(
+              MultiVar(
+                SingleVar(
+                  VarDeclArr(
+                   te
+                  ) [VarDeclArr]
+                ) [SingleVar]
+                VarDeclNotArr(
+                 s
+                ) [VarDeclNotArr]
+              ) [MultiVar]
+              VarDeclNotArr(
+               f
+              ) [VarDeclNotArr]
+            ) [MultiVar]
+          ) [VarDecls]
+        ) [MultiVarDecls]
+      ) [RecordDecl]
+    ) [PreMethodDeclRecord]
+  ) [NonEmptyPreMethodDeclList]
+) [Program]
+INFO  22:58:10,123 - ===================================

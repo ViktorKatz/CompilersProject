@@ -1,0 +1,160 @@
+INFO  12:24:09,472 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  12:24:09,498 - #2 program
+INFO  12:24:09,498 - #54 MJAUProgram
+INFO  12:24:09,498 - #45 {
+INFO  12:24:09,499 - #6 void
+INFO  12:24:09,500 - #54 metoda
+INFO  12:24:09,500 - #43 (
+INFO  12:24:09,501 - #49 int
+INFO  12:24:09,501 - #54 a
+INFO  12:24:09,502 - #42 ,
+INFO  12:24:09,503 - #54 asda
+INFO  12:24:09,503 - #54 b
+INFO  12:24:09,503 - #47 [
+INFO  12:24:09,503 - #48 ]
+INFO  12:24:09,503 - #42 ,
+INFO  12:24:09,503 - #54 hsh
+INFO  12:24:09,503 - #54 vsv
+INFO  12:24:09,503 - #44 )
+INFO  12:24:09,504 - #49 int
+INFO  12:24:09,504 - #54 c
+INFO  12:24:09,504 - #42 ,
+INFO  12:24:09,504 - #54 d
+INFO  12:24:09,505 - #41 ;
+INFO  12:24:09,505 - #45 {
+INFO  12:24:09,506 - #6 void
+INFO  12:24:09,507 - #41 ;
+INFO  12:24:09,507 - #6 void
+INFO  12:24:09,508 - #41 ;
+INFO  12:24:09,508 - #45 {
+INFO  12:24:09,508 - #6 void
+INFO  12:24:09,508 - #41 ;
+INFO  12:24:09,508 - #45 {
+INFO  12:24:09,508 - #6 void
+INFO  12:24:09,508 - #41 ;
+INFO  12:24:09,509 - #46 }
+INFO  12:24:09,509 - #6 void
+INFO  12:24:09,509 - #41 ;
+INFO  12:24:09,509 - #46 }
+INFO  12:24:09,509 - #45 {
+INFO  12:24:09,509 - #45 {
+INFO  12:24:09,509 - #6 void
+INFO  12:24:09,509 - #41 ;
+INFO  12:24:09,509 - #46 }
+INFO  12:24:09,509 - #46 }
+INFO  12:24:09,510 - #46 }
+INFO  12:24:09,510 - #46 }
+INFO  12:24:09,512 - Program(
+ MJAUProgram
+  EmptyPreMethodDeclList(
+  ) [EmptyPreMethodDeclList]
+  MethodDecls(
+    NoMethodDecls(
+    ) [NoMethodDecls]
+    MethodDecl(
+      VoidType(
+      ) [VoidType]
+     metoda
+      YesFormalParams(
+        MultiFormalParam(
+          MultiFormalParam(
+            SingleFormalParam(
+              TypePrimitive(
+                PrimitiveTypeInt(
+                ) [PrimitiveTypeInt]
+              ) [TypePrimitive]
+              VarDeclNotArr(
+               a
+              ) [VarDeclNotArr]
+            ) [SingleFormalParam]
+            TypeNonPrimitive(
+             asda
+            ) [TypeNonPrimitive]
+            VarDeclArr(
+             b
+            ) [VarDeclArr]
+          ) [MultiFormalParam]
+          TypeNonPrimitive(
+           hsh
+          ) [TypeNonPrimitive]
+          VarDeclNotArr(
+           vsv
+          ) [VarDeclNotArr]
+        ) [MultiFormalParam]
+      ) [YesFormalParams]
+      YesVarDeclsList(
+        SingleVarDecls(
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            MultiVar(
+              SingleVar(
+                VarDeclNotArr(
+                 c
+                ) [VarDeclNotArr]
+              ) [SingleVar]
+              VarDeclNotArr(
+               d
+              ) [VarDeclNotArr]
+            ) [MultiVar]
+          ) [VarDecls]
+        ) [SingleVarDecls]
+      ) [YesVarDeclsList]
+      BlockOfStatementsNormal(
+        NonEmptyStatementListBlck(
+          NonEmptyStatementListBlck(
+            NonEmptyStatementListStmt(
+              NonEmptyStatementListStmt(
+                EmptyStatementList(
+                ) [EmptyStatementList]
+                TestStatement(
+                ) [TestStatement]
+              ) [NonEmptyStatementListStmt]
+              TestStatement(
+              ) [TestStatement]
+            ) [NonEmptyStatementListStmt]
+            BlockOfStatementsNormal(
+              NonEmptyStatementListStmt(
+                NonEmptyStatementListBlck(
+                  NonEmptyStatementListStmt(
+                    EmptyStatementList(
+                    ) [EmptyStatementList]
+                    TestStatement(
+                    ) [TestStatement]
+                  ) [NonEmptyStatementListStmt]
+                  BlockOfStatementsNormal(
+                    NonEmptyStatementListStmt(
+                      EmptyStatementList(
+                      ) [EmptyStatementList]
+                      TestStatement(
+                      ) [TestStatement]
+                    ) [NonEmptyStatementListStmt]
+                  ) [BlockOfStatementsNormal]
+                ) [NonEmptyStatementListBlck]
+                TestStatement(
+                ) [TestStatement]
+              ) [NonEmptyStatementListStmt]
+            ) [BlockOfStatementsNormal]
+          ) [NonEmptyStatementListBlck]
+          BlockOfStatementsNormal(
+            NonEmptyStatementListBlck(
+              EmptyStatementList(
+              ) [EmptyStatementList]
+              BlockOfStatementsNormal(
+                NonEmptyStatementListStmt(
+                  EmptyStatementList(
+                  ) [EmptyStatementList]
+                  TestStatement(
+                  ) [TestStatement]
+                ) [NonEmptyStatementListStmt]
+              ) [BlockOfStatementsNormal]
+            ) [NonEmptyStatementListBlck]
+          ) [BlockOfStatementsNormal]
+        ) [NonEmptyStatementListBlck]
+      ) [BlockOfStatementsNormal]
+    ) [MethodDecl]
+  ) [MethodDecls]
+) [Program]
+INFO  12:24:09,512 - ===================================

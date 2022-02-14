@@ -1,0 +1,133 @@
+INFO  15:48:42,600 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  15:48:42,657 - #2 program
+INFO  15:48:42,657 - #54 MJAUProgram
+INFO  15:48:42,657 - #45 {
+INFO  15:48:42,658 - #6 void
+INFO  15:48:42,659 - #54 metoda
+INFO  15:48:42,660 - #43 (
+INFO  15:48:42,660 - #44 )
+INFO  15:48:42,661 - #45 {
+INFO  15:48:42,661 - #54 a
+INFO  15:48:42,662 - #40 =
+INFO  15:48:42,664 - #19 new
+INFO  15:48:42,664 - #54 Kurac
+INFO  15:48:42,664 - #47 [
+INFO  15:48:42,664 - #53 2
+INFO  15:48:42,664 - #35 +
+INFO  15:48:42,664 - #54 a
+INFO  15:48:42,666 - #20 .
+INFO  15:48:42,666 - #54 f
+INFO  15:48:42,666 - #43 (
+INFO  15:48:42,666 - #54 a
+INFO  15:48:42,666 - #42 ,
+INFO  15:48:42,667 - #54 b
+INFO  15:48:42,668 - #42 ,
+INFO  15:48:42,668 - #53 8
+INFO  15:48:42,668 - #44 )
+INFO  15:48:42,668 - #48 ]
+INFO  15:48:42,669 - #41 ;
+INFO  15:48:42,669 - #46 }
+INFO  15:48:42,669 - #46 }
+INFO  15:48:42,673 - Program(
+ MJAUProgram
+  EmptyPreMethodDeclList(
+  ) [EmptyPreMethodDeclList]
+  MethodDecls(
+    NoMethodDecls(
+    ) [NoMethodDecls]
+    MethodDecl(
+      VoidType(
+      ) [VoidType]
+     metoda
+      NoFormalParams(
+      ) [NoFormalParams]
+      NoVarDeclsList(
+      ) [NoVarDeclsList]
+      BlockOfStatements(
+        NonEmptyStatementListStmt(
+          EmptyStatementList(
+          ) [EmptyStatementList]
+          DesignatorStmt(
+            DesignatorStatementAssign(
+              Designator(
+               a
+                DesignationNone(
+                ) [DesignationNone]
+              ) [Designator]
+              JustTermExpr(
+                SingleFactorTerm(
+                  FactorNewArray(
+                    TypeNonPrimitive(
+                     Kurac
+                    ) [TypeNonPrimitive]
+                    MultiAddOpExpr(
+                      SingleFactorTerm(
+                        FactorNumberConst(
+                         2
+                        ) [FactorNumberConst]
+                      ) [SingleFactorTerm]
+                      LastTerm(
+                        AddOpPlus(
+                        ) [AddOpPlus]
+                        SingleFactorTerm(
+                          FactorDesignatorCall(
+                            Designator(
+                             a
+                              DesignationObjectAccess(
+                               f
+                                DesignationNone(
+                                ) [DesignationNone]
+                              ) [DesignationObjectAccess]
+                            ) [Designator]
+                            YesActPars(
+                              MultiExprPars(
+                                JustTermExpr(
+                                  SingleFactorTerm(
+                                    FactorDesignator(
+                                      Designator(
+                                       a
+                                        DesignationNone(
+                                        ) [DesignationNone]
+                                      ) [Designator]
+                                    ) [FactorDesignator]
+                                  ) [SingleFactorTerm]
+                                ) [JustTermExpr]
+                                MultiExprPars(
+                                  JustTermExpr(
+                                    SingleFactorTerm(
+                                      FactorDesignator(
+                                        Designator(
+                                         b
+                                          DesignationNone(
+                                          ) [DesignationNone]
+                                        ) [Designator]
+                                      ) [FactorDesignator]
+                                    ) [SingleFactorTerm]
+                                  ) [JustTermExpr]
+                                  SingleExprPars(
+                                    JustTermExpr(
+                                      SingleFactorTerm(
+                                        FactorNumberConst(
+                                         8
+                                        ) [FactorNumberConst]
+                                      ) [SingleFactorTerm]
+                                    ) [JustTermExpr]
+                                  ) [SingleExprPars]
+                                ) [MultiExprPars]
+                              ) [MultiExprPars]
+                            ) [YesActPars]
+                          ) [FactorDesignatorCall]
+                        ) [SingleFactorTerm]
+                      ) [LastTerm]
+                    ) [MultiAddOpExpr]
+                  ) [FactorNewArray]
+                ) [SingleFactorTerm]
+              ) [JustTermExpr]
+            ) [DesignatorStatementAssign]
+          ) [DesignatorStmt]
+        ) [NonEmptyStatementListStmt]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+  ) [MethodDecls]
+) [Program]
+INFO  15:48:42,673 - ===================================

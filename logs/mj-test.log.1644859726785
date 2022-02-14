@@ -1,0 +1,71 @@
+INFO  18:28:42,889 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  18:28:42,978 - #2 program
+INFO  18:28:42,979 - #54 MJAUProgram
+INFO  18:28:42,979 - #50 char
+INFO  18:28:42,981 - #54 a
+INFO  18:28:42,983 - #47 [
+INFO  18:28:42,983 - #48 ]
+INFO  18:28:42,983 - #40 ;
+INFO  18:28:42,984 - #50 char
+INFO  18:28:42,985 - #54 x
+INFO  18:28:42,986 - #42 ,
+INFO  18:28:42,986 - #54 y
+INFO  18:28:42,986 - #47 [
+INFO  18:28:42,986 - #48 ]
+INFO  18:28:42,986 - #42 ,
+INFO  18:28:42,987 - #54 z
+INFO  18:28:42,987 - #47 [
+INFO  18:28:42,987 - #48 ]
+INFO  18:28:42,987 - #40 ;
+INFO  18:28:42,987 - #45 {
+INFO  18:28:42,987 - #46 }
+INFO  18:28:42,990 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      EmptyPreMethodDeclList(
+      ) [EmptyPreMethodDeclList]
+      PreMethodDeclVar(
+        VarDecls(
+          TypePrimitive(
+            PrimitiveTypeChar(
+            ) [PrimitiveTypeChar]
+          ) [TypePrimitive]
+          SingleVar(
+            VarDeclArr(
+             a
+            ) [VarDeclArr]
+          ) [SingleVar]
+        ) [VarDecls]
+      ) [PreMethodDeclVar]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypePrimitive(
+          PrimitiveTypeChar(
+          ) [PrimitiveTypeChar]
+        ) [TypePrimitive]
+        MultiVar(
+          MultiVar(
+            SingleVar(
+              VarDeclNotArr(
+               x
+              ) [VarDeclNotArr]
+            ) [SingleVar]
+            VarDeclArr(
+             y
+            ) [VarDeclArr]
+          ) [MultiVar]
+          VarDeclArr(
+           z
+          ) [VarDeclArr]
+        ) [MultiVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  18:28:42,991 - ===================================

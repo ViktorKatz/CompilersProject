@@ -1,0 +1,195 @@
+INFO  21:39:03,166 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  21:39:03,297 - #2 program
+INFO  21:39:03,297 - #54 MJAUProgram
+INFO  21:39:03,297 - #7 const
+INFO  21:39:03,299 - #49 int
+INFO  21:39:03,299 - #54 a
+INFO  21:39:03,301 - #39 =
+INFO  21:39:03,301 - #53 66
+INFO  21:39:03,301 - #40 ;
+INFO  21:39:03,301 - #7 const
+INFO  21:39:03,303 - #49 int
+INFO  21:39:03,303 - #54 b
+INFO  21:39:03,303 - #39 =
+INFO  21:39:03,303 - #53 77
+INFO  21:39:03,303 - #40 ;
+INFO  21:39:03,303 - #7 const
+INFO  21:39:03,303 - #50 char
+INFO  21:39:03,303 - #54 c
+INFO  21:39:03,304 - #39 =
+INFO  21:39:03,304 - #55 c
+INFO  21:39:03,304 - #40 ;
+INFO  21:39:03,305 - #7 const
+INFO  21:39:03,305 - #51 bool
+INFO  21:39:03,305 - #54 te
+INFO  21:39:03,306 - #39 =
+INFO  21:39:03,306 - #15 true
+INFO  21:39:03,306 - #42 ,
+INFO  21:39:03,308 - #54 nete
+INFO  21:39:03,308 - #39 =
+INFO  21:39:03,308 - #16 false
+INFO  21:39:03,308 - #40 ;
+INFO  21:39:03,309 - #21 record
+INFO  21:39:03,309 - #54 r
+INFO  21:39:03,309 - #45 {
+INFO  21:39:03,311 - #49 int
+INFO  21:39:03,311 - #54 a
+INFO  21:39:03,311 - #42 ,
+INFO  21:39:03,311 - #54 b
+INFO  21:39:03,312 - #40 ;
+INFO  21:39:03,312 - #50 char
+INFO  21:39:03,313 - #54 c
+INFO  21:39:03,313 - #42 ,
+INFO  21:39:03,313 - #54 d
+INFO  21:39:03,313 - #40 ;
+INFO  21:39:03,313 - #46 }
+INFO  21:39:03,313 - #49 int
+INFO  21:39:03,315 - #54 d
+INFO  21:39:03,315 - #40 ;
+INFO  21:39:03,315 - #45 {
+INFO  21:39:03,315 - #46 }
+INFO  21:39:03,318 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      NonEmptyPreMethodDeclList(
+        NonEmptyPreMethodDeclList(
+          NonEmptyPreMethodDeclList(
+            NonEmptyPreMethodDeclList(
+              EmptyPreMethodDeclList(
+              ) [EmptyPreMethodDeclList]
+              PreMethodDeclConst(
+                ConstDecl(
+                  PrimitiveTypeInt(
+                  ) [PrimitiveTypeInt]
+                  SingleConstDeclArray(
+                   a
+                    ConstExprInt(
+                     66
+                    ) [ConstExprInt]
+                  ) [SingleConstDeclArray]
+                ) [ConstDecl]
+              ) [PreMethodDeclConst]
+            ) [NonEmptyPreMethodDeclList]
+            PreMethodDeclConst(
+              ConstDecl(
+                PrimitiveTypeInt(
+                ) [PrimitiveTypeInt]
+                SingleConstDeclArray(
+                 b
+                  ConstExprInt(
+                   77
+                  ) [ConstExprInt]
+                ) [SingleConstDeclArray]
+              ) [ConstDecl]
+            ) [PreMethodDeclConst]
+          ) [NonEmptyPreMethodDeclList]
+          PreMethodDeclConst(
+            ConstDecl(
+              PrimitiveTypeChar(
+              ) [PrimitiveTypeChar]
+              SingleConstDeclArray(
+               c
+                ConstExprChar(
+                 c
+                ) [ConstExprChar]
+              ) [SingleConstDeclArray]
+            ) [ConstDecl]
+          ) [PreMethodDeclConst]
+        ) [NonEmptyPreMethodDeclList]
+        PreMethodDeclConst(
+          ConstDecl(
+            PrimitiveTypeBool(
+            ) [PrimitiveTypeBool]
+            MultiConstDeclArray(
+              SingleConstDeclArray(
+               te
+                ConstExprBool(
+                  BoolValueTrue(
+                  ) [BoolValueTrue]
+                ) [ConstExprBool]
+              ) [SingleConstDeclArray]
+             nete
+              ConstExprBool(
+                BoolValueFalse(
+                ) [BoolValueFalse]
+              ) [ConstExprBool]
+            ) [MultiConstDeclArray]
+          ) [ConstDecl]
+        ) [PreMethodDeclConst]
+      ) [NonEmptyPreMethodDeclList]
+      PreMethodDeclRecord(
+        RecordDecl(
+          RecordIdent(
+           r
+          ) [RecordIdent]
+          MultiVarDecls(
+            SingleVarDecls(
+              VarDecls(
+                TypePrimitive(
+                  PrimitiveTypeInt(
+                  ) [PrimitiveTypeInt]
+                ) [TypePrimitive]
+                MultiVar(
+                  SingleVar(
+                    VarDeclNotArr(
+                     a
+                    ) [VarDeclNotArr]
+                  ) [SingleVar]
+                  VarDeclNotArr(
+                   b
+                  ) [VarDeclNotArr]
+                ) [MultiVar]
+              ) [VarDecls]
+            ) [SingleVarDecls]
+            VarDecls(
+              TypePrimitive(
+                PrimitiveTypeChar(
+                ) [PrimitiveTypeChar]
+              ) [TypePrimitive]
+              MultiVar(
+                SingleVar(
+                  VarDeclNotArr(
+                   c
+                  ) [VarDeclNotArr]
+                ) [SingleVar]
+                VarDeclNotArr(
+                 d
+                ) [VarDeclNotArr]
+              ) [MultiVar]
+            ) [VarDecls]
+          ) [MultiVarDecls]
+        ) [RecordDecl]
+      ) [PreMethodDeclRecord]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypePrimitive(
+          PrimitiveTypeInt(
+          ) [PrimitiveTypeInt]
+        ) [TypePrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           d
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  21:39:03,319 - ===================================
+INFO  21:39:03,328 - Deklarisan(a) konstanta a na liniji 2
+INFO  21:39:03,328 - Deklarisan(a) konstanta b na liniji 3
+INFO  21:39:03,329 - Deklarisan(a) konstanta c na liniji 4
+INFO  21:39:03,329 - Deklarisan(a) konstanta nete na liniji 5
+INFO  21:39:03,329 - Deklarisan(a) konstanta te na liniji 5
+INFO  21:39:03,329 - Deklarisan(a) promenljiva r na liniji 6
+INFO  21:39:03,329 - Deklarisan(a) promenljiva b na liniji 7
+INFO  21:39:03,329 - Deklarisan(a) promenljiva a na liniji 7
+INFO  21:39:03,329 - Deklarisan(a) promenljiva d na liniji 8
+INFO  21:39:03,329 - Deklarisan(a) promenljiva c na liniji 8
+INFO  21:39:03,329 - Deklarisan(a) promenljiva d na liniji 10

@@ -1,0 +1,210 @@
+INFO  17:40:24,328 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  17:40:24,412 - #2 program
+INFO  17:40:24,413 - #55 MJAUProgram
+INFO  17:40:24,413 - #46 {
+INFO  17:40:24,414 - #6 void
+INFO  17:40:24,414 - #55 metoda
+INFO  17:40:24,415 - #44 (
+INFO  17:40:24,415 - #45 )
+INFO  17:40:24,416 - #46 {
+INFO  17:40:24,416 - #8 if
+INFO  17:40:24,417 - #44 (
+INFO  17:40:24,417 - #55 a
+INFO  17:40:24,417 - #27 >
+INFO  17:40:24,419 - #54 5
+INFO  17:40:24,421 - #31 &&
+INFO  17:40:24,421 - #55 b
+INFO  17:40:24,421 - #30 <=
+INFO  17:40:24,421 - #54 3
+INFO  17:40:24,422 - #32 ||
+INFO  17:40:24,423 - #55 a
+INFO  17:40:24,423 - #35 +
+INFO  17:40:24,423 - #55 b
+INFO  17:40:24,425 - #26 !=
+INFO  17:40:24,426 - #54 4
+INFO  17:40:24,427 - #45 )
+INFO  17:40:24,427 - #46 {
+INFO  17:40:24,427 - #10 do
+INFO  17:40:24,427 - #55 a
+INFO  17:40:24,427 - #33 ++
+INFO  17:40:24,428 - #41 ;
+INFO  17:40:24,428 - #11 while
+INFO  17:40:24,428 - #44 (
+INFO  17:40:24,428 - #55 a
+INFO  17:40:24,428 - #29 <
+INFO  17:40:24,429 - #54 10
+INFO  17:40:24,430 - #45 )
+INFO  17:40:24,430 - #41 ;
+INFO  17:40:24,430 - #47 }
+INFO  17:40:24,430 - #41 ;
+INFO  17:40:24,432 - #47 }
+INFO  17:40:24,432 - #47 }
+INFO  17:40:24,435 - Program(
+ MJAUProgram
+  EmptyPreMethodDeclList(
+  ) [EmptyPreMethodDeclList]
+  MethodDecls(
+    NoMethodDecls(
+    ) [NoMethodDecls]
+    MethodDecl(
+      VoidType(
+      ) [VoidType]
+     metoda
+      NoFormalParams(
+      ) [NoFormalParams]
+      NoVarDeclsList(
+      ) [NoVarDeclsList]
+      BlockOfStatements(
+        NonEmptyStatementListStmt(
+          EmptyStatementList(
+          ) [EmptyStatementList]
+          StatementWithoutLabel(
+            IfStmt(
+              NonLastCondTerm(
+                LastCondTerm(
+                  NonLastCondFact(
+                    LastCondFact(
+                      CondFactRelOp(
+                        JustTermExpr(
+                          SingleFactorTerm(
+                            FactorDesignator(
+                              Designator(
+                               a
+                                DesignationNone(
+                                ) [DesignationNone]
+                              ) [Designator]
+                            ) [FactorDesignator]
+                          ) [SingleFactorTerm]
+                        ) [JustTermExpr]
+                        RelOpGre(
+                        ) [RelOpGre]
+                        JustTermExpr(
+                          SingleFactorTerm(
+                            FactorNumberConst(
+                             5
+                            ) [FactorNumberConst]
+                          ) [SingleFactorTerm]
+                        ) [JustTermExpr]
+                      ) [CondFactRelOp]
+                    ) [LastCondFact]
+                    CondFactRelOp(
+                      JustTermExpr(
+                        SingleFactorTerm(
+                          FactorDesignator(
+                            Designator(
+                             b
+                              DesignationNone(
+                              ) [DesignationNone]
+                            ) [Designator]
+                          ) [FactorDesignator]
+                        ) [SingleFactorTerm]
+                      ) [JustTermExpr]
+                      RelOpLeq(
+                      ) [RelOpLeq]
+                      JustTermExpr(
+                        SingleFactorTerm(
+                          FactorNumberConst(
+                           3
+                          ) [FactorNumberConst]
+                        ) [SingleFactorTerm]
+                      ) [JustTermExpr]
+                    ) [CondFactRelOp]
+                  ) [NonLastCondFact]
+                ) [LastCondTerm]
+                LastCondFact(
+                  CondFactRelOp(
+                    MultiAddOpExpr(
+                      SingleFactorTerm(
+                        FactorDesignator(
+                          Designator(
+                           a
+                            DesignationNone(
+                            ) [DesignationNone]
+                          ) [Designator]
+                        ) [FactorDesignator]
+                      ) [SingleFactorTerm]
+                      LastTerm(
+                        AddOpPlus(
+                        ) [AddOpPlus]
+                        SingleFactorTerm(
+                          FactorDesignator(
+                            Designator(
+                             b
+                              DesignationNone(
+                              ) [DesignationNone]
+                            ) [Designator]
+                          ) [FactorDesignator]
+                        ) [SingleFactorTerm]
+                      ) [LastTerm]
+                    ) [MultiAddOpExpr]
+                    RelOpNeq(
+                    ) [RelOpNeq]
+                    JustTermExpr(
+                      SingleFactorTerm(
+                        FactorNumberConst(
+                         4
+                        ) [FactorNumberConst]
+                      ) [SingleFactorTerm]
+                    ) [JustTermExpr]
+                  ) [CondFactRelOp]
+                ) [LastCondFact]
+              ) [NonLastCondTerm]
+              MultiStatement(
+                BlockOfStatements(
+                  NonEmptyStatementListStmt(
+                    EmptyStatementList(
+                    ) [EmptyStatementList]
+                    StatementWithoutLabel(
+                      DoWhileStmt(
+                        SingleStatement(
+                          StatementWithoutLabel(
+                            DesignatorStmt(
+                              DesignatorStatementInc(
+                                Designator(
+                                 a
+                                  DesignationNone(
+                                  ) [DesignationNone]
+                                ) [Designator]
+                              ) [DesignatorStatementInc]
+                            ) [DesignatorStmt]
+                          ) [StatementWithoutLabel]
+                        ) [SingleStatement]
+                        LastCondTerm(
+                          LastCondFact(
+                            CondFactRelOp(
+                              JustTermExpr(
+                                SingleFactorTerm(
+                                  FactorDesignator(
+                                    Designator(
+                                     a
+                                      DesignationNone(
+                                      ) [DesignationNone]
+                                    ) [Designator]
+                                  ) [FactorDesignator]
+                                ) [SingleFactorTerm]
+                              ) [JustTermExpr]
+                              RelOpLess(
+                              ) [RelOpLess]
+                              JustTermExpr(
+                                SingleFactorTerm(
+                                  FactorNumberConst(
+                                   10
+                                  ) [FactorNumberConst]
+                                ) [SingleFactorTerm]
+                              ) [JustTermExpr]
+                            ) [CondFactRelOp]
+                          ) [LastCondFact]
+                        ) [LastCondTerm]
+                      ) [DoWhileStmt]
+                    ) [StatementWithoutLabel]
+                  ) [NonEmptyStatementListStmt]
+                ) [BlockOfStatements]
+              ) [MultiStatement]
+            ) [IfStmt]
+          ) [StatementWithoutLabel]
+        ) [NonEmptyStatementListStmt]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+  ) [MethodDecls]
+) [Program]
+INFO  17:40:24,436 - ===================================

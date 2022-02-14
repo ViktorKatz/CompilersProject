@@ -1,0 +1,120 @@
+INFO  12:47:31,934 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  12:47:31,978 - #2 program
+INFO  12:47:31,978 - #54 MJAUProgram
+INFO  12:47:31,978 - #45 {
+INFO  12:47:31,979 - #6 void
+INFO  12:47:31,980 - #54 metoda
+INFO  12:47:31,980 - #43 (
+INFO  12:47:31,981 - #49 int
+INFO  12:47:31,981 - #54 a
+INFO  12:47:31,982 - #42 ,
+INFO  12:47:31,983 - #54 asda
+INFO  12:47:31,983 - #54 b
+INFO  12:47:31,983 - #47 [
+INFO  12:47:31,983 - #48 ]
+INFO  12:47:31,983 - #42 ,
+INFO  12:47:31,983 - #54 hsh
+INFO  12:47:31,984 - #54 vsv
+INFO  12:47:31,984 - #44 )
+INFO  12:47:31,984 - #49 int
+INFO  12:47:31,984 - #54 c
+INFO  12:47:31,984 - #42 ,
+INFO  12:47:31,984 - #54 d
+INFO  12:47:31,986 - #41 ;
+INFO  12:47:31,986 - #45 {
+INFO  12:47:31,987 - #54 c
+INFO  12:47:31,988 - #33 ++
+INFO  12:47:31,990 - #41 ;
+INFO  12:47:31,990 - #54 d
+INFO  12:47:31,990 - #34 --
+INFO  12:47:31,990 - #41 ;
+INFO  12:47:31,990 - #46 }
+INFO  12:47:31,990 - #46 }
+INFO  12:47:31,993 - Program(
+ MJAUProgram
+  EmptyPreMethodDeclList(
+  ) [EmptyPreMethodDeclList]
+  MethodDecls(
+    NoMethodDecls(
+    ) [NoMethodDecls]
+    MethodDecl(
+      VoidType(
+      ) [VoidType]
+     metoda
+      YesFormalParams(
+        MultiFormalParam(
+          MultiFormalParam(
+            SingleFormalParam(
+              TypePrimitive(
+                PrimitiveTypeInt(
+                ) [PrimitiveTypeInt]
+              ) [TypePrimitive]
+              VarDeclNotArr(
+               a
+              ) [VarDeclNotArr]
+            ) [SingleFormalParam]
+            TypeNonPrimitive(
+             asda
+            ) [TypeNonPrimitive]
+            VarDeclArr(
+             b
+            ) [VarDeclArr]
+          ) [MultiFormalParam]
+          TypeNonPrimitive(
+           hsh
+          ) [TypeNonPrimitive]
+          VarDeclNotArr(
+           vsv
+          ) [VarDeclNotArr]
+        ) [MultiFormalParam]
+      ) [YesFormalParams]
+      YesVarDeclsList(
+        SingleVarDecls(
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            MultiVar(
+              SingleVar(
+                VarDeclNotArr(
+                 c
+                ) [VarDeclNotArr]
+              ) [SingleVar]
+              VarDeclNotArr(
+               d
+              ) [VarDeclNotArr]
+            ) [MultiVar]
+          ) [VarDecls]
+        ) [SingleVarDecls]
+      ) [YesVarDeclsList]
+      BlockOfStatements(
+        NonEmptyStatementListStmt(
+          NonEmptyStatementListStmt(
+            EmptyStatementList(
+            ) [EmptyStatementList]
+            DesignatorStmt(
+              DesignatorStatementInc(
+                Designator(
+                 c
+                  DesignationNone(
+                  ) [DesignationNone]
+                ) [Designator]
+              ) [DesignatorStatementInc]
+            ) [DesignatorStmt]
+          ) [NonEmptyStatementListStmt]
+          DesignatorStmt(
+            DesignatorStatementDec(
+              Designator(
+               d
+                DesignationNone(
+                ) [DesignationNone]
+              ) [Designator]
+            ) [DesignatorStatementDec]
+          ) [DesignatorStmt]
+        ) [NonEmptyStatementListStmt]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+  ) [MethodDecls]
+) [Program]
+INFO  12:47:31,994 - ===================================

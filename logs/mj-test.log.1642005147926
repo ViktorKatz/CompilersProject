@@ -1,0 +1,95 @@
+INFO  17:27:35,579 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  17:27:35,643 - #2 program
+INFO  17:27:35,644 - #55 MJAUProgram
+INFO  17:27:35,644 - #46 {
+INFO  17:27:35,644 - #6 void
+INFO  17:27:35,645 - #55 metoda
+INFO  17:27:35,646 - #44 (
+INFO  17:27:35,646 - #45 )
+INFO  17:27:35,647 - #46 {
+INFO  17:27:35,647 - #8 if
+INFO  17:27:35,648 - #44 (
+INFO  17:27:35,648 - #55 cond1
+INFO  17:27:35,649 - #32 ||
+INFO  17:27:35,649 - #55 cond2
+INFO  17:27:35,649 - #32 ||
+INFO  17:27:35,649 - #55 cond3
+INFO  17:27:35,649 - #32 ||
+INFO  17:27:35,649 - #55 cond4
+INFO  17:27:35,650 - #45 )
+INFO  17:27:35,650 - #46 {
+INFO  17:27:35,650 - #55 a
+INFO  17:27:35,650 - #33 ++
+INFO  17:27:35,652 - #41 ;
+INFO  17:27:35,653 - #47 }
+INFO  17:27:35,653 - #41 ;
+INFO  17:27:35,654 - #47 }
+INFO  17:27:35,654 - #47 }
+INFO  17:27:35,657 - Program(
+ MJAUProgram
+  EmptyPreMethodDeclList(
+  ) [EmptyPreMethodDeclList]
+  MethodDecls(
+    NoMethodDecls(
+    ) [NoMethodDecls]
+    MethodDecl(
+      VoidType(
+      ) [VoidType]
+     metoda
+      NoFormalParams(
+      ) [NoFormalParams]
+      NoVarDeclsList(
+      ) [NoVarDeclsList]
+      BlockOfStatements(
+        NonEmptyStatementListStmt(
+          EmptyStatementList(
+          ) [EmptyStatementList]
+          StatementWithoutLabel(
+            IfStmt(
+              NonLastCondTerm(
+                NonLastCondTerm(
+                  NonLastCondTerm(
+                    LastCondTerm(
+                      CondTermDerived1(
+                       cond1
+                      ) [CondTermDerived1]
+                    ) [LastCondTerm]
+                    CondTermDerived1(
+                     cond2
+                    ) [CondTermDerived1]
+                  ) [NonLastCondTerm]
+                  CondTermDerived1(
+                   cond3
+                  ) [CondTermDerived1]
+                ) [NonLastCondTerm]
+                CondTermDerived1(
+                 cond4
+                ) [CondTermDerived1]
+              ) [NonLastCondTerm]
+              MultiStatement(
+                BlockOfStatements(
+                  NonEmptyStatementListStmt(
+                    EmptyStatementList(
+                    ) [EmptyStatementList]
+                    StatementWithoutLabel(
+                      DesignatorStmt(
+                        DesignatorStatementInc(
+                          Designator(
+                           a
+                            DesignationNone(
+                            ) [DesignationNone]
+                          ) [Designator]
+                        ) [DesignatorStatementInc]
+                      ) [DesignatorStmt]
+                    ) [StatementWithoutLabel]
+                  ) [NonEmptyStatementListStmt]
+                ) [BlockOfStatements]
+              ) [MultiStatement]
+            ) [IfStmt]
+          ) [StatementWithoutLabel]
+        ) [NonEmptyStatementListStmt]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+  ) [MethodDecls]
+) [Program]
+INFO  17:27:35,657 - ===================================

@@ -1,0 +1,56 @@
+INFO  22:17:47,042 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  22:17:47,055 - #2 program
+INFO  22:17:47,055 - #54 MJAUProgram
+INFO  22:17:47,055 - #49 int
+INFO  22:17:47,056 - #41 ;
+INFO  22:17:47,056 - #17 class
+INFO  22:17:47,058 - #41 ;
+INFO  22:17:47,058 - #21 record
+INFO  22:17:47,059 - #41 ;
+INFO  22:17:47,059 - #21 record
+INFO  22:17:47,061 - #41 ;
+INFO  22:17:47,061 - #17 class
+INFO  22:17:47,061 - #41 ;
+INFO  22:17:47,061 - #53 7
+ERROR 22:17:47,061 - 
+Sintaksna greska na liniji 7
+INFO  22:17:47,061 - #41 ;
+INFO  22:17:47,061 - #45 {
+INFO  22:17:47,062 - #46 }
+ERROR 22:17:47,062 - Greska u liniji 6. Deklaracija konstante mora biti u sledecem obliku: const (tip) (naziv) = (vrednost)
+INFO  22:17:47,065 - Program(
+ MJAUProgram
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      NonEmptyPreMethodDeclList(
+        NonEmptyPreMethodDeclList(
+          NonEmptyPreMethodDeclList(
+            EmptyPreMethodDeclList(
+            ) [EmptyPreMethodDeclList]
+            PreMethodDeclVar(
+              VarDecl(
+              ) [VarDecl]
+            ) [PreMethodDeclVar]
+          ) [NonEmptyPreMethodDeclList]
+          PreMethodDeclClass(
+            ClassDecl(
+            ) [ClassDecl]
+          ) [PreMethodDeclClass]
+        ) [NonEmptyPreMethodDeclList]
+        PreMethodDeclRecord(
+          RecordDecl(
+          ) [RecordDecl]
+        ) [PreMethodDeclRecord]
+      ) [NonEmptyPreMethodDeclList]
+      PreMethodDeclRecord(
+        RecordDecl(
+        ) [RecordDecl]
+      ) [PreMethodDeclRecord]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclConst(
+      ConstErrorDecl(
+      ) [ConstErrorDecl]
+    ) [PreMethodDeclConst]
+  ) [NonEmptyPreMethodDeclList]
+) [Program]
+INFO  22:17:47,066 - ===================================

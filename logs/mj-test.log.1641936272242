@@ -1,0 +1,38 @@
+INFO  22:24:22,528 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  22:24:22,543 - #2 program
+INFO  22:24:22,543 - #54 MJAUProgram
+INFO  22:24:22,544 - #7 const
+INFO  22:24:22,544 - #49 int
+INFO  22:24:22,545 - #54 a
+INFO  22:24:22,545 - #40 =
+INFO  22:24:22,545 - #53 5
+INFO  22:24:22,545 - #41 ;
+INFO  22:24:22,545 - #7 const
+INFO  22:24:22,545 - #51 bool
+INFO  22:24:22,546 - #54 b
+INFO  22:24:22,546 - #40 =
+INFO  22:24:22,546 - #54 f
+ERROR 22:24:22,546 - 
+Sintaksna greska na liniji 3
+INFO  22:24:22,546 - #41 ;
+INFO  22:24:22,546 - #45 {
+INFO  22:24:22,546 - #46 }
+ERROR 22:24:22,547 - Greska u deklaraciji u liniji 3.
+INFO  22:24:22,549 - Program(
+ MJAUProgram
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      EmptyPreMethodDeclList(
+      ) [EmptyPreMethodDeclList]
+      PreMethodDeclConst(
+        ConstIntDecl(
+         a
+         5
+        ) [ConstIntDecl]
+      ) [PreMethodDeclConst]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclError(
+    ) [PreMethodDeclError]
+  ) [NonEmptyPreMethodDeclList]
+) [Program]
+INFO  22:24:22,550 - ===================================

@@ -1,0 +1,33 @@
+INFO  22:26:58,787 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  22:26:58,884 - #2 program
+INFO  22:26:58,885 - #54 MJAUProgram
+INFO  22:26:58,885 - #49 int
+INFO  22:26:58,887 - #54 a
+INFO  22:26:58,889 - #40 ;
+INFO  22:26:58,890 - #45 {
+INFO  22:26:58,891 - #46 }
+INFO  22:26:58,894 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    EmptyPreMethodDeclList(
+    ) [EmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypePrimitive(
+          PrimitiveTypeInt(
+          ) [PrimitiveTypeInt]
+        ) [TypePrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           a
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  22:26:58,895 - ===================================

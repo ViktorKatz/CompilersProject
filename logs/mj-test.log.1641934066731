@@ -1,0 +1,65 @@
+INFO  21:46:45,412 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  21:46:45,424 - #2 program
+INFO  21:46:45,424 - #54 MJAUProgram
+INFO  21:46:45,425 - #49 int
+INFO  21:46:45,425 - #41 ;
+INFO  21:46:45,426 - #17 class
+INFO  21:46:45,427 - #41 ;
+INFO  21:46:45,427 - #21 record
+INFO  21:46:45,429 - #41 ;
+INFO  21:46:45,429 - #21 record
+INFO  21:46:45,430 - #41 ;
+INFO  21:46:45,430 - #17 class
+INFO  21:46:45,430 - #41 ;
+INFO  21:46:45,430 - #7 const
+INFO  21:46:45,430 - #49 int
+INFO  21:46:45,430 - #54 s
+INFO  21:46:45,430 - #40 =
+INFO  21:46:45,431 - #53 35
+INFO  21:46:45,431 - #41 ;
+INFO  21:46:45,431 - #45 {
+INFO  21:46:45,431 - #46 }
+INFO  21:46:45,432 - Program(
+ MJAUProgram
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      NonEmptyPreMethodDeclList(
+        NonEmptyPreMethodDeclList(
+          NonEmptyPreMethodDeclList(
+            NonEmptyPreMethodDeclList(
+              EmptyPreMethodDeclList(
+              ) [EmptyPreMethodDeclList]
+              PreMethodDeclVar(
+                VarDecl(
+                ) [VarDecl]
+              ) [PreMethodDeclVar]
+            ) [NonEmptyPreMethodDeclList]
+            PreMethodDeclClass(
+              ClassDecl(
+              ) [ClassDecl]
+            ) [PreMethodDeclClass]
+          ) [NonEmptyPreMethodDeclList]
+          PreMethodDeclRecord(
+            RecordDecl(
+            ) [RecordDecl]
+          ) [PreMethodDeclRecord]
+        ) [NonEmptyPreMethodDeclList]
+        PreMethodDeclRecord(
+          RecordDecl(
+          ) [RecordDecl]
+        ) [PreMethodDeclRecord]
+      ) [NonEmptyPreMethodDeclList]
+      PreMethodDeclClass(
+        ClassDecl(
+        ) [ClassDecl]
+      ) [PreMethodDeclClass]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclConst(
+      ConstIntDecl(
+       s
+       35
+      ) [ConstIntDecl]
+    ) [PreMethodDeclConst]
+  ) [NonEmptyPreMethodDeclList]
+) [Program]
+INFO  21:46:45,434 - ===================================

@@ -14,6 +14,7 @@ import org.apache.log4j.xml.DOMConfigurator;
 
 import rs.ac.bg.etf.pp1.ast.Program;
 import rs.ac.bg.etf.pp1.util.Log4JUtils;
+import rs.etf.pp1.symboltable.Tab;
 
 public class MJParserTest {
 
@@ -41,14 +42,19 @@ public class MJParserTest {
 			// ispis sintaksnog stabla
 			log.info(prog.toString(""));
 			log.info("===================================");
+			
+			Tab.init();
 
 			// ispis prepoznatih programskih konstrukcija
 			SemanticPass v = new SemanticPass();
 			prog.traverseBottomUp(v); 
 	      
-			// log.info(" Print count calls = " + v.printCallCount);
-
-			// log.info(" Deklarisanih promenljivih ima = " + v.varDeclCount);
+			Tab.dump();
+			
+			if(v.errorDetected) {
+				System.err.println("Postoji greska u kodu.");
+			}
+			
 			
 		} 
 		finally {

@@ -1,24 +1,24 @@
 // generated with ast extension for cup
 // version 0.8
-// 13/1/2022 19:11:26
+// 14/1/2022 23:5:49
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class VarDeclArr extends VarDecl {
 
-    private String I1;
+    private String varName;
 
-    public VarDeclArr (String I1) {
-        this.I1=I1;
+    public VarDeclArr (String varName) {
+        this.varName=varName;
     }
 
-    public String getI1() {
-        return I1;
+    public String getVarName() {
+        return varName;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setVarName(String varName) {
+        this.varName=varName;
     }
 
     public void accept(Visitor visitor) {
@@ -41,7 +41,7 @@ public class VarDeclArr extends VarDecl {
         buffer.append(tab);
         buffer.append("VarDeclArr(\n");
 
-        buffer.append(" "+tab+I1);
+        buffer.append(" "+tab+varName);
         buffer.append("\n");
 
         buffer.append(tab);

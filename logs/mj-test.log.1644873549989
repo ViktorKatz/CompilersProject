@@ -1,0 +1,74 @@
+INFO  22:18:14,699 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  22:18:14,811 - #2 program
+INFO  22:18:14,811 - #54 MJAUProgram
+INFO  22:18:14,811 - #17 class
+INFO  22:18:14,814 - #54 Sipak
+INFO  22:18:14,814 - #45 {
+INFO  22:18:14,817 - #49 int
+INFO  22:18:14,817 - #54 a
+INFO  22:18:14,819 - #42 ,
+INFO  22:18:14,819 - #54 b
+INFO  22:18:14,819 - #40 ;
+INFO  22:18:14,819 - #46 }
+INFO  22:18:14,821 - #54 Sipak
+INFO  22:18:14,823 - #54 s
+INFO  22:18:14,823 - #40 ;
+INFO  22:18:14,823 - #45 {
+INFO  22:18:14,823 - #46 }
+INFO  22:18:14,826 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      EmptyPreMethodDeclList(
+      ) [EmptyPreMethodDeclList]
+      PreMethodDeclClass(
+        ClassDecl(
+          ClassName(
+           Sipak
+          ) [ClassName]
+          NoClassExtension(
+          ) [NoClassExtension]
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            MultiVar(
+              SingleVar(
+                VarDeclNotArr(
+                 a
+                ) [VarDeclNotArr]
+              ) [SingleVar]
+              VarDeclNotArr(
+               b
+              ) [VarDeclNotArr]
+            ) [MultiVar]
+          ) [VarDecls]
+          NoClassBody(
+          ) [NoClassBody]
+        ) [ClassDecl]
+      ) [PreMethodDeclClass]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypeNonPrimitive(
+         Sipak
+        ) [TypeNonPrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           s
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  22:18:14,828 - ===================================
+INFO  22:18:14,840 - Deklarisan(a) klasni tip Sipak na liniji 2
+INFO  22:18:14,840 - Deklarisan(a) polje b na liniji 4
+INFO  22:18:14,840 - Deklarisan(a) polje a na liniji 4
+INFO  22:18:14,840 - Deklarisan(a) promenljiva s na liniji 6

@@ -1,0 +1,74 @@
+INFO  22:00:55,622 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  22:00:55,707 - #2 program
+INFO  22:00:55,707 - #54 MJAUProgram
+INFO  22:00:55,707 - #17 class
+INFO  22:00:55,709 - #54 Sipak
+INFO  22:00:55,709 - #45 {
+INFO  22:00:55,711 - #49 int
+INFO  22:00:55,711 - #54 a
+INFO  22:00:55,713 - #42 ,
+INFO  22:00:55,713 - #54 b
+INFO  22:00:55,713 - #40 ;
+INFO  22:00:55,714 - #46 }
+INFO  22:00:55,715 - #54 Sipak
+INFO  22:00:55,717 - #54 s
+INFO  22:00:55,718 - #40 ;
+INFO  22:00:55,718 - #45 {
+INFO  22:00:55,718 - #46 }
+INFO  22:00:55,721 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      EmptyPreMethodDeclList(
+      ) [EmptyPreMethodDeclList]
+      PreMethodDeclClass(
+        ClassDecl(
+          ClassName(
+           Sipak
+          ) [ClassName]
+          NoClassExtension(
+          ) [NoClassExtension]
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            MultiVar(
+              SingleVar(
+                VarDeclNotArr(
+                 a
+                ) [VarDeclNotArr]
+              ) [SingleVar]
+              VarDeclNotArr(
+               b
+              ) [VarDeclNotArr]
+            ) [MultiVar]
+          ) [VarDecls]
+          NoClassBody(
+          ) [NoClassBody]
+        ) [ClassDecl]
+      ) [PreMethodDeclClass]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypeNonPrimitive(
+         Sipak
+        ) [TypeNonPrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           s
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  22:00:55,751 - ===================================
+INFO  22:00:55,761 - Deklarisan(a) klasni tip Sipak na liniji 2
+INFO  22:00:55,761 - Deklarisan(a) promenljiva b na liniji 4
+INFO  22:00:55,761 - Deklarisan(a) promenljiva a na liniji 4
+INFO  22:00:55,761 - Deklarisan(a) promenljiva s na liniji 6

@@ -1,0 +1,108 @@
+INFO  23:08:24,991 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  23:08:25,164 - #2 program
+INFO  23:08:25,165 - #54 MJAUProgram
+INFO  23:08:25,165 - #17 class
+INFO  23:08:25,168 - #54 Sipak
+INFO  23:08:25,168 - #45 {
+INFO  23:08:25,170 - #49 int
+INFO  23:08:25,171 - #54 a
+INFO  23:08:25,173 - #42 ,
+INFO  23:08:25,173 - #54 b
+INFO  23:08:25,173 - #42 ,
+INFO  23:08:25,174 - #54 f
+INFO  23:08:25,174 - #40 ;
+INFO  23:08:25,174 - #50 char
+INFO  23:08:25,176 - #54 c
+INFO  23:08:25,177 - #40 ;
+INFO  23:08:25,177 - #46 }
+INFO  23:08:25,179 - #45 {
+INFO  23:08:25,182 - #6 void
+INFO  23:08:25,182 - #54 metoda
+INFO  23:08:25,183 - #43 (
+INFO  23:08:25,185 - #44 )
+INFO  23:08:25,187 - #45 {
+INFO  23:08:25,188 - #46 }
+INFO  23:08:25,189 - #46 }
+INFO  23:08:25,196 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    EmptyPreMethodDeclList(
+    ) [EmptyPreMethodDeclList]
+    PreMethodDeclClass(
+      ClassDecl(
+        ClassName(
+         Sipak
+        ) [ClassName]
+        NoClassExtension(
+        ) [NoClassExtension]
+        MultiVarDecls(
+          SingleVarDecls(
+            VarDecls(
+              TypePrimitive(
+                PrimitiveTypeInt(
+                ) [PrimitiveTypeInt]
+              ) [TypePrimitive]
+              MultiVar(
+                MultiVar(
+                  SingleVar(
+                    VarDeclNotArr(
+                     a
+                    ) [VarDeclNotArr]
+                  ) [SingleVar]
+                  VarDeclNotArr(
+                   b
+                  ) [VarDeclNotArr]
+                ) [MultiVar]
+                VarDeclNotArr(
+                 f
+                ) [VarDeclNotArr]
+              ) [MultiVar]
+            ) [VarDecls]
+          ) [SingleVarDecls]
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeChar(
+              ) [PrimitiveTypeChar]
+            ) [TypePrimitive]
+            SingleVar(
+              VarDeclNotArr(
+               c
+              ) [VarDeclNotArr]
+            ) [SingleVar]
+          ) [VarDecls]
+        ) [MultiVarDecls]
+        NoClassBody(
+        ) [NoClassBody]
+      ) [ClassDecl]
+    ) [PreMethodDeclClass]
+  ) [NonEmptyPreMethodDeclList]
+  MethodDecls(
+    MethodDecl(
+      MethodSignature(
+        VoidType(
+        ) [VoidType]
+       metoda
+      ) [MethodSignature]
+      NoFormalParams(
+      ) [NoFormalParams]
+      NoVarDeclsList(
+      ) [NoVarDeclsList]
+      BlockOfStatements(
+        EmptyStatementList(
+        ) [EmptyStatementList]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+    NoMethodDecls(
+    ) [NoMethodDecls]
+  ) [MethodDecls]
+) [Program]
+INFO  23:08:25,197 - ===================================
+INFO  23:08:25,225 - Deklarisan(a) klasni tip Sipak na liniji 2
+INFO  23:08:25,225 - Deklarisan(a) polje f na liniji 4
+INFO  23:08:25,226 - Deklarisan(a) polje b na liniji 4
+INFO  23:08:25,226 - Deklarisan(a) polje a na liniji 4
+INFO  23:08:25,226 - Deklarisan(a) polje c na liniji 5
+INFO  23:08:53,546 - Obradjuje se funkcija metoda na liniji 8
+INFO  23:08:53,546 - Gotova obrada funkcije metoda na liniji 8

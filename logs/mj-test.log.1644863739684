@@ -1,0 +1,75 @@
+INFO  19:34:07,003 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  19:34:07,099 - #2 program
+INFO  19:34:07,099 - #54 MJAUProgram
+INFO  19:34:07,099 - #7 const
+INFO  19:34:07,102 - #49 int
+INFO  19:34:07,102 - #54 a
+INFO  19:34:07,104 - #39 =
+INFO  19:34:07,104 - #53 66
+INFO  19:34:07,104 - #40 ;
+INFO  19:34:07,105 - #7 const
+INFO  19:34:07,107 - #49 int
+INFO  19:34:07,107 - #54 b
+INFO  19:34:07,107 - #39 =
+INFO  19:34:07,107 - #53 77
+INFO  19:34:07,108 - #40 ;
+INFO  19:34:07,108 - #7 const
+INFO  19:34:07,108 - #50 char
+INFO  19:34:07,108 - #54 c
+INFO  19:34:07,109 - #39 =
+INFO  19:34:07,109 - #53 9
+INFO  19:34:07,109 - #40 ;
+INFO  19:34:07,109 - #45 {
+INFO  19:34:07,111 - #46 }
+INFO  19:34:07,113 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      NonEmptyPreMethodDeclList(
+        EmptyPreMethodDeclList(
+        ) [EmptyPreMethodDeclList]
+        PreMethodDeclConst(
+          ConstDecl(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+            SingleConstDeclArray(
+             a
+              ConstExprInt(
+               66
+              ) [ConstExprInt]
+            ) [SingleConstDeclArray]
+          ) [ConstDecl]
+        ) [PreMethodDeclConst]
+      ) [NonEmptyPreMethodDeclList]
+      PreMethodDeclConst(
+        ConstDecl(
+          PrimitiveTypeInt(
+          ) [PrimitiveTypeInt]
+          SingleConstDeclArray(
+           b
+            ConstExprInt(
+             77
+            ) [ConstExprInt]
+          ) [SingleConstDeclArray]
+        ) [ConstDecl]
+      ) [PreMethodDeclConst]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclConst(
+      ConstDecl(
+        PrimitiveTypeChar(
+        ) [PrimitiveTypeChar]
+        SingleConstDeclArray(
+         c
+          ConstExprInt(
+           9
+          ) [ConstExprInt]
+        ) [SingleConstDeclArray]
+      ) [ConstDecl]
+    ) [PreMethodDeclConst]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  19:34:07,113 - ===================================

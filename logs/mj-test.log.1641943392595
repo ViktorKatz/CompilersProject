@@ -1,0 +1,85 @@
+INFO  00:22:20,763 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  00:22:20,792 - #2 program
+INFO  00:22:20,792 - #54 MJAUProgram
+INFO  00:22:20,792 - #49 int
+INFO  00:22:20,793 - #54 a
+INFO  00:22:20,794 - #41 ;
+INFO  00:22:20,795 - #45 {
+INFO  00:22:20,796 - #6 void
+INFO  00:22:20,797 - #54 metoda
+INFO  00:22:20,797 - #43 (
+INFO  00:22:20,797 - #44 )
+INFO  00:22:20,799 - #49 int
+INFO  00:22:20,799 - #54 x
+INFO  00:22:20,799 - #42 ,
+INFO  00:22:20,799 - #54 y
+INFO  00:22:20,799 - #41 ;
+INFO  00:22:20,799 - #50 char
+INFO  00:22:20,799 - #54 c
+INFO  00:22:20,801 - #41 ;
+INFO  00:22:20,801 - #45 {
+INFO  00:22:20,801 - #46 }
+INFO  00:22:20,801 - #46 }
+INFO  00:22:20,803 - Program(
+ MJAUProgram
+  NonEmptyPreMethodDeclList(
+    EmptyPreMethodDeclList(
+    ) [EmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypePrimitive(
+          PrimitiveTypeInt(
+          ) [PrimitiveTypeInt]
+        ) [TypePrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           a
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  MethodDecls(
+    NoMethodDecls(
+    ) [NoMethodDecls]
+    MethodDecl(
+      VoidType(
+      ) [VoidType]
+     metoda
+      NoFormalParamsList(
+      ) [NoFormalParamsList]
+      MultiVarDecls(
+        SingleVarDecls(
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            MultiVar(
+              SingleVar(
+                VarDeclNotArr(
+                 x
+                ) [VarDeclNotArr]
+              ) [SingleVar]
+              VarDeclNotArr(
+               y
+              ) [VarDeclNotArr]
+            ) [MultiVar]
+          ) [VarDecls]
+        ) [SingleVarDecls]
+        VarDecls(
+          TypePrimitive(
+            PrimitiveTypeChar(
+            ) [PrimitiveTypeChar]
+          ) [TypePrimitive]
+          SingleVar(
+            VarDeclNotArr(
+             c
+            ) [VarDeclNotArr]
+          ) [SingleVar]
+        ) [VarDecls]
+      ) [MultiVarDecls]
+    ) [MethodDecl]
+  ) [MethodDecls]
+) [Program]
+INFO  00:22:20,804 - ===================================

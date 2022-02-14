@@ -1,0 +1,62 @@
+INFO  00:22:00,145 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  00:22:00,172 - #2 program
+INFO  00:22:00,172 - #54 MJAUProgram
+INFO  00:22:00,172 - #49 int
+INFO  00:22:00,173 - #54 a
+INFO  00:22:00,175 - #41 ;
+INFO  00:22:00,175 - #45 {
+INFO  00:22:00,176 - #6 void
+INFO  00:22:00,177 - #54 metoda
+INFO  00:22:00,178 - #43 (
+INFO  00:22:00,178 - #44 )
+INFO  00:22:00,179 - #49 int
+INFO  00:22:00,179 - #54 x
+INFO  00:22:00,180 - #41 ;
+INFO  00:22:00,180 - #45 {
+INFO  00:22:00,180 - #46 }
+INFO  00:22:00,180 - #46 }
+INFO  00:22:00,183 - Program(
+ MJAUProgram
+  NonEmptyPreMethodDeclList(
+    EmptyPreMethodDeclList(
+    ) [EmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypePrimitive(
+          PrimitiveTypeInt(
+          ) [PrimitiveTypeInt]
+        ) [TypePrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           a
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  MethodDecls(
+    NoMethodDecls(
+    ) [NoMethodDecls]
+    MethodDecl(
+      VoidType(
+      ) [VoidType]
+     metoda
+      NoFormalParamsList(
+      ) [NoFormalParamsList]
+      SingleVarDecls(
+        VarDecls(
+          TypePrimitive(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+          ) [TypePrimitive]
+          SingleVar(
+            VarDeclNotArr(
+             x
+            ) [VarDeclNotArr]
+          ) [SingleVar]
+        ) [VarDecls]
+      ) [SingleVarDecls]
+    ) [MethodDecl]
+  ) [MethodDecls]
+) [Program]
+INFO  00:22:00,183 - ===================================

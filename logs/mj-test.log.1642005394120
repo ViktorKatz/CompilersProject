@@ -1,0 +1,170 @@
+INFO  17:36:24,125 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  17:36:24,201 - #2 program
+INFO  17:36:24,201 - #55 MJAUProgram
+INFO  17:36:24,201 - #46 {
+INFO  17:36:24,202 - #6 void
+INFO  17:36:24,203 - #55 metoda
+INFO  17:36:24,204 - #44 (
+INFO  17:36:24,204 - #45 )
+INFO  17:36:24,205 - #46 {
+INFO  17:36:24,206 - #8 if
+INFO  17:36:24,207 - #44 (
+INFO  17:36:24,207 - #55 a
+INFO  17:36:24,207 - #27 >
+INFO  17:36:24,209 - #54 5
+INFO  17:36:24,210 - #31 &&
+INFO  17:36:24,211 - #55 b
+INFO  17:36:24,211 - #30 <=
+INFO  17:36:24,211 - #54 3
+INFO  17:36:24,212 - #32 ||
+INFO  17:36:24,212 - #55 a
+INFO  17:36:24,213 - #35 +
+INFO  17:36:24,213 - #55 b
+INFO  17:36:24,215 - #25 ==
+INFO  17:36:24,216 - #54 4
+INFO  17:36:24,218 - #45 )
+INFO  17:36:24,218 - #46 {
+INFO  17:36:24,218 - #55 a
+INFO  17:36:24,218 - #33 ++
+INFO  17:36:24,218 - #41 ;
+INFO  17:36:24,218 - #47 }
+INFO  17:36:24,219 - #41 ;
+INFO  17:36:24,220 - #47 }
+INFO  17:36:24,220 - #47 }
+INFO  17:36:24,224 - Program(
+ MJAUProgram
+  EmptyPreMethodDeclList(
+  ) [EmptyPreMethodDeclList]
+  MethodDecls(
+    NoMethodDecls(
+    ) [NoMethodDecls]
+    MethodDecl(
+      VoidType(
+      ) [VoidType]
+     metoda
+      NoFormalParams(
+      ) [NoFormalParams]
+      NoVarDeclsList(
+      ) [NoVarDeclsList]
+      BlockOfStatements(
+        NonEmptyStatementListStmt(
+          EmptyStatementList(
+          ) [EmptyStatementList]
+          StatementWithoutLabel(
+            IfStmt(
+              NonLastCondTerm(
+                LastCondTerm(
+                  NonLastCondFact(
+                    LastCondFact(
+                      CondFactRelOp(
+                        JustTermExpr(
+                          SingleFactorTerm(
+                            FactorDesignator(
+                              Designator(
+                               a
+                                DesignationNone(
+                                ) [DesignationNone]
+                              ) [Designator]
+                            ) [FactorDesignator]
+                          ) [SingleFactorTerm]
+                        ) [JustTermExpr]
+                        RelOpGre(
+                        ) [RelOpGre]
+                        JustTermExpr(
+                          SingleFactorTerm(
+                            FactorNumberConst(
+                             5
+                            ) [FactorNumberConst]
+                          ) [SingleFactorTerm]
+                        ) [JustTermExpr]
+                      ) [CondFactRelOp]
+                    ) [LastCondFact]
+                    CondFactRelOp(
+                      JustTermExpr(
+                        SingleFactorTerm(
+                          FactorDesignator(
+                            Designator(
+                             b
+                              DesignationNone(
+                              ) [DesignationNone]
+                            ) [Designator]
+                          ) [FactorDesignator]
+                        ) [SingleFactorTerm]
+                      ) [JustTermExpr]
+                      RelOpLeq(
+                      ) [RelOpLeq]
+                      JustTermExpr(
+                        SingleFactorTerm(
+                          FactorNumberConst(
+                           3
+                          ) [FactorNumberConst]
+                        ) [SingleFactorTerm]
+                      ) [JustTermExpr]
+                    ) [CondFactRelOp]
+                  ) [NonLastCondFact]
+                ) [LastCondTerm]
+                LastCondFact(
+                  CondFactRelOp(
+                    MultiAddOpExpr(
+                      SingleFactorTerm(
+                        FactorDesignator(
+                          Designator(
+                           a
+                            DesignationNone(
+                            ) [DesignationNone]
+                          ) [Designator]
+                        ) [FactorDesignator]
+                      ) [SingleFactorTerm]
+                      LastTerm(
+                        AddOpPlus(
+                        ) [AddOpPlus]
+                        SingleFactorTerm(
+                          FactorDesignator(
+                            Designator(
+                             b
+                              DesignationNone(
+                              ) [DesignationNone]
+                            ) [Designator]
+                          ) [FactorDesignator]
+                        ) [SingleFactorTerm]
+                      ) [LastTerm]
+                    ) [MultiAddOpExpr]
+                    RelOpEq(
+                    ) [RelOpEq]
+                    JustTermExpr(
+                      SingleFactorTerm(
+                        FactorNumberConst(
+                         4
+                        ) [FactorNumberConst]
+                      ) [SingleFactorTerm]
+                    ) [JustTermExpr]
+                  ) [CondFactRelOp]
+                ) [LastCondFact]
+              ) [NonLastCondTerm]
+              MultiStatement(
+                BlockOfStatements(
+                  NonEmptyStatementListStmt(
+                    EmptyStatementList(
+                    ) [EmptyStatementList]
+                    StatementWithoutLabel(
+                      DesignatorStmt(
+                        DesignatorStatementInc(
+                          Designator(
+                           a
+                            DesignationNone(
+                            ) [DesignationNone]
+                          ) [Designator]
+                        ) [DesignatorStatementInc]
+                      ) [DesignatorStmt]
+                    ) [StatementWithoutLabel]
+                  ) [NonEmptyStatementListStmt]
+                ) [BlockOfStatements]
+              ) [MultiStatement]
+            ) [IfStmt]
+          ) [StatementWithoutLabel]
+        ) [NonEmptyStatementListStmt]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+  ) [MethodDecls]
+) [Program]
+INFO  17:36:24,224 - ===================================

@@ -1,0 +1,102 @@
+INFO  22:25:11,946 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  22:25:12,052 - #2 program
+INFO  22:25:12,053 - #54 MJAUProgram
+INFO  22:25:12,053 - #17 class
+INFO  22:25:12,055 - #54 Sipak
+INFO  22:25:12,056 - #45 {
+INFO  22:25:12,059 - #49 int
+INFO  22:25:12,059 - #54 a
+INFO  22:25:12,062 - #42 ,
+INFO  22:25:12,062 - #54 b
+INFO  22:25:12,062 - #42 ,
+INFO  22:25:12,062 - #54 f
+INFO  22:25:12,063 - #40 ;
+INFO  22:25:12,063 - #50 char
+INFO  22:25:12,064 - #54 c
+INFO  22:25:12,066 - #40 ;
+INFO  22:25:12,066 - #46 }
+INFO  22:25:12,067 - #54 Sipank
+INFO  22:25:12,069 - #54 s
+INFO  22:25:12,070 - #40 ;
+INFO  22:25:12,070 - #45 {
+INFO  22:25:12,070 - #46 }
+INFO  22:25:12,075 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      EmptyPreMethodDeclList(
+      ) [EmptyPreMethodDeclList]
+      PreMethodDeclClass(
+        ClassDecl(
+          ClassName(
+           Sipak
+          ) [ClassName]
+          NoClassExtension(
+          ) [NoClassExtension]
+          MultiVarDecls(
+            SingleVarDecls(
+              VarDecls(
+                TypePrimitive(
+                  PrimitiveTypeInt(
+                  ) [PrimitiveTypeInt]
+                ) [TypePrimitive]
+                MultiVar(
+                  MultiVar(
+                    SingleVar(
+                      VarDeclNotArr(
+                       a
+                      ) [VarDeclNotArr]
+                    ) [SingleVar]
+                    VarDeclNotArr(
+                     b
+                    ) [VarDeclNotArr]
+                  ) [MultiVar]
+                  VarDeclNotArr(
+                   f
+                  ) [VarDeclNotArr]
+                ) [MultiVar]
+              ) [VarDecls]
+            ) [SingleVarDecls]
+            VarDecls(
+              TypePrimitive(
+                PrimitiveTypeChar(
+                ) [PrimitiveTypeChar]
+              ) [TypePrimitive]
+              SingleVar(
+                VarDeclNotArr(
+                 c
+                ) [VarDeclNotArr]
+              ) [SingleVar]
+            ) [VarDecls]
+          ) [MultiVarDecls]
+          NoClassBody(
+          ) [NoClassBody]
+        ) [ClassDecl]
+      ) [PreMethodDeclClass]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypeNonPrimitive(
+         Sipank
+        ) [TypeNonPrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           s
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  22:25:12,075 - ===================================
+INFO  22:25:12,087 - Deklarisan(a) klasni tip Sipak na liniji 2
+INFO  22:25:12,087 - Deklarisan(a) polje f na liniji 4
+INFO  22:25:12,087 - Deklarisan(a) polje b na liniji 4
+INFO  22:25:12,087 - Deklarisan(a) polje a na liniji 4
+INFO  22:25:12,088 - Deklarisan(a) polje c na liniji 5
+ERROR 22:25:12,088 - Ovaj klasni tip ne postoji u ovom opsegu na liniji 7
+INFO  22:25:12,088 - Deklarisan(a) promenljiva s na liniji 7

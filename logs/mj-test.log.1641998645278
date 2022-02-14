@@ -1,0 +1,89 @@
+INFO  15:43:18,384 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  15:43:18,439 - #2 program
+INFO  15:43:18,439 - #54 MJAUProgram
+INFO  15:43:18,439 - #45 {
+INFO  15:43:18,440 - #6 void
+INFO  15:43:18,441 - #54 metoda
+INFO  15:43:18,442 - #43 (
+INFO  15:43:18,442 - #44 )
+INFO  15:43:18,443 - #45 {
+INFO  15:43:18,443 - #54 a
+INFO  15:43:18,444 - #40 =
+INFO  15:43:18,446 - #19 new
+INFO  15:43:18,446 - #54 Kurac
+INFO  15:43:18,446 - #47 [
+INFO  15:43:18,446 - #53 2
+INFO  15:43:18,446 - #35 +
+INFO  15:43:18,447 - #54 a
+INFO  15:43:18,448 - #20 .
+INFO  15:43:18,448 - #54 d
+INFO  15:43:18,448 - #48 ]
+INFO  15:43:18,449 - #41 ;
+INFO  15:43:18,449 - #46 }
+INFO  15:43:18,450 - #46 }
+INFO  15:43:18,454 - Program(
+ MJAUProgram
+  EmptyPreMethodDeclList(
+  ) [EmptyPreMethodDeclList]
+  MethodDecls(
+    NoMethodDecls(
+    ) [NoMethodDecls]
+    MethodDecl(
+      VoidType(
+      ) [VoidType]
+     metoda
+      NoFormalParams(
+      ) [NoFormalParams]
+      NoVarDeclsList(
+      ) [NoVarDeclsList]
+      BlockOfStatements(
+        NonEmptyStatementListStmt(
+          EmptyStatementList(
+          ) [EmptyStatementList]
+          DesignatorStmt(
+            DesignatorStatementAssign(
+              Designator(
+               a
+                DesignationNone(
+                ) [DesignationNone]
+              ) [Designator]
+              JustTermExpr(
+                SingleFactorTerm(
+                  FactorNewArray(
+                    TypeNonPrimitive(
+                     Kurac
+                    ) [TypeNonPrimitive]
+                    MultiAddOpExpr(
+                      SingleFactorTerm(
+                        FactorNumberConst(
+                         2
+                        ) [FactorNumberConst]
+                      ) [SingleFactorTerm]
+                      LastTerm(
+                        AddOpPlus(
+                        ) [AddOpPlus]
+                        SingleFactorTerm(
+                          FactorDesignator(
+                            Designator(
+                             a
+                              DesignationObjectAccess(
+                               d
+                                DesignationNone(
+                                ) [DesignationNone]
+                              ) [DesignationObjectAccess]
+                            ) [Designator]
+                          ) [FactorDesignator]
+                        ) [SingleFactorTerm]
+                      ) [LastTerm]
+                    ) [MultiAddOpExpr]
+                  ) [FactorNewArray]
+                ) [SingleFactorTerm]
+              ) [JustTermExpr]
+            ) [DesignatorStatementAssign]
+          ) [DesignatorStmt]
+        ) [NonEmptyStatementListStmt]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+  ) [MethodDecls]
+) [Program]
+INFO  15:43:18,454 - ===================================

@@ -1,0 +1,63 @@
+INFO  00:35:44,801 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  00:35:44,830 - #2 program
+INFO  00:35:44,830 - #54 MJAUProgram
+INFO  00:35:44,830 - #45 {
+INFO  00:35:44,831 - #6 void
+INFO  00:35:44,832 - #54 metoda
+INFO  00:35:44,832 - #43 (
+INFO  00:35:44,832 - #49 int
+INFO  00:35:44,832 - #54 a
+INFO  00:35:44,834 - #42 ,
+INFO  00:35:44,834 - #54 asda
+INFO  00:35:44,834 - #54 b
+INFO  00:35:44,834 - #42 ,
+INFO  00:35:44,835 - #54 hsh
+INFO  00:35:44,835 - #54 vsv
+INFO  00:35:44,835 - #44 )
+INFO  00:35:44,835 - #45 {
+INFO  00:35:44,836 - #46 }
+INFO  00:35:44,836 - #46 }
+INFO  00:35:44,839 - Program(
+ MJAUProgram
+  EmptyPreMethodDeclList(
+  ) [EmptyPreMethodDeclList]
+  MethodDecls(
+    NoMethodDecls(
+    ) [NoMethodDecls]
+    MethodDecl(
+      VoidType(
+      ) [VoidType]
+     metoda
+      YesFormalParams(
+        MultiFormalParam(
+          MultiFormalParam(
+            SingleFormalParam(
+              TypePrimitive(
+                PrimitiveTypeInt(
+                ) [PrimitiveTypeInt]
+              ) [TypePrimitive]
+              VarDeclNotArr(
+               a
+              ) [VarDeclNotArr]
+            ) [SingleFormalParam]
+            TypeNonPrimitive(
+             asda
+            ) [TypeNonPrimitive]
+            VarDeclNotArr(
+             b
+            ) [VarDeclNotArr]
+          ) [MultiFormalParam]
+          TypeNonPrimitive(
+           hsh
+          ) [TypeNonPrimitive]
+          VarDeclNotArr(
+           vsv
+          ) [VarDeclNotArr]
+        ) [MultiFormalParam]
+      ) [YesFormalParams]
+      NoVarDeclsList(
+      ) [NoVarDeclsList]
+    ) [MethodDecl]
+  ) [MethodDecls]
+) [Program]
+INFO  00:35:44,840 - ===================================

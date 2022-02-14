@@ -1,0 +1,73 @@
+INFO  18:50:42,492 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  18:50:42,582 - #2 program
+INFO  18:50:42,583 - #54 MJAUProgram
+INFO  18:50:42,583 - #51 bool
+INFO  18:50:42,585 - #54 a
+INFO  18:50:42,588 - #47 [
+INFO  18:50:42,588 - #48 ]
+INFO  18:50:42,589 - #40 ;
+INFO  18:50:42,589 - #49 int
+INFO  18:50:42,590 - #54 z
+INFO  18:50:42,591 - #47 [
+INFO  18:50:42,592 - #48 ]
+INFO  18:50:42,592 - #40 ;
+INFO  18:50:42,592 - #54 Kurac
+INFO  18:50:42,592 - #54 k
+INFO  18:50:42,592 - #40 ;
+INFO  18:50:42,592 - #45 {
+INFO  18:50:42,593 - #46 }
+INFO  18:50:42,595 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      NonEmptyPreMethodDeclList(
+        EmptyPreMethodDeclList(
+        ) [EmptyPreMethodDeclList]
+        PreMethodDeclVar(
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeBool(
+              ) [PrimitiveTypeBool]
+            ) [TypePrimitive]
+            SingleVar(
+              VarDeclArr(
+               a
+              ) [VarDeclArr]
+            ) [SingleVar]
+          ) [VarDecls]
+        ) [PreMethodDeclVar]
+      ) [NonEmptyPreMethodDeclList]
+      PreMethodDeclVar(
+        VarDecls(
+          TypePrimitive(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+          ) [TypePrimitive]
+          SingleVar(
+            VarDeclArr(
+             z
+            ) [VarDeclArr]
+          ) [SingleVar]
+        ) [VarDecls]
+      ) [PreMethodDeclVar]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypeNonPrimitive(
+         Kurac
+        ) [TypeNonPrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           k
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  18:50:42,652 - ===================================
+ERROR 18:50:42,662 - Ovaj klasni tip ne postoji u ovom opsegu na liniji 4

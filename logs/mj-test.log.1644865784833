@@ -1,0 +1,180 @@
+INFO  20:05:27,800 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  20:05:27,890 - #2 program
+INFO  20:05:27,890 - #54 MJAUProgram
+INFO  20:05:27,890 - #7 const
+INFO  20:05:27,892 - #49 int
+INFO  20:05:27,892 - #54 a
+INFO  20:05:27,894 - #39 =
+INFO  20:05:27,894 - #53 66
+INFO  20:05:27,894 - #40 ;
+INFO  20:05:27,894 - #7 const
+INFO  20:05:27,895 - #49 int
+INFO  20:05:27,896 - #54 b
+INFO  20:05:27,896 - #39 =
+INFO  20:05:27,896 - #53 77
+INFO  20:05:27,896 - #40 ;
+INFO  20:05:27,896 - #7 const
+INFO  20:05:27,896 - #50 char
+INFO  20:05:27,896 - #54 c
+INFO  20:05:27,897 - #39 =
+INFO  20:05:27,897 - #55 c
+INFO  20:05:27,897 - #42 ,
+INFO  20:05:27,897 - #54 d
+INFO  20:05:27,971 - #39 =
+INFO  20:05:27,971 - #55 w
+INFO  20:05:27,971 - #40 ;
+INFO  20:05:27,972 - #7 const
+INFO  20:05:27,972 - #51 bool
+INFO  20:05:27,972 - #54 te
+INFO  20:05:27,974 - #39 =
+INFO  20:05:27,975 - #15 true
+INFO  20:05:27,975 - #42 ,
+INFO  20:05:27,979 - #54 nete
+INFO  20:05:27,979 - #39 =
+INFO  20:05:27,980 - #16 false
+INFO  20:05:27,980 - #40 ;
+INFO  20:05:27,982 - #21 record
+INFO  20:05:27,982 - #54 r
+INFO  20:05:27,982 - #45 {
+INFO  20:05:27,984 - #49 int
+INFO  20:05:27,985 - #54 a
+INFO  20:05:27,985 - #42 ,
+INFO  20:05:27,986 - #54 b
+INFO  20:05:27,987 - #40 ;
+INFO  20:05:27,987 - #50 char
+INFO  20:05:27,990 - #54 c
+INFO  20:05:27,990 - #42 ,
+INFO  20:05:27,991 - #54 d
+INFO  20:05:27,991 - #40 ;
+INFO  20:05:27,991 - #46 }
+INFO  20:05:27,991 - #45 {
+INFO  20:05:27,994 - #46 }
+INFO  20:05:28,000 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      NonEmptyPreMethodDeclList(
+        NonEmptyPreMethodDeclList(
+          NonEmptyPreMethodDeclList(
+            EmptyPreMethodDeclList(
+            ) [EmptyPreMethodDeclList]
+            PreMethodDeclConst(
+              ConstDecl(
+                PrimitiveTypeInt(
+                ) [PrimitiveTypeInt]
+                SingleConstDeclArray(
+                 a
+                  ConstExprInt(
+                   66
+                  ) [ConstExprInt]
+                ) [SingleConstDeclArray]
+              ) [ConstDecl]
+            ) [PreMethodDeclConst]
+          ) [NonEmptyPreMethodDeclList]
+          PreMethodDeclConst(
+            ConstDecl(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+              SingleConstDeclArray(
+               b
+                ConstExprInt(
+                 77
+                ) [ConstExprInt]
+              ) [SingleConstDeclArray]
+            ) [ConstDecl]
+          ) [PreMethodDeclConst]
+        ) [NonEmptyPreMethodDeclList]
+        PreMethodDeclConst(
+          ConstDecl(
+            PrimitiveTypeChar(
+            ) [PrimitiveTypeChar]
+            MultiConstDeclArray(
+              SingleConstDeclArray(
+               c
+                ConstExprChar(
+                 c
+                ) [ConstExprChar]
+              ) [SingleConstDeclArray]
+             d
+              ConstExprChar(
+               w
+              ) [ConstExprChar]
+            ) [MultiConstDeclArray]
+          ) [ConstDecl]
+        ) [PreMethodDeclConst]
+      ) [NonEmptyPreMethodDeclList]
+      PreMethodDeclConst(
+        ConstDecl(
+          PrimitiveTypeBool(
+          ) [PrimitiveTypeBool]
+          MultiConstDeclArray(
+            SingleConstDeclArray(
+             te
+              ConstExprBool(
+                BoolValueTrue(
+                ) [BoolValueTrue]
+              ) [ConstExprBool]
+            ) [SingleConstDeclArray]
+           nete
+            ConstExprBool(
+              BoolValueFalse(
+              ) [BoolValueFalse]
+            ) [ConstExprBool]
+          ) [MultiConstDeclArray]
+        ) [ConstDecl]
+      ) [PreMethodDeclConst]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclRecord(
+      RecordDecl(
+        RecordIdent(
+         r
+        ) [RecordIdent]
+        MultiVarDecls(
+          SingleVarDecls(
+            VarDecls(
+              TypePrimitive(
+                PrimitiveTypeInt(
+                ) [PrimitiveTypeInt]
+              ) [TypePrimitive]
+              MultiVar(
+                SingleVar(
+                  VarDeclNotArr(
+                   a
+                  ) [VarDeclNotArr]
+                ) [SingleVar]
+                VarDeclNotArr(
+                 b
+                ) [VarDeclNotArr]
+              ) [MultiVar]
+            ) [VarDecls]
+          ) [SingleVarDecls]
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeChar(
+              ) [PrimitiveTypeChar]
+            ) [TypePrimitive]
+            MultiVar(
+              SingleVar(
+                VarDeclNotArr(
+                 c
+                ) [VarDeclNotArr]
+              ) [SingleVar]
+              VarDeclNotArr(
+               d
+              ) [VarDeclNotArr]
+            ) [MultiVar]
+          ) [VarDecls]
+        ) [MultiVarDecls]
+      ) [RecordDecl]
+    ) [PreMethodDeclRecord]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  20:05:28,000 - ===================================
+ERROR 20:05:28,019 - Vec postoji varijabla b
+ERROR 20:05:28,019 - Vec postoji varijabla a
+ERROR 20:05:28,019 - Vec postoji varijabla d
+ERROR 20:05:28,019 - Vec postoji varijabla c

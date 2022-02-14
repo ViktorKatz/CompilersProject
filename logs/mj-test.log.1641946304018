@@ -1,0 +1,92 @@
+INFO  01:11:37,401 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  01:11:37,432 - #2 program
+INFO  01:11:37,432 - #54 MJAUProgram
+INFO  01:11:37,432 - #45 {
+INFO  01:11:37,433 - #6 void
+INFO  01:11:37,433 - #54 metoda
+INFO  01:11:37,434 - #43 (
+INFO  01:11:37,435 - #49 int
+INFO  01:11:37,435 - #54 a
+INFO  01:11:37,437 - #42 ,
+INFO  01:11:37,437 - #54 asda
+INFO  01:11:37,437 - #54 b
+INFO  01:11:37,437 - #47 [
+INFO  01:11:37,437 - #48 ]
+INFO  01:11:37,438 - #42 ,
+INFO  01:11:37,438 - #54 hsh
+INFO  01:11:37,438 - #54 vsv
+INFO  01:11:37,438 - #44 )
+INFO  01:11:37,438 - #49 int
+INFO  01:11:37,438 - #54 c
+INFO  01:11:37,438 - #42 ,
+INFO  01:11:37,439 - #54 d
+INFO  01:11:37,440 - #41 ;
+INFO  01:11:37,440 - #45 {
+INFO  01:11:37,441 - #46 }
+INFO  01:11:37,442 - #46 }
+INFO  01:11:37,444 - Program(
+ MJAUProgram
+  EmptyPreMethodDeclList(
+  ) [EmptyPreMethodDeclList]
+  MethodDecls(
+    NoMethodDecls(
+    ) [NoMethodDecls]
+    MethodDecl(
+      VoidType(
+      ) [VoidType]
+     metoda
+      YesFormalParams(
+        MultiFormalParam(
+          MultiFormalParam(
+            SingleFormalParam(
+              TypePrimitive(
+                PrimitiveTypeInt(
+                ) [PrimitiveTypeInt]
+              ) [TypePrimitive]
+              VarDeclNotArr(
+               a
+              ) [VarDeclNotArr]
+            ) [SingleFormalParam]
+            TypeNonPrimitive(
+             asda
+            ) [TypeNonPrimitive]
+            VarDeclArr(
+             b
+            ) [VarDeclArr]
+          ) [MultiFormalParam]
+          TypeNonPrimitive(
+           hsh
+          ) [TypeNonPrimitive]
+          VarDeclNotArr(
+           vsv
+          ) [VarDeclNotArr]
+        ) [MultiFormalParam]
+      ) [YesFormalParams]
+      YesVarDeclsList(
+        SingleVarDecls(
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            MultiVar(
+              SingleVar(
+                VarDeclNotArr(
+                 c
+                ) [VarDeclNotArr]
+              ) [SingleVar]
+              VarDeclNotArr(
+               d
+              ) [VarDeclNotArr]
+            ) [MultiVar]
+          ) [VarDecls]
+        ) [SingleVarDecls]
+      ) [YesVarDeclsList]
+      BlockOfStatements(
+        EmptyStatementList(
+        ) [EmptyStatementList]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+  ) [MethodDecls]
+) [Program]
+INFO  01:11:37,446 - ===================================

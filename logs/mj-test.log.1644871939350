@@ -1,0 +1,37 @@
+INFO  21:51:07,787 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  21:51:07,869 - #2 program
+INFO  21:51:07,870 - #54 MJAUProgram
+INFO  21:51:07,871 - #17 class
+INFO  21:51:07,871 - #54 Sipak
+INFO  21:51:07,871 - #49 int
+ERROR 21:51:07,872 - Sintaksna greska na liniji 3
+INFO  21:51:07,872 - #54 a
+INFO  21:51:07,872 - #42 ,
+INFO  21:51:07,872 - #54 b
+INFO  21:51:07,872 - #40 ;
+INFO  21:51:07,872 - #45 {
+INFO  21:51:07,873 - #46 }
+INFO  21:51:07,873 - #40 ;
+ERROR 21:51:07,873 - Greska u deklaraciji u liniji 2.
+ERROR 21:51:07,874 - Sintaksna greska na liniji 6
+INFO  21:51:07,875 - #45 {
+INFO  21:51:07,875 - #46 }
+ERROR 21:51:07,875 - Greska u deklaraciji u liniji 4.
+INFO  21:51:07,877 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      EmptyPreMethodDeclList(
+      ) [EmptyPreMethodDeclList]
+      PreMethodDeclError(
+      ) [PreMethodDeclError]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclError(
+    ) [PreMethodDeclError]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  21:51:07,878 - ===================================

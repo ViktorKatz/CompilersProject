@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 13/1/2022 19:11:26
+// 14/1/2022 23:5:49
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -11,8 +11,8 @@ public interface Visitor {
     public void visit(PrimitiveType PrimitiveType);
     public void visit(StatementList StatementList);
     public void visit(PreMethodDeclList PreMethodDeclList);
-    public void visit(Factor Factor);
     public void visit(BoolValue BoolValue);
+    public void visit(Factor Factor);
     public void visit(CondTerm CondTerm);
     public void visit(MultipleFactorList MultipleFactorList);
     public void visit(VarList VarList);
@@ -31,18 +31,19 @@ public interface Visitor {
     public void visit(OptionalActPars OptionalActPars);
     public void visit(ClassExtension ClassExtension);
     public void visit(ActPars ActPars);
-    public void visit(AddOp AddOp);
     public void visit(TypeOrVoid TypeOrVoid);
+    public void visit(AddOp AddOp);
     public void visit(DesignatorStatement DesignatorStatement);
+    public void visit(ConstExpr ConstExpr);
     public void visit(Statement Statement);
     public void visit(VarDecl VarDecl);
     public void visit(Type Type);
     public void visit(OptionalVarDeclsList OptionalVarDeclsList);
-    public void visit(ConstDecl ConstDecl);
     public void visit(CondFact CondFact);
     public void visit(NonLabeledStatement NonLabeledStatement);
     public void visit(MethodDeclList MethodDeclList);
     public void visit(FormPars FormPars);
+    public void visit(ConstDeclArray ConstDeclArray);
     public void visit(NonLastExprActPar NonLastExprActPar);
     public void visit(LastExprActPars LastExprActPars);
     public void visit(NoActPars NoActPars);
@@ -121,6 +122,7 @@ public interface Visitor {
     public void visit(YesFormalParams YesFormalParams);
     public void visit(VoidType VoidType);
     public void visit(NotVoidType NotVoidType);
+    public void visit(MethodSignature MethodSignature);
     public void visit(MethodDecl MethodDecl);
     public void visit(NoMethodDecls NoMethodDecls);
     public void visit(MethodDecls MethodDecls);
@@ -131,6 +133,7 @@ public interface Visitor {
     public void visit(TypeNonPrimitive TypeNonPrimitive);
     public void visit(BoolValueFalse BoolValueFalse);
     public void visit(BoolValueTrue BoolValueTrue);
+    public void visit(RecordIdent RecordIdent);
     public void visit(RecordDecl RecordDecl);
     public void visit(ClassConstructor ClassConstructor);
     public void visit(NoClassBody NoClassBody);
@@ -138,6 +141,7 @@ public interface Visitor {
     public void visit(YesClassBodyYesConst YesClassBodyYesConst);
     public void visit(NoClassExtension NoClassExtension);
     public void visit(YesClassExtension YesClassExtension);
+    public void visit(ClassName ClassName);
     public void visit(ClassDecl ClassDecl);
     public void visit(VarDeclNotArr VarDeclNotArr);
     public void visit(VarDeclArr VarDeclArr);
@@ -146,9 +150,12 @@ public interface Visitor {
     public void visit(VarDecls VarDecls);
     public void visit(SingleVarDecls SingleVarDecls);
     public void visit(MultiVarDecls MultiVarDecls);
-    public void visit(ConstBoolDecl ConstBoolDecl);
-    public void visit(ConstCharDecl ConstCharDecl);
-    public void visit(ConstIntDecl ConstIntDecl);
+    public void visit(ConstExprBool ConstExprBool);
+    public void visit(ConstExprChar ConstExprChar);
+    public void visit(ConstExprInt ConstExprInt);
+    public void visit(SingleConstDeclArray SingleConstDeclArray);
+    public void visit(MultiConstDeclArray MultiConstDeclArray);
+    public void visit(ConstDecl ConstDecl);
     public void visit(PreMethodDeclError PreMethodDeclError);
     public void visit(PreMethodDeclRecord PreMethodDeclRecord);
     public void visit(PreMethodDeclClass PreMethodDeclClass);
@@ -156,6 +163,7 @@ public interface Visitor {
     public void visit(PreMethodDeclConst PreMethodDeclConst);
     public void visit(EmptyPreMethodDeclList EmptyPreMethodDeclList);
     public void visit(NonEmptyPreMethodDeclList NonEmptyPreMethodDeclList);
+    public void visit(ProgName ProgName);
     public void visit(Program Program);
 
 }

@@ -1,24 +1,24 @@
 // generated with ast extension for cup
 // version 0.8
-// 13/1/2022 19:11:26
+// 14/1/2022 23:5:49
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class TypeNonPrimitive extends Type {
 
-    private String I1;
+    private String className;
 
-    public TypeNonPrimitive (String I1) {
-        this.I1=I1;
+    public TypeNonPrimitive (String className) {
+        this.className=className;
     }
 
-    public String getI1() {
-        return I1;
+    public String getClassName() {
+        return className;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setClassName(String className) {
+        this.className=className;
     }
 
     public void accept(Visitor visitor) {
@@ -41,7 +41,7 @@ public class TypeNonPrimitive extends Type {
         buffer.append(tab);
         buffer.append("TypeNonPrimitive(\n");
 
-        buffer.append(" "+tab+I1);
+        buffer.append(" "+tab+className);
         buffer.append("\n");
 
         buffer.append(tab);

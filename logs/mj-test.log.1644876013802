@@ -1,0 +1,170 @@
+INFO  22:56:33,018 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  22:56:33,121 - #2 program
+INFO  22:56:33,121 - #54 MJAUProgram
+INFO  22:56:33,121 - #17 class
+INFO  22:56:33,125 - #54 Sipak
+INFO  22:56:33,125 - #45 {
+INFO  22:56:33,128 - #49 int
+INFO  22:56:33,128 - #54 a
+INFO  22:56:33,131 - #42 ,
+INFO  22:56:33,132 - #54 b
+INFO  22:56:33,132 - #42 ,
+INFO  22:56:33,132 - #54 f
+INFO  22:56:33,133 - #40 ;
+INFO  22:56:33,133 - #50 char
+INFO  22:56:33,135 - #54 c
+INFO  22:56:33,136 - #40 ;
+INFO  22:56:33,136 - #46 }
+INFO  22:56:33,138 - #17 class
+INFO  22:56:33,139 - #54 Asw
+INFO  22:56:33,140 - #45 {
+INFO  22:56:33,140 - #50 char
+INFO  22:56:33,140 - #54 c
+INFO  22:56:33,141 - #40 ;
+INFO  22:56:33,141 - #54 Sipak
+INFO  22:56:33,141 - #54 s
+INFO  22:56:33,142 - #40 ;
+INFO  22:56:33,142 - #46 }
+INFO  22:56:33,142 - #54 Sipak
+INFO  22:56:33,142 - #54 s
+INFO  22:56:33,142 - #40 ;
+INFO  22:56:33,142 - #54 Asw
+INFO  22:56:33,142 - #54 a
+INFO  22:56:33,142 - #40 ;
+INFO  22:56:33,142 - #45 {
+INFO  22:56:33,143 - #46 }
+INFO  22:56:33,146 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      NonEmptyPreMethodDeclList(
+        NonEmptyPreMethodDeclList(
+          EmptyPreMethodDeclList(
+          ) [EmptyPreMethodDeclList]
+          PreMethodDeclClass(
+            ClassDecl(
+              ClassName(
+               Sipak
+              ) [ClassName]
+              NoClassExtension(
+              ) [NoClassExtension]
+              MultiVarDecls(
+                SingleVarDecls(
+                  VarDecls(
+                    TypePrimitive(
+                      PrimitiveTypeInt(
+                      ) [PrimitiveTypeInt]
+                    ) [TypePrimitive]
+                    MultiVar(
+                      MultiVar(
+                        SingleVar(
+                          VarDeclNotArr(
+                           a
+                          ) [VarDeclNotArr]
+                        ) [SingleVar]
+                        VarDeclNotArr(
+                         b
+                        ) [VarDeclNotArr]
+                      ) [MultiVar]
+                      VarDeclNotArr(
+                       f
+                      ) [VarDeclNotArr]
+                    ) [MultiVar]
+                  ) [VarDecls]
+                ) [SingleVarDecls]
+                VarDecls(
+                  TypePrimitive(
+                    PrimitiveTypeChar(
+                    ) [PrimitiveTypeChar]
+                  ) [TypePrimitive]
+                  SingleVar(
+                    VarDeclNotArr(
+                     c
+                    ) [VarDeclNotArr]
+                  ) [SingleVar]
+                ) [VarDecls]
+              ) [MultiVarDecls]
+              NoClassBody(
+              ) [NoClassBody]
+            ) [ClassDecl]
+          ) [PreMethodDeclClass]
+        ) [NonEmptyPreMethodDeclList]
+        PreMethodDeclClass(
+          ClassDecl(
+            ClassName(
+             Asw
+            ) [ClassName]
+            NoClassExtension(
+            ) [NoClassExtension]
+            MultiVarDecls(
+              SingleVarDecls(
+                VarDecls(
+                  TypePrimitive(
+                    PrimitiveTypeChar(
+                    ) [PrimitiveTypeChar]
+                  ) [TypePrimitive]
+                  SingleVar(
+                    VarDeclNotArr(
+                     c
+                    ) [VarDeclNotArr]
+                  ) [SingleVar]
+                ) [VarDecls]
+              ) [SingleVarDecls]
+              VarDecls(
+                TypeNonPrimitive(
+                 Sipak
+                ) [TypeNonPrimitive]
+                SingleVar(
+                  VarDeclNotArr(
+                   s
+                  ) [VarDeclNotArr]
+                ) [SingleVar]
+              ) [VarDecls]
+            ) [MultiVarDecls]
+            NoClassBody(
+            ) [NoClassBody]
+          ) [ClassDecl]
+        ) [PreMethodDeclClass]
+      ) [NonEmptyPreMethodDeclList]
+      PreMethodDeclVar(
+        VarDecls(
+          TypeNonPrimitive(
+           Sipak
+          ) [TypeNonPrimitive]
+          SingleVar(
+            VarDeclNotArr(
+             s
+            ) [VarDeclNotArr]
+          ) [SingleVar]
+        ) [VarDecls]
+      ) [PreMethodDeclVar]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypeNonPrimitive(
+         Asw
+        ) [TypeNonPrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           a
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  22:56:33,146 - ===================================
+INFO  22:56:33,157 - Deklarisan(a) klasni tip Sipak na liniji 2
+INFO  22:56:33,158 - Deklarisan(a) polje f na liniji 4
+INFO  22:56:33,158 - Deklarisan(a) polje b na liniji 4
+INFO  22:56:33,158 - Deklarisan(a) polje a na liniji 4
+INFO  22:56:33,158 - Deklarisan(a) polje c na liniji 5
+INFO  22:56:33,158 - Deklarisan(a) klasni tip Asw na liniji 7
+INFO  22:56:33,158 - Deklarisan(a) polje c na liniji 9
+INFO  22:56:33,158 - Deklarisan(a) polje s na liniji 10
+INFO  22:56:33,159 - Deklarisan(a) promenljiva s na liniji 12
+INFO  22:56:33,159 - Deklarisan(a) promenljiva a na liniji 13

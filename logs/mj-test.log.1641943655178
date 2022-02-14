@@ -1,0 +1,51 @@
+INFO  00:27:10,678 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  00:27:10,708 - #2 program
+INFO  00:27:10,708 - #54 MJAUProgram
+INFO  00:27:10,708 - #49 int
+INFO  00:27:10,709 - #54 a
+INFO  00:27:10,711 - #41 ;
+INFO  00:27:10,711 - #45 {
+INFO  00:27:10,712 - #54 kurac
+INFO  00:27:10,713 - #54 metoda
+INFO  00:27:10,713 - #43 (
+INFO  00:27:10,713 - #44 )
+INFO  00:27:10,714 - #45 {
+INFO  00:27:10,715 - #46 }
+INFO  00:27:10,715 - #46 }
+INFO  00:27:10,717 - Program(
+ MJAUProgram
+  NonEmptyPreMethodDeclList(
+    EmptyPreMethodDeclList(
+    ) [EmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypePrimitive(
+          PrimitiveTypeInt(
+          ) [PrimitiveTypeInt]
+        ) [TypePrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           a
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  MethodDecls(
+    NoMethodDecls(
+    ) [NoMethodDecls]
+    MethodDecl(
+      NotVoidType(
+        TypeNonPrimitive(
+         kurac
+        ) [TypeNonPrimitive]
+      ) [NotVoidType]
+     metoda
+      NoFormalParamsList(
+      ) [NoFormalParamsList]
+      NoVarDeclsList(
+      ) [NoVarDeclsList]
+    ) [MethodDecl]
+  ) [MethodDecls]
+) [Program]
+INFO  00:27:10,717 - ===================================

@@ -1,0 +1,56 @@
+INFO  22:00:29,039 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  22:00:29,136 - #2 program
+INFO  22:00:29,136 - #54 MJAUProgram
+INFO  22:00:29,136 - #17 class
+INFO  22:00:29,138 - #54 Sipak
+INFO  22:00:29,138 - #45 {
+INFO  22:00:29,140 - #49 int
+INFO  22:00:29,140 - #54 a
+INFO  22:00:29,145 - #42 ,
+INFO  22:00:29,146 - #54 b
+INFO  22:00:29,147 - #40 ;
+INFO  22:00:29,147 - #46 }
+INFO  22:00:29,150 - #45 {
+INFO  22:00:29,151 - #46 }
+INFO  22:00:29,154 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    EmptyPreMethodDeclList(
+    ) [EmptyPreMethodDeclList]
+    PreMethodDeclClass(
+      ClassDecl(
+        ClassName(
+         Sipak
+        ) [ClassName]
+        NoClassExtension(
+        ) [NoClassExtension]
+        VarDecls(
+          TypePrimitive(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+          ) [TypePrimitive]
+          MultiVar(
+            SingleVar(
+              VarDeclNotArr(
+               a
+              ) [VarDeclNotArr]
+            ) [SingleVar]
+            VarDeclNotArr(
+             b
+            ) [VarDeclNotArr]
+          ) [MultiVar]
+        ) [VarDecls]
+        NoClassBody(
+        ) [NoClassBody]
+      ) [ClassDecl]
+    ) [PreMethodDeclClass]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  22:00:29,156 - ===================================
+INFO  22:00:29,167 - Deklarisan(a) klasni tip Sipak na liniji 2
+INFO  22:00:29,167 - Deklarisan(a) promenljiva b na liniji 4
+INFO  22:00:29,167 - Deklarisan(a) promenljiva a na liniji 4

@@ -1,0 +1,106 @@
+INFO  19:49:35,138 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  19:49:35,226 - #2 program
+INFO  19:49:35,226 - #54 MJAUProgram
+INFO  19:49:35,226 - #7 const
+INFO  19:49:35,228 - #49 int
+INFO  19:49:35,228 - #54 a
+INFO  19:49:35,230 - #39 =
+INFO  19:49:35,230 - #53 66
+INFO  19:49:35,230 - #40 ;
+INFO  19:49:35,231 - #7 const
+INFO  19:49:35,232 - #49 int
+INFO  19:49:35,232 - #54 b
+INFO  19:49:35,232 - #39 =
+INFO  19:49:35,233 - #53 77
+INFO  19:49:35,233 - #40 ;
+INFO  19:49:35,233 - #7 const
+INFO  19:49:35,233 - #50 char
+INFO  19:49:35,233 - #54 c
+INFO  19:49:35,234 - #39 =
+INFO  19:49:35,234 - #55 c
+INFO  19:49:35,234 - #42 ,
+INFO  19:49:35,234 - #54 d
+INFO  19:49:35,235 - #39 =
+INFO  19:49:35,235 - #53 99
+INFO  19:49:35,236 - #40 ;
+INFO  19:49:35,236 - #7 const
+INFO  19:49:35,236 - #51 bool
+INFO  19:49:35,236 - #54 te
+INFO  19:49:35,237 - #39 =
+INFO  19:49:35,237 - #15 true
+INFO  19:49:35,237 - #40 ;
+INFO  19:49:35,239 - #45 {
+INFO  19:49:35,239 - #46 }
+INFO  19:49:35,242 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      NonEmptyPreMethodDeclList(
+        NonEmptyPreMethodDeclList(
+          EmptyPreMethodDeclList(
+          ) [EmptyPreMethodDeclList]
+          PreMethodDeclConst(
+            ConstDecl(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+              SingleConstDeclArray(
+               a
+                ConstExprInt(
+                 66
+                ) [ConstExprInt]
+              ) [SingleConstDeclArray]
+            ) [ConstDecl]
+          ) [PreMethodDeclConst]
+        ) [NonEmptyPreMethodDeclList]
+        PreMethodDeclConst(
+          ConstDecl(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+            SingleConstDeclArray(
+             b
+              ConstExprInt(
+               77
+              ) [ConstExprInt]
+            ) [SingleConstDeclArray]
+          ) [ConstDecl]
+        ) [PreMethodDeclConst]
+      ) [NonEmptyPreMethodDeclList]
+      PreMethodDeclConst(
+        ConstDecl(
+          PrimitiveTypeChar(
+          ) [PrimitiveTypeChar]
+          MultiConstDeclArray(
+            SingleConstDeclArray(
+             c
+              ConstExprChar(
+               c
+              ) [ConstExprChar]
+            ) [SingleConstDeclArray]
+           d
+            ConstExprInt(
+             99
+            ) [ConstExprInt]
+          ) [MultiConstDeclArray]
+        ) [ConstDecl]
+      ) [PreMethodDeclConst]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclConst(
+      ConstDecl(
+        PrimitiveTypeBool(
+        ) [PrimitiveTypeBool]
+        SingleConstDeclArray(
+         te
+          ConstExprBool(
+            BoolValueTrue(
+            ) [BoolValueTrue]
+          ) [ConstExprBool]
+        ) [SingleConstDeclArray]
+      ) [ConstDecl]
+    ) [PreMethodDeclConst]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  19:49:35,243 - ===================================

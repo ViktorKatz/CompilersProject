@@ -1,0 +1,64 @@
+INFO  22:17:09,085 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  22:17:09,098 - #2 program
+INFO  22:17:09,098 - #54 MJAUProgram
+INFO  22:17:09,098 - #49 int
+INFO  22:17:09,099 - #41 ;
+INFO  22:17:09,099 - #17 class
+INFO  22:17:09,100 - #41 ;
+INFO  22:17:09,101 - #21 record
+INFO  22:17:09,101 - #41 ;
+INFO  22:17:09,101 - #21 record
+INFO  22:17:09,102 - #41 ;
+INFO  22:17:09,102 - #17 class
+INFO  22:17:09,102 - #41 ;
+INFO  22:17:09,103 - #7 const
+INFO  22:17:09,103 - #49 int
+INFO  22:17:09,103 - #54 t
+INFO  22:17:09,103 - #41 ;
+ERROR 22:17:09,103 - 
+Sintaksna greska na liniji 7
+INFO  22:17:09,103 - #45 {
+INFO  22:17:09,103 - #46 }
+ERROR 22:17:09,104 - Greska u liniji 7. Deklaracija konstante mora biti u sledecem obliku: const (tip) (naziv) = (vrednost)
+INFO  22:17:09,107 - Program(
+ MJAUProgram
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      NonEmptyPreMethodDeclList(
+        NonEmptyPreMethodDeclList(
+          NonEmptyPreMethodDeclList(
+            NonEmptyPreMethodDeclList(
+              EmptyPreMethodDeclList(
+              ) [EmptyPreMethodDeclList]
+              PreMethodDeclVar(
+                VarDecl(
+                ) [VarDecl]
+              ) [PreMethodDeclVar]
+            ) [NonEmptyPreMethodDeclList]
+            PreMethodDeclClass(
+              ClassDecl(
+              ) [ClassDecl]
+            ) [PreMethodDeclClass]
+          ) [NonEmptyPreMethodDeclList]
+          PreMethodDeclRecord(
+            RecordDecl(
+            ) [RecordDecl]
+          ) [PreMethodDeclRecord]
+        ) [NonEmptyPreMethodDeclList]
+        PreMethodDeclRecord(
+          RecordDecl(
+          ) [RecordDecl]
+        ) [PreMethodDeclRecord]
+      ) [NonEmptyPreMethodDeclList]
+      PreMethodDeclClass(
+        ClassDecl(
+        ) [ClassDecl]
+      ) [PreMethodDeclClass]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclConst(
+      ConstErrorDecl(
+      ) [ConstErrorDecl]
+    ) [PreMethodDeclConst]
+  ) [NonEmptyPreMethodDeclList]
+) [Program]
+INFO  22:17:09,107 - ===================================

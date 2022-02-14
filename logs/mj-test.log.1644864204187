@@ -1,0 +1,127 @@
+INFO  19:42:53,835 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  19:42:53,924 - #2 program
+INFO  19:42:53,925 - #54 MJAUProgram
+INFO  19:42:53,925 - #7 const
+INFO  19:42:53,927 - #49 int
+INFO  19:42:53,927 - #54 a
+INFO  19:42:53,930 - #39 =
+INFO  19:42:53,930 - #53 66
+INFO  19:42:53,930 - #40 ;
+INFO  19:42:53,930 - #7 const
+INFO  19:42:53,932 - #49 int
+INFO  19:42:53,932 - #54 b
+INFO  19:42:53,932 - #39 =
+INFO  19:42:53,932 - #53 77
+INFO  19:42:53,933 - #40 ;
+INFO  19:42:53,933 - #7 const
+INFO  19:42:53,933 - #50 char
+INFO  19:42:53,933 - #54 c
+INFO  19:42:53,934 - #39 =
+INFO  19:42:53,934 - #55 c
+INFO  19:42:53,934 - #40 ;
+INFO  19:42:53,934 - #7 const
+INFO  19:42:53,935 - #50 char
+INFO  19:42:53,936 - #54 d
+INFO  19:42:53,936 - #39 =
+INFO  19:42:53,936 - #53 99
+INFO  19:42:53,936 - #40 ;
+INFO  19:42:53,936 - #7 const
+INFO  19:42:53,936 - #51 bool
+INFO  19:42:53,936 - #54 te
+INFO  19:42:53,937 - #39 =
+INFO  19:42:53,938 - #15 true
+INFO  19:42:53,938 - #40 ;
+INFO  19:42:53,940 - #51 bool
+INFO  19:42:53,940 - #54 b
+INFO  19:42:53,940 - #39 =
+ERROR 19:42:53,940 - Sintaksna greska na liniji 7
+INFO  19:42:53,940 - #16 false
+INFO  19:42:53,940 - #40 ;
+INFO  19:42:53,940 - #45 {
+INFO  19:42:53,941 - #46 }
+ERROR 19:42:53,941 - Greska u deklaraciji u liniji 7.
+INFO  19:42:53,944 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      NonEmptyPreMethodDeclList(
+        NonEmptyPreMethodDeclList(
+          NonEmptyPreMethodDeclList(
+            NonEmptyPreMethodDeclList(
+              EmptyPreMethodDeclList(
+              ) [EmptyPreMethodDeclList]
+              PreMethodDeclConst(
+                ConstDecl(
+                  PrimitiveTypeInt(
+                  ) [PrimitiveTypeInt]
+                  SingleConstDeclArray(
+                   a
+                    ConstExprInt(
+                     66
+                    ) [ConstExprInt]
+                  ) [SingleConstDeclArray]
+                ) [ConstDecl]
+              ) [PreMethodDeclConst]
+            ) [NonEmptyPreMethodDeclList]
+            PreMethodDeclConst(
+              ConstDecl(
+                PrimitiveTypeInt(
+                ) [PrimitiveTypeInt]
+                SingleConstDeclArray(
+                 b
+                  ConstExprInt(
+                   77
+                  ) [ConstExprInt]
+                ) [SingleConstDeclArray]
+              ) [ConstDecl]
+            ) [PreMethodDeclConst]
+          ) [NonEmptyPreMethodDeclList]
+          PreMethodDeclConst(
+            ConstDecl(
+              PrimitiveTypeChar(
+              ) [PrimitiveTypeChar]
+              SingleConstDeclArray(
+               c
+                ConstExprChar(
+                 c
+                ) [ConstExprChar]
+              ) [SingleConstDeclArray]
+            ) [ConstDecl]
+          ) [PreMethodDeclConst]
+        ) [NonEmptyPreMethodDeclList]
+        PreMethodDeclConst(
+          ConstDecl(
+            PrimitiveTypeChar(
+            ) [PrimitiveTypeChar]
+            SingleConstDeclArray(
+             d
+              ConstExprInt(
+               99
+              ) [ConstExprInt]
+            ) [SingleConstDeclArray]
+          ) [ConstDecl]
+        ) [PreMethodDeclConst]
+      ) [NonEmptyPreMethodDeclList]
+      PreMethodDeclConst(
+        ConstDecl(
+          PrimitiveTypeBool(
+          ) [PrimitiveTypeBool]
+          SingleConstDeclArray(
+           te
+            ConstExprBool(
+              BoolValueTrue(
+              ) [BoolValueTrue]
+            ) [ConstExprBool]
+          ) [SingleConstDeclArray]
+        ) [ConstDecl]
+      ) [PreMethodDeclConst]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclError(
+    ) [PreMethodDeclError]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  19:42:53,945 - ===================================

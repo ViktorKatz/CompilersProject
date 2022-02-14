@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 13/1/2022 19:11:26
+// 14/1/2022 23:5:49
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,16 +9,14 @@ public class MethodDecl implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
-    private TypeOrVoid TypeOrVoid;
-    private String I2;
+    private MethodSignature MethodSignature;
     private FormPars FormPars;
     private OptionalVarDeclsList OptionalVarDeclsList;
     private BlockOfStatements BlockOfStatements;
 
-    public MethodDecl (TypeOrVoid TypeOrVoid, String I2, FormPars FormPars, OptionalVarDeclsList OptionalVarDeclsList, BlockOfStatements BlockOfStatements) {
-        this.TypeOrVoid=TypeOrVoid;
-        if(TypeOrVoid!=null) TypeOrVoid.setParent(this);
-        this.I2=I2;
+    public MethodDecl (MethodSignature MethodSignature, FormPars FormPars, OptionalVarDeclsList OptionalVarDeclsList, BlockOfStatements BlockOfStatements) {
+        this.MethodSignature=MethodSignature;
+        if(MethodSignature!=null) MethodSignature.setParent(this);
         this.FormPars=FormPars;
         if(FormPars!=null) FormPars.setParent(this);
         this.OptionalVarDeclsList=OptionalVarDeclsList;
@@ -27,20 +25,12 @@ public class MethodDecl implements SyntaxNode {
         if(BlockOfStatements!=null) BlockOfStatements.setParent(this);
     }
 
-    public TypeOrVoid getTypeOrVoid() {
-        return TypeOrVoid;
+    public MethodSignature getMethodSignature() {
+        return MethodSignature;
     }
 
-    public void setTypeOrVoid(TypeOrVoid TypeOrVoid) {
-        this.TypeOrVoid=TypeOrVoid;
-    }
-
-    public String getI2() {
-        return I2;
-    }
-
-    public void setI2(String I2) {
-        this.I2=I2;
+    public void setMethodSignature(MethodSignature MethodSignature) {
+        this.MethodSignature=MethodSignature;
     }
 
     public FormPars getFormPars() {
@@ -88,7 +78,7 @@ public class MethodDecl implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(TypeOrVoid!=null) TypeOrVoid.accept(visitor);
+        if(MethodSignature!=null) MethodSignature.accept(visitor);
         if(FormPars!=null) FormPars.accept(visitor);
         if(OptionalVarDeclsList!=null) OptionalVarDeclsList.accept(visitor);
         if(BlockOfStatements!=null) BlockOfStatements.accept(visitor);
@@ -96,14 +86,14 @@ public class MethodDecl implements SyntaxNode {
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(TypeOrVoid!=null) TypeOrVoid.traverseTopDown(visitor);
+        if(MethodSignature!=null) MethodSignature.traverseTopDown(visitor);
         if(FormPars!=null) FormPars.traverseTopDown(visitor);
         if(OptionalVarDeclsList!=null) OptionalVarDeclsList.traverseTopDown(visitor);
         if(BlockOfStatements!=null) BlockOfStatements.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(TypeOrVoid!=null) TypeOrVoid.traverseBottomUp(visitor);
+        if(MethodSignature!=null) MethodSignature.traverseBottomUp(visitor);
         if(FormPars!=null) FormPars.traverseBottomUp(visitor);
         if(OptionalVarDeclsList!=null) OptionalVarDeclsList.traverseBottomUp(visitor);
         if(BlockOfStatements!=null) BlockOfStatements.traverseBottomUp(visitor);
@@ -115,13 +105,10 @@ public class MethodDecl implements SyntaxNode {
         buffer.append(tab);
         buffer.append("MethodDecl(\n");
 
-        if(TypeOrVoid!=null)
-            buffer.append(TypeOrVoid.toString("  "+tab));
+        if(MethodSignature!=null)
+            buffer.append(MethodSignature.toString("  "+tab));
         else
             buffer.append(tab+"  null");
-        buffer.append("\n");
-
-        buffer.append(" "+tab+I2);
         buffer.append("\n");
 
         if(FormPars!=null)

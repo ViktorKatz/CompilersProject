@@ -1,0 +1,40 @@
+INFO  22:25:28,269 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  22:25:28,284 - #2 program
+INFO  22:25:28,284 - #54 MJAUProgram
+INFO  22:25:28,284 - #7 const
+INFO  22:25:28,285 - #49 int
+INFO  22:25:28,285 - #54 a
+INFO  22:25:28,285 - #40 =
+INFO  22:25:28,285 - #53 5
+INFO  22:25:28,286 - #41 ;
+INFO  22:25:28,286 - #7 const
+INFO  22:25:28,286 - #51 bool
+INFO  22:25:28,286 - #54 b
+INFO  22:25:28,286 - #40 =
+INFO  22:25:28,286 - #15 true
+INFO  22:25:28,287 - #41 ;
+INFO  22:25:28,289 - #45 {
+INFO  22:25:28,289 - #46 }
+INFO  22:25:28,291 - Program(
+ MJAUProgram
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      EmptyPreMethodDeclList(
+      ) [EmptyPreMethodDeclList]
+      PreMethodDeclConst(
+        ConstIntDecl(
+         a
+         5
+        ) [ConstIntDecl]
+      ) [PreMethodDeclConst]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclConst(
+      ConstBoolDecl(
+       b
+        BoolValueTrue(
+        ) [BoolValueTrue]
+      ) [ConstBoolDecl]
+    ) [PreMethodDeclConst]
+  ) [NonEmptyPreMethodDeclList]
+) [Program]
+INFO  22:25:28,292 - ===================================

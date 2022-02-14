@@ -1,0 +1,65 @@
+INFO  22:44:38,457 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  22:44:38,477 - #2 program
+INFO  22:44:38,477 - #54 MJAUProgram
+INFO  22:44:38,478 - #49 int
+INFO  22:44:38,478 - #54 a
+INFO  22:44:38,480 - #42 ,
+INFO  22:44:38,480 - #54 b
+INFO  22:44:38,480 - #42 ,
+INFO  22:44:38,480 - #54 c
+INFO  22:44:38,480 - #42 ,
+INFO  22:44:38,481 - #54 t
+INFO  22:44:38,481 - #41 ;
+INFO  22:44:38,481 - #50 char
+INFO  22:44:38,482 - #54 agh
+INFO  22:44:38,484 - #42 ,
+INFO  22:44:38,484 - #54 gd
+INFO  22:44:38,484 - #47 [
+INFO  22:44:38,484 - #53 5
+ERROR 22:44:38,484 - 
+Sintaksna greska na liniji 3
+INFO  22:44:38,484 - #48 ]
+INFO  22:44:38,484 - #41 ;
+INFO  22:44:38,484 - #45 {
+INFO  22:44:38,486 - #46 }
+ERROR 22:44:38,486 - Greska u deklaraciji u liniji 3.
+INFO  22:44:38,488 - Program(
+ MJAUProgram
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      EmptyPreMethodDeclList(
+      ) [EmptyPreMethodDeclList]
+      PreMethodDeclVar(
+        VarDecls(
+          TypePrimitive(
+            PrimitiveType(
+            ) [PrimitiveType]
+          ) [TypePrimitive]
+          MultiVar(
+            MultiVar(
+              MultiVar(
+                SingleVar(
+                  VarDeclNotArr(
+                   a
+                  ) [VarDeclNotArr]
+                ) [SingleVar]
+                VarDeclNotArr(
+                 b
+                ) [VarDeclNotArr]
+              ) [MultiVar]
+              VarDeclNotArr(
+               c
+              ) [VarDeclNotArr]
+            ) [MultiVar]
+            VarDeclNotArr(
+             t
+            ) [VarDeclNotArr]
+          ) [MultiVar]
+        ) [VarDecls]
+      ) [PreMethodDeclVar]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclError(
+    ) [PreMethodDeclError]
+  ) [NonEmptyPreMethodDeclList]
+) [Program]
+INFO  22:44:38,488 - ===================================

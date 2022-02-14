@@ -1,0 +1,191 @@
+INFO  16:25:12,492 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  16:25:12,551 - #2 program
+INFO  16:25:12,551 - #55 MJAUProgram
+INFO  16:25:12,551 - #46 {
+INFO  16:25:12,552 - #6 void
+INFO  16:25:12,553 - #55 metoda
+INFO  16:25:12,554 - #44 (
+INFO  16:25:12,554 - #45 )
+INFO  16:25:12,555 - #46 {
+INFO  16:25:12,555 - #55 label1
+INFO  16:25:12,556 - #42 :
+INFO  16:25:12,557 - #55 b
+INFO  16:25:12,557 - #40 =
+INFO  16:25:12,558 - #55 asd
+INFO  16:25:12,558 - #35 +
+INFO  16:25:12,559 - #54 7
+INFO  16:25:12,560 - #41 ;
+INFO  16:25:12,560 - #55 label2
+INFO  16:25:12,561 - #42 :
+INFO  16:25:12,561 - #55 a
+INFO  16:25:12,561 - #40 =
+INFO  16:25:12,561 - #55 asdweq
+INFO  16:25:12,562 - #41 ;
+INFO  16:25:12,562 - #46 {
+INFO  16:25:12,562 - #55 label3
+INFO  16:25:12,563 - #42 :
+INFO  16:25:12,563 - #55 sad
+INFO  16:25:12,563 - #33 ++
+INFO  16:25:12,563 - #41 ;
+INFO  16:25:12,563 - #55 b
+INFO  16:25:12,563 - #40 =
+INFO  16:25:12,563 - #55 a
+INFO  16:25:12,563 - #35 +
+INFO  16:25:12,563 - #54 2
+INFO  16:25:12,563 - #41 ;
+INFO  16:25:12,563 - #14 goto
+INFO  16:25:12,563 - #55 label2
+INFO  16:25:12,563 - #41 ;
+INFO  16:25:12,563 - #47 }
+INFO  16:25:12,564 - #47 }
+INFO  16:25:12,565 - #47 }
+INFO  16:25:12,567 - Program(
+ MJAUProgram
+  EmptyPreMethodDeclList(
+  ) [EmptyPreMethodDeclList]
+  MethodDecls(
+    NoMethodDecls(
+    ) [NoMethodDecls]
+    MethodDecl(
+      VoidType(
+      ) [VoidType]
+     metoda
+      NoFormalParams(
+      ) [NoFormalParams]
+      NoVarDeclsList(
+      ) [NoVarDeclsList]
+      BlockOfStatements(
+        NonEmptyStatementListBlck(
+          NonEmptyStatementListStmt(
+            NonEmptyStatementListStmt(
+              EmptyStatementList(
+              ) [EmptyStatementList]
+              StatementWithLabel(
+                Label(
+                 label1
+                ) [Label]
+                DesignatorStmt(
+                  DesignatorStatementAssign(
+                    Designator(
+                     b
+                      DesignationNone(
+                      ) [DesignationNone]
+                    ) [Designator]
+                    MultiAddOpExpr(
+                      SingleFactorTerm(
+                        FactorDesignator(
+                          Designator(
+                           asd
+                            DesignationNone(
+                            ) [DesignationNone]
+                          ) [Designator]
+                        ) [FactorDesignator]
+                      ) [SingleFactorTerm]
+                      LastTerm(
+                        AddOpPlus(
+                        ) [AddOpPlus]
+                        SingleFactorTerm(
+                          FactorNumberConst(
+                           7
+                          ) [FactorNumberConst]
+                        ) [SingleFactorTerm]
+                      ) [LastTerm]
+                    ) [MultiAddOpExpr]
+                  ) [DesignatorStatementAssign]
+                ) [DesignatorStmt]
+              ) [StatementWithLabel]
+            ) [NonEmptyStatementListStmt]
+            StatementWithLabel(
+              Label(
+               label2
+              ) [Label]
+              DesignatorStmt(
+                DesignatorStatementAssign(
+                  Designator(
+                   a
+                    DesignationNone(
+                    ) [DesignationNone]
+                  ) [Designator]
+                  JustTermExpr(
+                    SingleFactorTerm(
+                      FactorDesignator(
+                        Designator(
+                         asdweq
+                          DesignationNone(
+                          ) [DesignationNone]
+                        ) [Designator]
+                      ) [FactorDesignator]
+                    ) [SingleFactorTerm]
+                  ) [JustTermExpr]
+                ) [DesignatorStatementAssign]
+              ) [DesignatorStmt]
+            ) [StatementWithLabel]
+          ) [NonEmptyStatementListStmt]
+          BlockOfStatements(
+            NonEmptyStatementListStmt(
+              NonEmptyStatementListStmt(
+                NonEmptyStatementListStmt(
+                  EmptyStatementList(
+                  ) [EmptyStatementList]
+                  StatementWithLabel(
+                    Label(
+                     label3
+                    ) [Label]
+                    DesignatorStmt(
+                      DesignatorStatementInc(
+                        Designator(
+                         sad
+                          DesignationNone(
+                          ) [DesignationNone]
+                        ) [Designator]
+                      ) [DesignatorStatementInc]
+                    ) [DesignatorStmt]
+                  ) [StatementWithLabel]
+                ) [NonEmptyStatementListStmt]
+                StatementWithoutLabel(
+                  DesignatorStmt(
+                    DesignatorStatementAssign(
+                      Designator(
+                       b
+                        DesignationNone(
+                        ) [DesignationNone]
+                      ) [Designator]
+                      MultiAddOpExpr(
+                        SingleFactorTerm(
+                          FactorDesignator(
+                            Designator(
+                             a
+                              DesignationNone(
+                              ) [DesignationNone]
+                            ) [Designator]
+                          ) [FactorDesignator]
+                        ) [SingleFactorTerm]
+                        LastTerm(
+                          AddOpPlus(
+                          ) [AddOpPlus]
+                          SingleFactorTerm(
+                            FactorNumberConst(
+                             2
+                            ) [FactorNumberConst]
+                          ) [SingleFactorTerm]
+                        ) [LastTerm]
+                      ) [MultiAddOpExpr]
+                    ) [DesignatorStatementAssign]
+                  ) [DesignatorStmt]
+                ) [StatementWithoutLabel]
+              ) [NonEmptyStatementListStmt]
+              StatementWithoutLabel(
+                GotoStmt(
+                  Label(
+                   label2
+                  ) [Label]
+                ) [GotoStmt]
+              ) [StatementWithoutLabel]
+            ) [NonEmptyStatementListStmt]
+          ) [BlockOfStatements]
+        ) [NonEmptyStatementListBlck]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+  ) [MethodDecls]
+) [Program]
+INFO  16:25:12,568 - ===================================

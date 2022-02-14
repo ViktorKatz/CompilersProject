@@ -1,0 +1,82 @@
+INFO  22:19:53,475 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  22:19:53,585 - #2 program
+INFO  22:19:53,585 - #54 MJAUProgram
+INFO  22:19:53,585 - #17 class
+INFO  22:19:53,587 - #54 Sipak
+INFO  22:19:53,588 - #45 {
+INFO  22:19:53,591 - #49 int
+INFO  22:19:53,592 - #54 a
+INFO  22:19:53,594 - #42 ,
+INFO  22:19:53,595 - #54 b
+INFO  22:19:53,595 - #42 ,
+INFO  22:19:53,595 - #54 f
+INFO  22:19:53,596 - #40 ;
+INFO  22:19:53,596 - #46 }
+INFO  22:19:53,598 - #54 Sipak
+INFO  22:19:53,601 - #54 s
+INFO  22:19:53,602 - #40 ;
+INFO  22:19:53,602 - #45 {
+INFO  22:19:53,603 - #46 }
+INFO  22:19:53,608 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      EmptyPreMethodDeclList(
+      ) [EmptyPreMethodDeclList]
+      PreMethodDeclClass(
+        ClassDecl(
+          ClassName(
+           Sipak
+          ) [ClassName]
+          NoClassExtension(
+          ) [NoClassExtension]
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            MultiVar(
+              MultiVar(
+                SingleVar(
+                  VarDeclNotArr(
+                   a
+                  ) [VarDeclNotArr]
+                ) [SingleVar]
+                VarDeclNotArr(
+                 b
+                ) [VarDeclNotArr]
+              ) [MultiVar]
+              VarDeclNotArr(
+               f
+              ) [VarDeclNotArr]
+            ) [MultiVar]
+          ) [VarDecls]
+          NoClassBody(
+          ) [NoClassBody]
+        ) [ClassDecl]
+      ) [PreMethodDeclClass]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypeNonPrimitive(
+         Sipak
+        ) [TypeNonPrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           s
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  NoMethodDecls(
+  ) [NoMethodDecls]
+) [Program]
+INFO  22:19:53,610 - ===================================
+INFO  22:19:53,622 - Deklarisan(a) klasni tip Sipak na liniji 2
+INFO  22:19:53,622 - Deklarisan(a) polje f na liniji 4
+INFO  22:19:53,622 - Deklarisan(a) polje b na liniji 4
+INFO  22:19:53,622 - Deklarisan(a) polje a na liniji 4
+INFO  22:19:53,623 - Deklarisan(a) promenljiva s na liniji 6
