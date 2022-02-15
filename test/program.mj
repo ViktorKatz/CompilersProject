@@ -9,13 +9,15 @@ r seccc;
 char c;
 int niz[];
 {	
-	void method(int i, bool j){
+	int method(int i, bool j){
+		return i + 3;
 	}
 
 	void main(int i, int j)
 	{
-		a=-b+2%b+6*2/5%b-7 + reccc.a + niz[2+b%3];
+		a=-b+2%b+6*2/5%b-7 + reccc.a + niz[2+b%3] + method(3,false);
 		method(3, false);
+		break;
 	}
 	
 }

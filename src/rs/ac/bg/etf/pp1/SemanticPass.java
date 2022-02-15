@@ -276,6 +276,7 @@ public class SemanticPass extends VisitorAdaptor {
 		currentMethodLocals = new HashTableDataStructure();
 		methodSignature.obj = currentMethod;
 		Tab.openScope();
+		returnFound = false;
 		report_info("Obradjuje se funkcija " + methodSignature.getMethName(), methodSignature);
 	}
 
@@ -621,6 +622,44 @@ public class SemanticPass extends VisitorAdaptor {
 			}
 		} catch (NoSuchElementException e) {
 			report_error("Ne poklapa se broj formalnih parametara sa brojem stvarnih parametara", stmt);
+		}
+	}
+	
+	public void visit(ReturnStmt stmt) {
+		if(currentMethod == null) {
+			report_error("Return se mora nalaziti unutar funkcije, a ne ovde", stmt);
+		}
+		
+		if(!currentMethod.getType().compatibleWith(stmt.getExpr().struct)) {
+			report_error("Ne moze se taj tip vratiti", stmt);
+		}
+		
+		returnFound = true;
+	}
+	
+	public void visit(BreakStmt stmt) {
+		boolean valid = false;
+		for(SyntaxNode ancestor = stmt.getParent(); ancestor!=null; ancestor = ancestor.getParent()) {
+			if(ancestor instanceof DoWhileStmt) {
+				valid = true;
+				return;
+			}
+		}
+		if(!valid) {
+			report_error("Break moze da stoji samo unutar petlje, a ne ovde", stmt);
+		}
+	}
+	
+	public void visit(ContinueStmt stmt) {
+		boolean valid = false;
+		for(SyntaxNode ancestor = stmt.getParent(); ancestor!=null; ancestor = ancestor.getParent()) {
+			if(ancestor instanceof DoWhileStmt) {
+				valid = true;
+				return;
+			}
+		}
+		if(!valid) {
+			report_error("Continue moze da stoji samo unutar petlje, a ne ovde", stmt);
 		}
 	}
 
