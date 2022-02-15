@@ -391,7 +391,37 @@ public class SemanticPass extends VisitorAdaptor {
 				return;
 			}
 		}
-		f.struct = f.getDesignator().obj.getType();
+		Designator methodDesignator = f.getDesignator();
+		f.struct = methodDesignator.obj.getType();
+		
+		OptionalActPars actualPars = f.getOptionalActPars();
+		Collection c = methodDesignator.obj.getLocalSymbols();
+		Iterator i = c.iterator();
+
+		try {
+			// Count actual pars
+			int numOfPars = 0;
+			if (actualPars instanceof YesActPars) {
+				ActPars ac = ((YesActPars) actualPars).getActPars();
+				while (ac instanceof NonLastExprActPar) {
+					if (((NonLastExprActPar) ac).getExpr().struct != ((Obj) i.next()).getType()) {
+						report_error("Ne poklapaju se svi tipovi", actualPars);
+					}
+					++numOfPars;
+					ac = ((NonLastExprActPar) ac).getActPars();
+				}
+				if (((LastExprActPars) ac).getExpr().struct != ((Obj) i.next()).getType()) {
+					report_error("Ne poklapaju se svi tipovi", actualPars);
+				}
+				++numOfPars;
+			}
+
+			if (methodDesignator.obj.getLevel() != numOfPars) {
+				report_error("Ne poklapa se broj formalnih parametara sa brojem stvarnih parametara", methodDesignator);
+			}
+		} catch (NoSuchElementException e) {
+			report_error("Ne poklapa se broj formalnih parametara sa brojem stvarnih parametara", methodDesignator);
+		}
 	}
 
 	public void visit(MultiFactorTerm multiFactorTerm) {
