@@ -14,10 +14,11 @@ public class SemanticPass extends VisitorAdaptor {
 
 	Logger log = Logger.getLogger(getClass());
 	boolean errorDetected = false;
-	
+
 	Obj currentMethod = null;
+	SymbolDataStructure currentMethodLocals = null;
 	boolean returnFound = false;
-	
+
 	Stack classNesting = new Stack();
 	Stack classNestingSymbolData = new Stack();
 
@@ -54,12 +55,14 @@ public class SemanticPass extends VisitorAdaptor {
 			report_error("Vec je deklarisano " + name, info);
 			return Tab.noObj;
 		}
-		
+
 		Obj inserted = Tab.insert(kind, name, type);
-		
-		if(!classNesting.empty()) {
+
+		if (currentMethod != null) {
+			currentMethodLocals.insertKey(inserted);
+		} else if (!classNesting.empty()) {
 			kind = Obj.Fld;
-			SymbolDataStructure currentClassData = (SymbolDataStructure)classNestingSymbolData.peek();
+			SymbolDataStructure currentClassData = (SymbolDataStructure) classNestingSymbolData.peek();
 			currentClassData.insertKey(inserted);
 		}
 
@@ -67,7 +70,7 @@ public class SemanticPass extends VisitorAdaptor {
 				: kind == Obj.Con ? "konstanta"
 						: kind == Obj.Meth ? "metoda"
 								: kind == Obj.Type ? "klasni tip" : kind == Obj.Fld ? "polje" : "element";
-		
+
 		report_info("Deklarisan(a) " + tip + " " + name, info);
 		return inserted;
 	}
@@ -213,31 +216,37 @@ public class SemanticPass extends VisitorAdaptor {
 	}
 
 	public void visit(RecordIdent recordIdent) {
-		recordIdent.obj = insertOrFail(Obj.Var, recordIdent.getRecordTypeName(), new Struct(Struct.Class), recordIdent);
+		recordIdent.obj = insertOrFail(Obj.Type, recordIdent.getRecordTypeName(), new Struct(Struct.Class), recordIdent);
 		Tab.openScope();
+		
+		classNesting.push(recordIdent.obj.getType());
+		classNestingSymbolData.push(new HashTableDataStructure());
 	}
 
 	public void visit(RecordDecl recordDecl) {
 		Tab.chainLocalSymbols(recordDecl.getRecordIdent().obj);
 		Tab.closeScope();
+		
+		Struct currentRecord = (Struct) classNesting.pop();
+		currentRecord.setMembers((SymbolDataStructure) classNestingSymbolData.pop());
 	}
 
 	public void visit(ClassName className) {
 		className.obj = insertOrFail(Obj.Type, className.getClassNameString(), new Struct(Struct.Class), className);
 		Tab.openScope();
-		
+
 		classNesting.push(className.obj.getType());
 		classNestingSymbolData.push(new HashTableDataStructure());
 	}
-	
+
 	public void visit(ClassDecl classDecl) {
 		Tab.chainLocalSymbols(classDecl.getClassName().obj);
 		Tab.closeScope();
-		
-		Struct currentClass = (Struct)classNesting.pop();
-		currentClass.setMembers((SymbolDataStructure)classNestingSymbolData.pop());
+
+		Struct currentClass = (Struct) classNesting.pop();
+		currentClass.setMembers((SymbolDataStructure) classNestingSymbolData.pop());
 	}
-	
+
 	public void visit(TypeOrVoid typeOrVoid) {
 		if (typeOrVoid instanceof VoidType) {
 			Obj primitiveTypeVoidNode = Tab.find("void");
@@ -247,32 +256,94 @@ public class SemanticPass extends VisitorAdaptor {
 			typeOrVoid.struct = notVoidType.getType().struct;
 		}
 	}
-	
+
 	public void visit(VoidType voidType) {
 		Obj primitiveTypeVoidNode = Tab.find("void");
 		voidType.struct = primitiveTypeVoidNode.getType();
 	}
-	
+
 	public void visit(NotVoidType notVoidType) {
 		notVoidType.struct = notVoidType.getType().struct;
 	}
-	
+
 	public void visit(MethodSignature methodSignature) {
-		currentMethod = Tab.insert(Obj.Meth, methodSignature.getMethName(), methodSignature.getTypeOrVoid().struct);
+		currentMethod = insertOrFail(Obj.Meth, methodSignature.getMethName(), methodSignature.getTypeOrVoid().struct,
+				methodSignature);
+		currentMethodLocals = new HashTableDataStructure();
 		methodSignature.obj = currentMethod;
 		Tab.openScope();
 		report_info("Obradjuje se funkcija " + methodSignature.getMethName(), methodSignature);
 	}
-	
+
 	public void visit(MethodDecl methodDecl) {
-		if(!returnFound && currentMethod.getType() != Tab.find("void").getType()){
-			report_error("Semanticka greska na liniji " + methodDecl.getLine() + ": funkcija " + currentMethod.getName() + " nema return iskaz!", null);
-    	}
-		
+		if (!returnFound && currentMethod.getType() != Tab.find("void").getType()) {
+			report_error("Semanticka greska na liniji " + methodDecl.getLine() + ": funkcija " + currentMethod.getName()
+					+ " nema return iskaz!", null);
+		}
+
 		Tab.chainLocalSymbols(currentMethod);
 		Tab.closeScope();
 		report_info("Gotova obrada funkcije " + methodDecl.getMethodSignature().getMethName(), methodDecl);
 		currentMethod = null;
+		currentMethodLocals = null;
 	}
+
+	public void visit(YesFormalParams yesFormalParams) {
+		FormParsList formParsListIterator = yesFormalParams.getFormParsList();
+
+		int numberOfFormalParams = 0;
+
+		while (formParsListIterator instanceof MultiFormalParam) {
+			MultiFormalParam multiFormalParam = (MultiFormalParam) formParsListIterator;
+
+			Struct type = multiFormalParam.getType().struct;
+			VarDecl varDecl = multiFormalParam.getVarDecl();
+
+			if (varDecl instanceof VarDeclNotArr) {
+				VarDeclNotArr varDeclNotArr = (VarDeclNotArr) varDecl;
+				insertOrFail(Obj.Var, varDeclNotArr.getVarName(), type, yesFormalParams).setFpPos(numberOfFormalParams);
+			} else if (varDecl instanceof VarDeclArr) {
+				VarDeclArr varDeclArr = (VarDeclArr) varDecl;
+				insertOrFail(Obj.Var, varDeclArr.getVarName(),
+						Tab.insert(Obj.Type, structKindToString(type.getKind()) + "ArrType",
+								new Struct(Struct.Array, type)).getType(),
+						yesFormalParams).setFpPos(numberOfFormalParams);
+			} else {
+				report_error("WTF, ovo nije ni Array ni NotArray", varDecl);
+			}
+
+			++numberOfFormalParams;
+			formParsListIterator = multiFormalParam.getFormParsList();
+		}
+
+		// Sigurno SingleFormalParam
+
+		SingleFormalParam singleFormalParam = (SingleFormalParam) formParsListIterator;
+
+		Struct type = singleFormalParam.getType().struct;
+		VarDecl varDecl = singleFormalParam.getVarDecl();
+
+		if (varDecl instanceof VarDeclNotArr) {
+			VarDeclNotArr varDeclNotArr = (VarDeclNotArr) varDecl;
+			insertOrFail(Obj.Var, varDeclNotArr.getVarName(), type, yesFormalParams).setFpPos(numberOfFormalParams);
+		} else if (varDecl instanceof VarDeclArr) {
+			VarDeclArr varDeclArr = (VarDeclArr) varDecl;
+			insertOrFail(Obj.Var, varDeclArr.getVarName(),
+					Tab.insert(Obj.Type, structKindToString(type.getKind()) + "ArrType", new Struct(Struct.Array, type))
+							.getType(),
+					yesFormalParams).setFpPos(numberOfFormalParams);
+		} else {
+			report_error("WTF, ovo nije ni Array ni NotArray", varDecl);
+		}
+
+		++numberOfFormalParams;
+		currentMethod.setLevel(numberOfFormalParams);
+	}
+
+	/////////////////// STATEMENTS START ////////////////////////
+
 	
+	
+	/////////////////// STATEMENTS END ////////////////////////
+
 }

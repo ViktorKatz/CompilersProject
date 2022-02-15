@@ -53,13 +53,14 @@ terminal Character CHARACTER;
 nonterminal PreMethodDeclList, PreMethodDecl, BoolValue;
 nonterminal VarDecls, VarList, VarDecl, ConstDecl, ConstDeclArray, ConstExpr, VarDeclsList;
 nonterminal MethodDeclList, MethodDecl, FormPars, OptionalVarDeclsList, FormParsList;
-nonterminal BlockOfStatements, StatementList, Label, Statement, StatementOrBlockOfStatements, NonLabeledStatement;
+nonterminal StatementList, Label, Statement, StatementOrBlockOfStatements, NonLabeledStatement;
 nonterminal DesignatorStatement, Expr, OptionalActPars, ActPars, Designator, DesignationList;
 nonterminal Term, AdditionTermList, AddOp, MultipleFactorList, MulOp, Factor;
 nonterminal Condition, CondTerm, CondFact, RelOp;
 nonterminal ClassExtension, ClassBody, ClassConstructor;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, RecordIdent, RecordDecl, ClassName, ClassDecl, MethodSignature;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj BlockOfStatementsStart, BlockOfStatements;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, PrimitiveType, TypeOrVoid;
 
 precedence left ELSE;
@@ -146,7 +147,9 @@ OptionalVarDeclsList ::= (YesVarDeclsList) VarDeclsList
 StatementOrBlockOfStatements ::= (SingleStatement) Statement
 							   | (MultiStatement) BlockOfStatements;
 	   
-BlockOfStatements ::= (BlockOfStatements) LBRACE StatementList RBRACE;
+BlockOfStatements ::= (BlockOfStatements) BlockOfStatementsStart StatementList RBRACE;
+
+BlockOfStatementsStart ::= (BlockOfStatementsStart) LBRACE;
 
 StatementList ::= (NonEmptyStatementListStmt) StatementList Statement
 				| (NonEmptyStatementListBlck) StatementList BlockOfStatements
@@ -190,7 +193,7 @@ DesignatorStatement ::= (DesignatorStatementAssign) Designator EQUAL Expr
 					  | (DesignatorStatementInc) Designator PLUS_PLUS
 					  | (DesignatorStatementDec) Designator MINUS_MINUS;
 					  
-Designator ::= (DesignatorIdent) IDENT DesignationList
+Designator ::= (DesignatorIdent) IDENT:designatorName DesignationList
 			 | (DesignatorThis) THIS DesignationList 		/* Just a guess, TODO check if proper */
 			 | (DesignatorSuper) SUPER DesignationList;		/* Just a guess, TODO check if proper */
 
@@ -230,7 +233,7 @@ OptionalActPars ::= (YesActPars) ActPars
 				  | (NoActPars);
 
 ActPars ::= (LastExprActPars) Expr
-		  | (NonLastExprActPar) Expr COMMA ActPars;
+		  | (NonLastExprActPar) ActPars COMMA Expr;
 		  
 
 

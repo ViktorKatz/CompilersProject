@@ -1,50 +1,78 @@
-INFO  23:08:24,991 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
-INFO  23:08:25,164 - #2 program
-INFO  23:08:25,165 - #54 MJAUProgram
-INFO  23:08:25,165 - #17 class
-INFO  23:08:25,168 - #54 Sipak
-INFO  23:08:25,168 - #45 {
-INFO  23:08:25,170 - #49 int
-INFO  23:08:25,171 - #54 a
-INFO  23:08:25,173 - #42 ,
-INFO  23:08:25,173 - #54 b
-INFO  23:08:25,173 - #42 ,
-INFO  23:08:25,174 - #54 f
-INFO  23:08:25,174 - #40 ;
-INFO  23:08:25,174 - #50 char
-INFO  23:08:25,176 - #54 c
-INFO  23:08:25,177 - #40 ;
-INFO  23:08:25,177 - #46 }
-INFO  23:08:25,179 - #45 {
-INFO  23:08:25,182 - #6 void
-INFO  23:08:25,182 - #54 metoda
-INFO  23:08:25,183 - #43 (
-INFO  23:08:25,185 - #44 )
-INFO  23:08:25,187 - #45 {
-INFO  23:08:25,188 - #46 }
-INFO  23:08:25,189 - #46 }
-INFO  23:08:25,196 - Program(
+INFO  01:02:24,971 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  01:02:25,068 - #2 program
+INFO  01:02:25,068 - #54 MJAUProgram
+INFO  01:02:25,068 - #49 int
+INFO  01:02:25,071 - #54 a
+INFO  01:02:25,073 - #40 ;
+INFO  01:02:25,074 - #21 record
+INFO  01:02:25,075 - #54 r
+INFO  01:02:25,075 - #45 {
+INFO  01:02:25,076 - #49 int
+INFO  01:02:25,077 - #54 a
+INFO  01:02:25,077 - #42 ,
+INFO  01:02:25,077 - #54 b
+INFO  01:02:25,077 - #40 ;
+INFO  01:02:25,077 - #46 }
+INFO  01:02:25,077 - #54 r
+INFO  01:02:25,079 - #54 reccc
+INFO  01:02:25,079 - #40 ;
+INFO  01:02:25,079 - #54 r
+INFO  01:02:25,079 - #54 seccc
+INFO  01:02:25,079 - #40 ;
+INFO  01:02:25,079 - #45 {
+INFO  01:02:25,081 - #6 void
+INFO  01:02:25,081 - #54 main
+INFO  01:02:25,082 - #43 (
+INFO  01:02:25,082 - #49 int
+INFO  01:02:25,083 - #54 i
+INFO  01:02:25,083 - #42 ,
+INFO  01:02:25,083 - #49 int
+INFO  01:02:25,083 - #54 j
+INFO  01:02:25,083 - #44 )
+INFO  01:02:25,084 - #45 {
+INFO  01:02:25,085 - #54 a
+INFO  01:02:25,086 - #39 =
+INFO  01:02:25,088 - #53 2
+INFO  01:02:25,088 - #34 +
+INFO  01:02:25,089 - #53 2
+INFO  01:02:25,090 - #40 ;
+INFO  01:02:25,090 - #46 }
+INFO  01:02:25,091 - #46 }
+INFO  01:02:25,095 - Program(
   ProgName(
    MJAUProgram
   ) [ProgName]
   NonEmptyPreMethodDeclList(
-    EmptyPreMethodDeclList(
-    ) [EmptyPreMethodDeclList]
-    PreMethodDeclClass(
-      ClassDecl(
-        ClassName(
-         Sipak
-        ) [ClassName]
-        NoClassExtension(
-        ) [NoClassExtension]
-        MultiVarDecls(
-          SingleVarDecls(
+    NonEmptyPreMethodDeclList(
+      NonEmptyPreMethodDeclList(
+        NonEmptyPreMethodDeclList(
+          EmptyPreMethodDeclList(
+          ) [EmptyPreMethodDeclList]
+          PreMethodDeclVar(
             VarDecls(
               TypePrimitive(
                 PrimitiveTypeInt(
                 ) [PrimitiveTypeInt]
               ) [TypePrimitive]
-              MultiVar(
+              SingleVar(
+                VarDeclNotArr(
+                 a
+                ) [VarDeclNotArr]
+              ) [SingleVar]
+            ) [VarDecls]
+          ) [PreMethodDeclVar]
+        ) [NonEmptyPreMethodDeclList]
+        PreMethodDeclRecord(
+          RecordDecl(
+            RecordIdent(
+             r
+            ) [RecordIdent]
+            SingleVarDecls(
+              VarDecls(
+                TypePrimitive(
+                  PrimitiveTypeInt(
+                  ) [PrimitiveTypeInt]
+                ) [TypePrimitive]
                 MultiVar(
                   SingleVar(
                     VarDeclNotArr(
@@ -55,54 +83,115 @@ INFO  23:08:25,196 - Program(
                    b
                   ) [VarDeclNotArr]
                 ) [MultiVar]
-                VarDeclNotArr(
-                 f
-                ) [VarDeclNotArr]
-              ) [MultiVar]
-            ) [VarDecls]
-          ) [SingleVarDecls]
-          VarDecls(
-            TypePrimitive(
-              PrimitiveTypeChar(
-              ) [PrimitiveTypeChar]
-            ) [TypePrimitive]
-            SingleVar(
-              VarDeclNotArr(
-               c
-              ) [VarDeclNotArr]
-            ) [SingleVar]
-          ) [VarDecls]
-        ) [MultiVarDecls]
-        NoClassBody(
-        ) [NoClassBody]
-      ) [ClassDecl]
-    ) [PreMethodDeclClass]
+              ) [VarDecls]
+            ) [SingleVarDecls]
+          ) [RecordDecl]
+        ) [PreMethodDeclRecord]
+      ) [NonEmptyPreMethodDeclList]
+      PreMethodDeclVar(
+        VarDecls(
+          TypeNonPrimitive(
+           r
+          ) [TypeNonPrimitive]
+          SingleVar(
+            VarDeclNotArr(
+             reccc
+            ) [VarDeclNotArr]
+          ) [SingleVar]
+        ) [VarDecls]
+      ) [PreMethodDeclVar]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypeNonPrimitive(
+         r
+        ) [TypeNonPrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           seccc
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
   ) [NonEmptyPreMethodDeclList]
   MethodDecls(
     MethodDecl(
       MethodSignature(
         VoidType(
         ) [VoidType]
-       metoda
+       main
       ) [MethodSignature]
-      NoFormalParams(
-      ) [NoFormalParams]
+      YesFormalParams(
+        MultiFormalParam(
+          SingleFormalParam(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            VarDeclNotArr(
+             i
+            ) [VarDeclNotArr]
+          ) [SingleFormalParam]
+          TypePrimitive(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+          ) [TypePrimitive]
+          VarDeclNotArr(
+           j
+          ) [VarDeclNotArr]
+        ) [MultiFormalParam]
+      ) [YesFormalParams]
       NoVarDeclsList(
       ) [NoVarDeclsList]
       BlockOfStatements(
-        EmptyStatementList(
-        ) [EmptyStatementList]
+        BlockOfStatementsStart(
+        ) [BlockOfStatementsStart]
+        NonEmptyStatementListStmt(
+          EmptyStatementList(
+          ) [EmptyStatementList]
+          StatementWithoutLabel(
+            DesignatorStmt(
+              DesignatorStatementAssign(
+                DesignatorIdent(
+                 a
+                  DesignationNone(
+                  ) [DesignationNone]
+                ) [DesignatorIdent]
+                MultiAddOpExpr(
+                  SingleFactorTerm(
+                    FactorNumberConst(
+                     2
+                    ) [FactorNumberConst]
+                  ) [SingleFactorTerm]
+                  LastTerm(
+                    AddOpPlus(
+                    ) [AddOpPlus]
+                    SingleFactorTerm(
+                      FactorNumberConst(
+                       2
+                      ) [FactorNumberConst]
+                    ) [SingleFactorTerm]
+                  ) [LastTerm]
+                ) [MultiAddOpExpr]
+              ) [DesignatorStatementAssign]
+            ) [DesignatorStmt]
+          ) [StatementWithoutLabel]
+        ) [NonEmptyStatementListStmt]
       ) [BlockOfStatements]
     ) [MethodDecl]
     NoMethodDecls(
     ) [NoMethodDecls]
   ) [MethodDecls]
 ) [Program]
-INFO  23:08:25,197 - ===================================
-INFO  23:08:25,225 - Deklarisan(a) klasni tip Sipak na liniji 2
-INFO  23:08:25,225 - Deklarisan(a) polje f na liniji 4
-INFO  23:08:25,226 - Deklarisan(a) polje b na liniji 4
-INFO  23:08:25,226 - Deklarisan(a) polje a na liniji 4
-INFO  23:08:25,226 - Deklarisan(a) polje c na liniji 5
-INFO  23:08:53,546 - Obradjuje se funkcija metoda na liniji 8
-INFO  23:08:53,546 - Gotova obrada funkcije metoda na liniji 8
+INFO  01:02:25,095 - ===================================
+INFO  01:02:25,106 - Deklarisan(a) promenljiva a na liniji 2
+INFO  01:02:25,106 - Deklarisan(a) klasni tip r na liniji 3
+INFO  01:02:25,106 - Deklarisan(a) polje b na liniji 4
+INFO  01:02:25,106 - Deklarisan(a) polje a na liniji 4
+INFO  01:02:25,106 - Deklarisan(a) promenljiva reccc na liniji 6
+INFO  01:02:25,107 - Deklarisan(a) promenljiva seccc na liniji 7
+INFO  01:02:25,107 - Deklarisan(a) metoda main na liniji 9
+INFO  01:02:25,107 - Obradjuje se funkcija main na liniji 9
+INFO  01:02:25,107 - Deklarisan(a) promenljiva j na liniji 9
+INFO  01:02:25,107 - Deklarisan(a) promenljiva i na liniji 9
+INFO  01:02:25,107 - Gotova obrada funkcije main na liniji 9

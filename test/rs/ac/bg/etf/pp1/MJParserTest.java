@@ -50,6 +50,7 @@ public class MJParserTest {
 			prog.traverseBottomUp(v); 
 	      
 			Tab.dump();
+			System.out.println("=============================================================");
 			
 			if(v.errorDetected) {
 				System.err.println("Postoji greska u kodu.");

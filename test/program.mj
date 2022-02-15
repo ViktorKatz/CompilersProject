@@ -1,12 +1,14 @@
 program MJAUProgram
-class Sipak
-{
-	int a, b, f;
-	char c;
+int a;
+record r{
+	int a,b;
 }
+r reccc;
+r seccc;
 {
-	void metoda(){
-		
+	void main(int i, int j)
+	{
+		a=2+2;
 	}
 	
 }
