@@ -1,14 +1,21 @@
 program MJAUProgram
 int a;
+int b;
 record r{
 	int a,b;
 }
 r reccc;
 r seccc;
-{
+char c;
+int niz[];
+{	
+	void method(int i, bool j){
+	}
+
 	void main(int i, int j)
 	{
-		a=2+2;
+		a=-b+2%b+6*2/5%b-7 + reccc.a + niz[2+b%3];
+		method(3, false);
 	}
 	
 }

@@ -1,27 +1,27 @@
 // generated with ast extension for cup
 // version 0.8
-// 15/1/2022 0:4:49
+// 15/1/2022 3:19:3
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class DesignatorIdent extends Designator {
 
-    private String I1;
+    private String designatorName;
     private DesignationList DesignationList;
 
-    public DesignatorIdent (String I1, DesignationList DesignationList) {
-        this.I1=I1;
+    public DesignatorIdent (String designatorName, DesignationList DesignationList) {
+        this.designatorName=designatorName;
         this.DesignationList=DesignationList;
         if(DesignationList!=null) DesignationList.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public String getDesignatorName() {
+        return designatorName;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setDesignatorName(String designatorName) {
+        this.designatorName=designatorName;
     }
 
     public DesignationList getDesignationList() {
@@ -55,7 +55,7 @@ public class DesignatorIdent extends Designator {
         buffer.append(tab);
         buffer.append("DesignatorIdent(\n");
 
-        buffer.append(" "+tab+I1);
+        buffer.append(" "+tab+designatorName);
         buffer.append("\n");
 
         if(DesignationList!=null)

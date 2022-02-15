@@ -1,5 +1,8 @@
 package rs.ac.bg.etf.pp1;
 
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.Stack;
 
 import org.apache.log4j.Logger;
@@ -216,9 +219,10 @@ public class SemanticPass extends VisitorAdaptor {
 	}
 
 	public void visit(RecordIdent recordIdent) {
-		recordIdent.obj = insertOrFail(Obj.Type, recordIdent.getRecordTypeName(), new Struct(Struct.Class), recordIdent);
+		recordIdent.obj = insertOrFail(Obj.Type, recordIdent.getRecordTypeName(), new Struct(Struct.Class),
+				recordIdent);
 		Tab.openScope();
-		
+
 		classNesting.push(recordIdent.obj.getType());
 		classNestingSymbolData.push(new HashTableDataStructure());
 	}
@@ -226,7 +230,7 @@ public class SemanticPass extends VisitorAdaptor {
 	public void visit(RecordDecl recordDecl) {
 		Tab.chainLocalSymbols(recordDecl.getRecordIdent().obj);
 		Tab.closeScope();
-		
+
 		Struct currentRecord = (Struct) classNesting.pop();
 		currentRecord.setMembers((SymbolDataStructure) classNestingSymbolData.pop());
 	}
@@ -342,8 +346,254 @@ public class SemanticPass extends VisitorAdaptor {
 
 	/////////////////// STATEMENTS START ////////////////////////
 
-	
-	
+	public void visit(FactorNumberConst f) {
+		f.struct = Tab.find("int").getType();
+	}
+
+	public void visit(FactorCharConst f) {
+		f.struct = Tab.find("char").getType();
+	}
+
+	public void visit(FactorBoolConst f) {
+		f.struct = Tab.find("bool").getType();
+	}
+
+	public void visit(FactorExprInParens f) {
+		f.struct = f.getExpr().struct;
+	}
+
+	public void visit(FactorNew f) {
+		if (f.getType().struct.getKind() != Struct.Class) {
+			report_error("Posle 'new' mora da ide naziv klase", f);
+		}
+
+		f.struct = f.getType().struct;
+	}
+
+	public void visit(FactorNewArray f) {
+		if (f.getExpr().struct.getKind() != Struct.Int) {
+			report_error("Ne moze u uglastim zagradama nesto sto nije integer", f);
+			return;
+		}
+
+		f.struct = f.getType().struct;
+	}
+
+	public void visit(FactorDesignator f) {
+		f.struct = f.getDesignator().obj.getType();
+	}
+
+	public void visit(FactorDesignatorCall f) {
+		if (f.getDesignator() instanceof DesignatorIdent) {
+			DesignatorIdent designatorIdent = (DesignatorIdent) f.getDesignator();
+			if (Tab.find(designatorIdent.getDesignatorName()).getKind() != Obj.Meth) {
+				report_error("Ovo nije metoda, ne moze se pozvati", f);
+				return;
+			}
+		}
+		f.struct = f.getDesignator().obj.getType();
+	}
+
+	public void visit(MultiFactorTerm multiFactorTerm) {
+		Factor firstFactor = multiFactorTerm.getFactor();
+
+		if (firstFactor.struct != Tab.find("int").getType()) {
+			report_error("Samo tip int moze da ucestvuje u operaciji mnozenja/deljenja/ostatka pri deljenju",
+					multiFactorTerm);
+		}
+
+		MultipleFactorList mpf = multiFactorTerm.getMultipleFactorList();
+		do {
+			Factor f;
+			if (mpf instanceof NonLastFactor) {
+				NonLastFactor nlf = (NonLastFactor) mpf;
+				f = nlf.getFactor();
+				mpf = nlf.getMultipleFactorList();
+			} else {
+				LastFactor lf = (LastFactor) mpf;
+				f = lf.getFactor();
+			}
+			if (!firstFactor.struct.compatibleWith(f.struct)) {
+				report_error("Tipovi nisu kompatibilni", multiFactorTerm);
+			}
+			if (f.struct != Tab.find("int").getType()) {
+				report_error("Samo tip int moze da ucestvuje u operaciji mnozenja/deljenja/ostatka pri deljenju",
+						multiFactorTerm);
+			}
+		} while (mpf instanceof NonLastFactor);
+
+		multiFactorTerm.struct = Tab.find("int").getType();
+	}
+
+	public void visit(SingleFactorTerm term) {
+		term.struct = term.getFactor().struct;
+	}
+
+	public void visit(JustTermExpr expr) {
+		expr.struct = expr.getTerm().struct;
+	}
+
+	public void visit(MinusJustTermExpr expr) {
+		if (expr.getTerm().struct != Tab.find("int").getType()) {
+			report_error("Moze se negirati samo integer", expr);
+		}
+		expr.struct = expr.getTerm().struct;
+	}
+
+	public void visit(NullExpr expr) {
+		expr.struct = Tab.find("null").getType();
+	}
+
+	public void visit(MultiAddOpExpr expr) {
+		Term firstTerm = expr.getTerm();
+		if (firstTerm.struct != Tab.find("int").getType()) {
+			report_error("Mogu se dodavati i oduzimati samo integeri", expr);
+		}
+
+		AdditionTermList atl = expr.getAdditionTermList();
+		do {
+			Term t;
+			if (atl instanceof NonLastTerm) {
+				t = ((NonLastTerm) atl).getTerm();
+				atl = ((NonLastTerm) atl).getAdditionTermList();
+			} else {
+				t = ((LastTerm) atl).getTerm();
+			}
+			if (t.struct != Tab.find("int").getType()) {
+				report_error("Mogu se dodavati i oduzimati samo integeri", expr);
+			}
+		} while (atl instanceof NonLastTerm);
+
+		expr.struct = Tab.find("int").getType();
+	}
+
+	public void visit(MinusMultiAddOpExpr expr) {
+		Term firstTerm = expr.getTerm();
+		if (firstTerm.struct != Tab.find("int").getType()) {
+			report_error("Mogu se dodavati i oduzimati samo integeri", expr);
+		}
+
+		AdditionTermList atl = expr.getAdditionTermList();
+		do {
+			Term t;
+			if (atl instanceof NonLastTerm) {
+				t = ((NonLastTerm) atl).getTerm();
+				atl = ((NonLastTerm) atl).getAdditionTermList();
+			} else {
+				t = ((LastTerm) atl).getTerm();
+			}
+			if (t.struct != Tab.find("int").getType()) {
+				report_error("Mogu se dodavati i oduzimati samo integeri", expr);
+			}
+		} while (atl instanceof NonLastTerm);
+
+		expr.struct = Tab.find("int").getType();
+	}
+
+	public void visit(DesignatorIdent designator) {
+		Obj target = Tab.find(designator.getDesignatorName());
+		if (target == Tab.noObj) {
+			report_error("Nepostojeci designator", designator);
+			return;
+		}
+
+		DesignationList designationList = designator.getDesignationList();
+
+		while (!(designationList instanceof DesignationNone) && target != null) {
+			if (target.getKind() != Obj.Var) {
+				report_error("Pristupanje nekom clanu klase/recorda/niza je moguce samo u slucaju varijable",
+						designator);
+			}
+			;
+			if (designationList instanceof DesignationObjectAccess) {
+				DesignationObjectAccess doa = (DesignationObjectAccess) designationList;
+				Struct type = target.getType();
+				if (type.getKind() != Struct.Class) {
+					report_error("Samo se klasama/rekordima moze pristupati memberima", doa);
+				}
+				target = type.getMembersTable().searchKey(doa.getMemberName());
+
+				designationList = doa.getDesignationList();
+			} else if (designationList instanceof DesignationArrayAccess) {
+				DesignationArrayAccess daa = (DesignationArrayAccess) designationList;
+				Struct type = target.getType();
+				if (type.getKind() != Struct.Array) {
+					report_error("Samo se nizu moze pristupati elementima", daa);
+				}
+				if (daa.getExpr().struct.getKind() != Struct.Int) {
+					report_error("Samo integer moze biti indeks niza", daa);
+				}
+				target = new Obj(Obj.Var, target.getName() + "_element", target.getType().getElemType());
+				// TODO check if this works. Looks like it works...
+				designationList = daa.getDesignationList();
+			}
+		}
+		designator.obj = target;
+	}
+
+	public void visit(DesignatorStatementAssign stmt) {
+		Designator d = stmt.getDesignator();
+		Expr e = stmt.getExpr();
+
+		if (!e.struct.assignableTo(d.obj.getType())) {
+			report_error("Nisu kompatibilni tipovi za dodelu", stmt);
+		}
+	}
+
+	public void visit(DesignatorStatementInc stmt) {
+		Designator d = stmt.getDesignator();
+		if (!(d.obj.getKind() == Obj.Var || d.obj.getKind() == Obj.Fld || d.obj.getKind() == Obj.Elem)
+				&& d.obj.getType().getKind() != Struct.Int) {
+			report_error("Ne moze se upotrebiti ovaj operator", stmt);
+		}
+	}
+
+	public void visit(DesignatorStatementDec stmt) {
+		Designator d = stmt.getDesignator();
+		if (!(d.obj.getKind() == Obj.Var || d.obj.getKind() == Obj.Fld || d.obj.getKind() == Obj.Elem)
+				&& d.obj.getType().getKind() != Struct.Int) {
+			report_error("Ne moze se upotrebiti ovaj operator", stmt);
+		}
+	}
+
+	public void visit(DesignatorStatementFuncCall stmt) {
+		Designator methodDesignator = stmt.getDesignator();
+		OptionalActPars actualPars = stmt.getOptionalActPars();
+
+		if (methodDesignator.obj.getKind() != Obj.Meth) {
+			report_error("Ne moze se pozvati nesto sto nije metoda", stmt);
+			return;
+		}
+
+		Collection c = methodDesignator.obj.getLocalSymbols();
+		Iterator i = c.iterator();
+
+		try {
+			// Count actual pars
+			int numOfPars = 0;
+			if (actualPars instanceof YesActPars) {
+				ActPars ac = ((YesActPars) actualPars).getActPars();
+				while (ac instanceof NonLastExprActPar) {
+					if (((NonLastExprActPar) ac).getExpr().struct != ((Obj) i.next()).getType()) {
+						report_error("Ne poklapaju se svi tipovi", actualPars);
+					}
+					++numOfPars;
+					ac = ((NonLastExprActPar) ac).getActPars();
+				}
+				if (((LastExprActPars) ac).getExpr().struct != ((Obj) i.next()).getType()) {
+					report_error("Ne poklapaju se svi tipovi", actualPars);
+				}
+				++numOfPars;
+			}
+
+			if (methodDesignator.obj.getLevel() != numOfPars) {
+				report_error("Ne poklapa se broj formalnih parametara sa brojem stvarnih parametara", stmt);
+			}
+		} catch (NoSuchElementException e) {
+			report_error("Ne poklapa se broj formalnih parametara sa brojem stvarnih parametara", stmt);
+		}
+	}
+
 	/////////////////// STATEMENTS END ////////////////////////
 
 }

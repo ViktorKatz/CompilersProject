@@ -1,27 +1,27 @@
 // generated with ast extension for cup
 // version 0.8
-// 15/1/2022 0:4:49
+// 15/1/2022 3:19:3
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class DesignationObjectAccess extends DesignationList {
 
-    private String I1;
+    private String memberName;
     private DesignationList DesignationList;
 
-    public DesignationObjectAccess (String I1, DesignationList DesignationList) {
-        this.I1=I1;
+    public DesignationObjectAccess (String memberName, DesignationList DesignationList) {
+        this.memberName=memberName;
         this.DesignationList=DesignationList;
         if(DesignationList!=null) DesignationList.setParent(this);
     }
 
-    public String getI1() {
-        return I1;
+    public String getMemberName() {
+        return memberName;
     }
 
-    public void setI1(String I1) {
-        this.I1=I1;
+    public void setMemberName(String memberName) {
+        this.memberName=memberName;
     }
 
     public DesignationList getDesignationList() {
@@ -55,7 +55,7 @@ public class DesignationObjectAccess extends DesignationList {
         buffer.append(tab);
         buffer.append("DesignationObjectAccess(\n");
 
-        buffer.append(" "+tab+I1);
+        buffer.append(" "+tab+memberName);
         buffer.append("\n");
 
         if(DesignationList!=null)

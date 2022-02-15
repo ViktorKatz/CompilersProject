@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 15/1/2022 0:4:49
+// 15/1/2022 3:19:3
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -11,15 +11,15 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(PrimitiveType PrimitiveType) { }
     public void visit(StatementList StatementList) { }
     public void visit(PreMethodDeclList PreMethodDeclList) { }
-    public void visit(BoolValue BoolValue) { }
     public void visit(Factor Factor) { }
-    public void visit(CondTerm CondTerm) { }
+    public void visit(BoolValue BoolValue) { }
     public void visit(MultipleFactorList MultipleFactorList) { }
+    public void visit(CondTerm CondTerm) { }
     public void visit(VarList VarList) { }
     public void visit(DesignationList DesignationList) { }
     public void visit(Designator Designator) { }
-    public void visit(ClassBody ClassBody) { }
     public void visit(Term Term) { }
+    public void visit(ClassBody ClassBody) { }
     public void visit(FormParsList FormParsList) { }
     public void visit(Condition Condition) { }
     public void visit(StatementOrBlockOfStatements StatementOrBlockOfStatements) { }
@@ -29,8 +29,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(PreMethodDecl PreMethodDecl) { }
     public void visit(Expr Expr) { }
     public void visit(OptionalActPars OptionalActPars) { }
-    public void visit(ClassExtension ClassExtension) { }
     public void visit(ActPars ActPars) { }
+    public void visit(ClassExtension ClassExtension) { }
     public void visit(TypeOrVoid TypeOrVoid) { }
     public void visit(AddOp AddOp) { }
     public void visit(DesignatorStatement DesignatorStatement) { }
@@ -39,8 +39,8 @@ public abstract class VisitorAdaptor implements Visitor {
     public void visit(VarDecl VarDecl) { }
     public void visit(Type Type) { }
     public void visit(OptionalVarDeclsList OptionalVarDeclsList) { }
-    public void visit(CondFact CondFact) { }
     public void visit(NonLabeledStatement NonLabeledStatement) { }
+    public void visit(CondFact CondFact) { }
     public void visit(MethodDeclList MethodDeclList) { }
     public void visit(FormPars FormPars) { }
     public void visit(ConstDeclArray ConstDeclArray) { }

@@ -71,17 +71,11 @@ nonterminal Statement Statement;
 nonterminal StatementOrBlockOfStatements StatementOrBlockOfStatements;
 nonterminal NonLabeledStatement NonLabeledStatement;
 nonterminal DesignatorStatement DesignatorStatement;
-nonterminal Expr Expr;
 nonterminal OptionalActPars OptionalActPars;
 nonterminal ActPars ActPars;
-nonterminal Designator Designator;
 nonterminal DesignationList DesignationList;
-nonterminal Term Term;
-nonterminal AdditionTermList AdditionTermList;
 nonterminal AddOp AddOp;
-nonterminal MultipleFactorList MultipleFactorList;
 nonterminal MulOp MulOp;
-nonterminal Factor Factor;
 nonterminal Condition Condition;
 nonterminal CondTerm CondTerm;
 nonterminal CondFact CondFact;
@@ -91,8 +85,9 @@ nonterminal ClassBody ClassBody;
 nonterminal ClassConstructor ClassConstructor;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, RecordIdent, RecordDecl, ClassName, ClassDecl, MethodSignature;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj BlockOfStatementsStart, BlockOfStatements;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj BlockOfStatementsStart, BlockOfStatements, Designator;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, PrimitiveType, TypeOrVoid;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, AdditionTermList, Term, MultipleFactorList, Factor;
 
 precedence left ELSE;
 
@@ -169,7 +164,7 @@ TypeOrVoid ::= (NotVoidType) Type:T1 {: RESULT=new NotVoidType(T1); RESULT.setLi
 FormPars ::= (YesFormalParams) FormParsList:F1 {: RESULT=new YesFormalParams(F1); RESULT.setLine(F1left); :}
 		   | (NoFormalParams) {: RESULT=new NoFormalParams(); :};
 
-FormParsList ::= (MultiFormalParam) FormParsList:F1 COMMA Type:T2 VarDecl:V3 {: RESULT=new MultiFormalParam(F1, T2, V3); RESULT.setLine(F1left); :}
+FormParsList ::= (MultiFormalParam) Type:T1 VarDecl:V2 COMMA FormParsList:F3 {: RESULT=new MultiFormalParam(T1, V2, F3); RESULT.setLine(T1left); :} 
 			   | (SingleFormalParam) Type:T1 VarDecl:V2 {: RESULT=new SingleFormalParam(T1, V2); RESULT.setLine(T1left); :};
 		   
 OptionalVarDeclsList ::= (YesVarDeclsList) VarDeclsList:V1 {: RESULT=new YesVarDeclsList(V1); RESULT.setLine(V1left); :}
@@ -224,11 +219,11 @@ DesignatorStatement ::= (DesignatorStatementAssign) Designator:D1 EQUAL Expr:E2 
 					  | (DesignatorStatementInc) Designator:D1 PLUS_PLUS {: RESULT=new DesignatorStatementInc(D1); RESULT.setLine(D1left); :}
 					  | (DesignatorStatementDec) Designator:D1 MINUS_MINUS {: RESULT=new DesignatorStatementDec(D1); RESULT.setLine(D1left); :};
 					  
-Designator ::= (DesignatorIdent) IDENT:I1 DesignationList:D2 {: RESULT=new DesignatorIdent(I1, D2); RESULT.setLine(I1left); :}
+Designator ::= (DesignatorIdent) IDENT:designatorName DesignationList:D1 {: RESULT=new DesignatorIdent(designatorName, D1); RESULT.setLine(designatorNameleft); :}
 			 | (DesignatorThis) THIS DesignationList:D1 {: RESULT=new DesignatorThis(D1); RESULT.setLine(D1left); :} 		/* Just a guess, TODO check if proper */
 			 | (DesignatorSuper) SUPER DesignationList:D1 {: RESULT=new DesignatorSuper(D1); RESULT.setLine(D1left); :};		/* Just a guess, TODO check if proper */
 
-DesignationList ::= (DesignationObjectAccess) DOT IDENT:I1 DesignationList:D2 {: RESULT=new DesignationObjectAccess(I1, D2); RESULT.setLine(I1left); :}
+DesignationList ::= (DesignationObjectAccess) DOT IDENT:memberName DesignationList:D1 {: RESULT=new DesignationObjectAccess(memberName, D1); RESULT.setLine(memberNameleft); :}
 				  | (DesignationArrayAccess) LBRACKET Expr:E1 RBRACKET DesignationList:D2 {: RESULT=new DesignationArrayAccess(E1, D2); RESULT.setLine(E1left); :}
 				  | (DesignationNone) {: RESULT=new DesignationNone(); :};
 				  
@@ -264,7 +259,7 @@ OptionalActPars ::= (YesActPars) ActPars:A1 {: RESULT=new YesActPars(A1); RESULT
 				  | (NoActPars) {: RESULT=new NoActPars(); :};
 
 ActPars ::= (LastExprActPars) Expr:E1 {: RESULT=new LastExprActPars(E1); RESULT.setLine(E1left); :}
-		  | (NonLastExprActPar) ActPars:A1 COMMA Expr:E2 {: RESULT=new NonLastExprActPar(A1, E2); RESULT.setLine(A1left); :};
+		  | (NonLastExprActPar) Expr:E1 COMMA ActPars:A2 {: RESULT=new NonLastExprActPar(E1, A2); RESULT.setLine(E1left); :};
 		  
 
 
