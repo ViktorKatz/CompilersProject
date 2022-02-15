@@ -58,12 +58,14 @@ public class SemanticPass extends VisitorAdaptor {
 			report_error("Vec je deklarisano " + name, info);
 			return Tab.noObj;
 		}
+		
+		kind = classNesting.empty() ? kind : Obj.Fld;
 
 		Obj inserted = Tab.insert(kind, name, type);
 
 		if (currentMethod != null) {
 			currentMethodLocals.insertKey(inserted);
-		} else if (!classNesting.empty()) {
+		}else if (!classNesting.empty()) {
 			kind = Obj.Fld;
 			SymbolDataStructure currentClassData = (SymbolDataStructure) classNestingSymbolData.peek();
 			currentClassData.insertKey(inserted);
@@ -381,6 +383,11 @@ public class SemanticPass extends VisitorAdaptor {
 	}
 
 	public void visit(FactorDesignator f) {
+		if(f.getDesignator().obj == null) {
+			report_error("Designator ne postoji", f);
+			return;
+		}
+		
 		f.struct = f.getDesignator().obj.getType();
 	}
 
@@ -394,7 +401,7 @@ public class SemanticPass extends VisitorAdaptor {
 		}
 		Designator methodDesignator = f.getDesignator();
 		f.struct = methodDesignator.obj.getType();
-		
+
 		OptionalActPars actualPars = f.getOptionalActPars();
 		Collection c = methodDesignator.obj.getLocalSymbols();
 		Iterator i = c.iterator();
@@ -531,7 +538,7 @@ public class SemanticPass extends VisitorAdaptor {
 		DesignationList designationList = designator.getDesignationList();
 
 		while (!(designationList instanceof DesignationNone) && target != null) {
-			if (target.getKind() != Obj.Var) {
+			if (target.getKind() != Obj.Var && target.getKind() != Obj.Fld) {
 				report_error("Pristupanje nekom clanu klase/recorda/niza je moguce samo u slucaju varijable",
 						designator);
 			}
@@ -624,45 +631,105 @@ public class SemanticPass extends VisitorAdaptor {
 			report_error("Ne poklapa se broj formalnih parametara sa brojem stvarnih parametara", stmt);
 		}
 	}
-	
+
 	public void visit(ReturnStmt stmt) {
-		if(currentMethod == null) {
+		if (currentMethod == null) {
 			report_error("Return se mora nalaziti unutar funkcije, a ne ovde", stmt);
 		}
-		
-		if(!currentMethod.getType().compatibleWith(stmt.getExpr().struct)) {
+
+		if (!currentMethod.getType().compatibleWith(stmt.getExpr().struct)) {
 			report_error("Ne moze se taj tip vratiti", stmt);
 		}
-		
+
 		returnFound = true;
 	}
-	
+
 	public void visit(BreakStmt stmt) {
 		boolean valid = false;
-		for(SyntaxNode ancestor = stmt.getParent(); ancestor!=null; ancestor = ancestor.getParent()) {
-			if(ancestor instanceof DoWhileStmt) {
+		for (SyntaxNode ancestor = stmt.getParent(); ancestor != null; ancestor = ancestor.getParent()) {
+			if (ancestor instanceof DoWhileStmt) {
 				valid = true;
 				return;
 			}
 		}
-		if(!valid) {
+		if (!valid) {
 			report_error("Break moze da stoji samo unutar petlje, a ne ovde", stmt);
 		}
 	}
-	
+
 	public void visit(ContinueStmt stmt) {
 		boolean valid = false;
-		for(SyntaxNode ancestor = stmt.getParent(); ancestor!=null; ancestor = ancestor.getParent()) {
-			if(ancestor instanceof DoWhileStmt) {
+		for (SyntaxNode ancestor = stmt.getParent(); ancestor != null; ancestor = ancestor.getParent()) {
+			if (ancestor instanceof DoWhileStmt) {
 				valid = true;
 				return;
 			}
 		}
-		if(!valid) {
+		if (!valid) {
 			report_error("Continue moze da stoji samo unutar petlje, a ne ovde", stmt);
 		}
 	}
 
+	public void visit(ReadStmt stmt) {
+		int kind = stmt.getDesignator().obj.getKind();
+		if (kind != Obj.Fld && kind != Obj.Var) {
+			report_error("Ovo se ne moze ucitati od korisnika", stmt);
+		}
+		if (stmt.getDesignator().obj.getType() != Tab.intType && stmt.getDesignator().obj.getType() != Tab.charType
+				&& stmt.getDesignator().obj.getType() != Tab.find("bool").getType()) {
+			report_error("Ovo se ne moze ucitati od korisnika", stmt);
+		}
+	}
+
+	public void visit(PrintStmt stmt) {
+		int kind = stmt.getExpr().struct.getKind();
+		if (kind != Struct.Int && kind != Struct.Char && kind != Struct.Bool) {
+			report_error("Mogu se ispisivati samo primitivni tipovi", stmt);
+		}
+	}
+
+	public void visit(PrintStmtWithWidth stmt) {
+		int kind = stmt.getExpr().struct.getKind();
+		if (kind != Struct.Int && kind != Struct.Char && kind != Struct.Bool) {
+			report_error("Mogu se ispisivati samo primitivni tipovi", stmt);
+		}
+	}
+	
+
 	/////////////////// STATEMENTS END ////////////////////////
 
+	/////////////////// CONDITIONS BEGIN ////////////////////////
+
+	public void visit(CondFactJustExpr condFact) {
+		Expr expr = condFact.getExpr();
+		if (expr.struct.getKind() != Struct.Bool) {
+			report_error("Uslov mora biti nesto sto je bool tipa", condFact);
+		}
+	}
+
+	public void visit(CondFactRelOp condFact) {
+		Expr e0 = condFact.getExpr();
+		Expr e1 = condFact.getExpr1();
+
+		if(e0.struct == null || e1.struct == null) {
+			report_error("Ne moze se ispitati validnost na kompatibilnost u slucaju nepostojeceg designatora", e0);
+			return;
+		}
+		
+		if (!e0.struct.compatibleWith(e1.struct)) {
+			report_error("Ne mogu se porediti tipovi koji nisu kompatibilni", condFact);
+			return;
+		}
+		
+		if(e0.struct.getKind() == Struct.Array || e0.struct.getKind() == Struct.Class) {
+			RelOp operator = condFact.getRelOp();
+			if(!(operator instanceof RelOpEq || operator instanceof RelOpNeq)) {
+				report_error("Klase, recordi i nizovi se mogu porediti samo na jednakost", operator);
+			}
+		}
+	}
+	
+	// TODO uraditi ostalo ako treba... Za sad se cini da ne treba
+
+	/////////////////// CONDITIONS END ////////////////////////
 }

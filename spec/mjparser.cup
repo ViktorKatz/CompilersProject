@@ -63,6 +63,7 @@ nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, RecordIdent, 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj BlockOfStatementsStart, BlockOfStatements, Designator;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, PrimitiveType, TypeOrVoid;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, AdditionTermList, Term, MultipleFactorList, Factor;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct ConditionList;
 
 precedence left ELSE;
 
@@ -167,12 +168,14 @@ NonLabeledStatement ::= (DesignatorStmt) DesignatorStatement SEMI
 					  | (PrintStmt) PRINT LPAREN Expr RPAREN SEMI
 					  | (PrintStmtWithWidth) PRINT LPAREN Expr COMMA NUMBER RPAREN SEMI
 					  | (GotoStmt) GOTO Label SEMI
-					  | (IfStmt) IF LPAREN Condition RPAREN StatementOrBlockOfStatements SEMI
-					  | (IfElseStmt) IF LPAREN Condition RPAREN StatementOrBlockOfStatements ELSE StatementOrBlockOfStatements SEMI
+					  | (IfStmt) IF LPAREN Condition RPAREN StatementOrBlockOfStatements
+					  | (IfElseStmt) IF LPAREN Condition RPAREN StatementOrBlockOfStatements ELSE StatementOrBlockOfStatements
 					  | (DoWhileStmt) DO StatementOrBlockOfStatements WHILE LPAREN Condition RPAREN SEMI;
 
-Condition ::= (LastCondTerm) CondTerm
-			| (NonLastCondTerm) Condition OR_OR CondTerm;
+Condition ::= (Condition) ConditionList;
+
+ConditionList ::= (LastCondTerm) CondTerm
+				| (NonLastCondTerm) Condition OR_OR CondTerm;
 	
 CondTerm ::= (LastCondFact) CondFact
 		   | (NonLastCondFact) CondTerm AND_AND CondFact;
