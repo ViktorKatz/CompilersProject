@@ -1,20 +1,33 @@
 program MJAUProgram
 int a, b;
-{	
-	void main()
-	int c, d;
-	{
-		a=3;
-		b=7;
-		
-		c = -a*b-a*a;
-		
-		c--;
-		
-		d = c + c;
-		
-		
-		print(d);
-	}
-	
+record r{
+	int a, b;
 }
+{	
+	void printArray(int arr[]){
+		print(len(arr));
+		print(arr[3]);
+	}
+
+	void main()
+	int niz[];
+	char nizc[];
+	bool nizb[];
+	{
+		niz = new int[50];
+		
+		niz[3] = 7;
+		
+		printArray(niz);
+	}	
+}
+
+
+
+
+
+
+
+
+
+

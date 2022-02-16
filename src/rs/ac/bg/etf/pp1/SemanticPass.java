@@ -418,13 +418,15 @@ public class SemanticPass extends VisitorAdaptor {
 				ActPars ac = ((YesActPars) actualPars).getActPars();
 				while (ac instanceof NonLastExprActPar) {
 					if (((NonLastExprActPar) ac).getExpr().obj.getType() != ((Obj) i.next()).getType()) { //TODO check if obj.getType() works as intended
-						report_error("Ne poklapaju se svi tipovi", actualPars);
+						if(((LastExprActPars) ac).getExpr().obj.getType().getKind() != Struct.Array)
+							report_error("Ne poklapaju se svi tipovi", actualPars);
 					}
 					++numOfPars;
 					ac = ((NonLastExprActPar) ac).getActPars();
 				}
 				if (((LastExprActPars) ac).getExpr().obj.getType() != ((Obj) i.next()).getType()) { //TODO check if obj.getType() works as intended
-					report_error("Ne poklapaju se svi tipovi", actualPars);
+					if(((LastExprActPars) ac).getExpr().obj.getType().getKind() != Struct.Array)
+						report_error("Ne poklapaju se svi tipovi", actualPars);
 				}
 				++numOfPars;
 			}
@@ -565,7 +567,7 @@ public class SemanticPass extends VisitorAdaptor {
 				if (daa.getExpr().obj.getType().getKind() != Struct.Int) {
 					report_error("Samo integer moze biti indeks niza", daa);
 				}
-				target = new Obj(Obj.Elem, target.getName() + "_element", target.getType().getElemType());
+				target = new Obj(Obj.Elem, target.getName() + "_element", target.getType().getElemType(), target.getAdr(), target.getLevel());
 				// TODO check if this works. Looks like it works...
 				designationList = daa.getDesignationList();
 			}
@@ -617,13 +619,15 @@ public class SemanticPass extends VisitorAdaptor {
 				ActPars ac = ((YesActPars) actualPars).getActPars();
 				while (ac instanceof NonLastExprActPar) {
 					if (((NonLastExprActPar) ac).getExpr().obj.getType() != ((Obj) i.next()).getType()) {
-						report_error("Ne poklapaju se svi tipovi", actualPars);
+						if(((LastExprActPars) ac).getExpr().obj.getType().getKind() != Struct.Array)
+							report_error("Ne poklapaju se svi tipovi", actualPars);
 					}
 					++numOfPars;
 					ac = ((NonLastExprActPar) ac).getActPars();
 				}
 				if (((LastExprActPars) ac).getExpr().obj.getType() != ((Obj) i.next()).getType()) {
-					report_error("Ne poklapaju se svi tipovi", actualPars);
+					if(((LastExprActPars) ac).getExpr().obj.getType().getKind() != Struct.Array)
+						report_error("Ne poklapaju se svi tipovi", actualPars);
 				}
 				++numOfPars;
 			}

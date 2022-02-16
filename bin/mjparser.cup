@@ -54,7 +54,7 @@ nonterminal PreMethodDeclList, PreMethodDecl, BoolValue;
 nonterminal VarDecls, VarList, VarDecl, ConstDecl, ConstDeclArray, ConstExpr, VarDeclsList;
 nonterminal MethodDeclList, MethodDecl, FormPars, OptionalVarDeclsList, FormParsList;
 nonterminal StatementList, Label, Statement, StatementOrBlockOfStatements, NonLabeledStatement;
-nonterminal DesignatorStatement, OptionalActPars, ActPars, DesignationList;
+nonterminal DesignatorStatement, OptionalActPars, ActPars, DesignationList, DesignationArrayEntry;
 nonterminal AddOp, MulOp, FirstTermNegative;
 nonterminal Condition, CondTerm, CondFact, RelOp;
 nonterminal ClassExtension, ClassBody, ClassConstructor;
@@ -202,8 +202,10 @@ Designator ::= (DesignatorIdent) IDENT:designatorName DesignationList
 			 | (DesignatorSuper) SUPER DesignationList;		/* Just a guess, TODO check if proper */
 
 DesignationList ::= (DesignationObjectAccess) DOT IDENT:memberName DesignationList
-				  | (DesignationArrayAccess) LBRACKET Expr RBRACKET DesignationList
+				  | (DesignationArrayAccess) DesignationArrayEntry Expr RBRACKET DesignationList
 				  | (DesignationNone);
+				  
+DesignationArrayEntry ::= (DesignationArrayEntry) LBRACKET;
 				  
 Expr ::= (JustTermExpr) Term
 	   | (MultiAddOpExpr) Term AddOp AdditionTermList

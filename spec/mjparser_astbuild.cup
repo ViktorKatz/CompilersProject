@@ -74,6 +74,7 @@ nonterminal DesignatorStatement DesignatorStatement;
 nonterminal OptionalActPars OptionalActPars;
 nonterminal ActPars ActPars;
 nonterminal DesignationList DesignationList;
+nonterminal DesignationArrayEntry DesignationArrayEntry;
 nonterminal AddOp AddOp;
 nonterminal MulOp MulOp;
 nonterminal FirstTermNegative FirstTermNegative;
@@ -228,8 +229,10 @@ Designator ::= (DesignatorIdent) IDENT:designatorName DesignationList:D1 {: RESU
 			 | (DesignatorSuper) SUPER DesignationList:D1 {: RESULT=new DesignatorSuper(D1); RESULT.setLine(D1left); :};		/* Just a guess, TODO check if proper */
 
 DesignationList ::= (DesignationObjectAccess) DOT IDENT:memberName DesignationList:D1 {: RESULT=new DesignationObjectAccess(memberName, D1); RESULT.setLine(memberNameleft); :}
-				  | (DesignationArrayAccess) LBRACKET Expr:E1 RBRACKET DesignationList:D2 {: RESULT=new DesignationArrayAccess(E1, D2); RESULT.setLine(E1left); :}
+				  | (DesignationArrayAccess) DesignationArrayEntry:D1 Expr:E2 RBRACKET DesignationList:D3 {: RESULT=new DesignationArrayAccess(D1, E2, D3); RESULT.setLine(D1left); :}
 				  | (DesignationNone) {: RESULT=new DesignationNone(); :};
+				  
+DesignationArrayEntry ::= (DesignationArrayEntry) LBRACKET {: RESULT=new DesignationArrayEntry(); :};
 				  
 Expr ::= (JustTermExpr) Term:T1 {: RESULT=new JustTermExpr(T1); RESULT.setLine(T1left); :}
 	   | (MultiAddOpExpr) Term:T1 AddOp:A2 AdditionTermList:A3 {: RESULT=new MultiAddOpExpr(T1, A2, A3); RESULT.setLine(T1left); :}
