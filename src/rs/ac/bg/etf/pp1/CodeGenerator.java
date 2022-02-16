@@ -46,7 +46,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	public void visit(PrintStmt stmt) {
-		switch(stmt.getExpr().struct.getKind()) {
+		switch(stmt.getExpr().obj.getType().getKind()) {
 		case Struct.Int:
 			Code.loadConst(5);
 			Code.put(Code.print);

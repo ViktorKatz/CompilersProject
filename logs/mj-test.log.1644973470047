@@ -1,0 +1,99 @@
+INFO  01:44:13,384 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  01:44:13,458 - #2 program
+INFO  01:44:13,458 - #54 MJAUProgram
+INFO  01:44:13,458 - #49 int
+INFO  01:44:13,460 - #54 a
+INFO  01:44:13,461 - #40 ;
+INFO  01:44:13,461 - #49 int
+INFO  01:44:13,462 - #54 b
+INFO  01:44:13,462 - #40 ;
+INFO  01:44:13,463 - #45 {
+INFO  01:44:13,463 - #6 void
+INFO  01:44:13,463 - #54 main
+INFO  01:44:13,464 - #43 (
+INFO  01:44:13,465 - #44 )
+INFO  01:44:13,466 - #45 {
+INFO  01:44:13,466 - #4 print
+INFO  01:44:13,468 - #43 (
+INFO  01:44:13,468 - #53 7
+INFO  01:44:13,468 - #44 )
+INFO  01:44:13,469 - #40 ;
+INFO  01:44:13,469 - #46 }
+INFO  01:44:13,469 - #46 }
+INFO  01:44:13,474 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      EmptyPreMethodDeclList(
+      ) [EmptyPreMethodDeclList]
+      PreMethodDeclVar(
+        VarDecls(
+          TypePrimitive(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+          ) [TypePrimitive]
+          SingleVar(
+            VarDeclNotArr(
+             a
+            ) [VarDeclNotArr]
+          ) [SingleVar]
+        ) [VarDecls]
+      ) [PreMethodDeclVar]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypePrimitive(
+          PrimitiveTypeInt(
+          ) [PrimitiveTypeInt]
+        ) [TypePrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           b
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  MethodDecls(
+    MethodDecl(
+      MethodSignature(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodSignature]
+      NoFormalParams(
+      ) [NoFormalParams]
+      NoVarDeclsList(
+      ) [NoVarDeclsList]
+      BlockOfStatements(
+        BlockOfStatementsStart(
+        ) [BlockOfStatementsStart]
+        NonEmptyStatementListStmt(
+          EmptyStatementList(
+          ) [EmptyStatementList]
+          StatementWithoutLabel(
+            PrintStmt(
+              JustTermExpr(
+                SingleFactorTerm(
+                  FactorNumberConst(
+                   7
+                  ) [FactorNumberConst]
+                ) [SingleFactorTerm]
+              ) [JustTermExpr]
+            ) [PrintStmt]
+          ) [StatementWithoutLabel]
+        ) [NonEmptyStatementListStmt]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+    NoMethodDecls(
+    ) [NoMethodDecls]
+  ) [MethodDecls]
+) [Program]
+INFO  01:44:13,475 - ===================================
+INFO  01:44:13,487 - Deklarisan(a) promenljiva a na liniji 2
+INFO  01:44:13,487 - Deklarisan(a) promenljiva b na liniji 3
+INFO  01:44:13,487 - Deklarisan(a) metoda main na liniji 5
+INFO  01:44:13,487 - Obradjuje se funkcija main na liniji 5
+INFO  01:44:13,487 - Gotova obrada funkcije main na liniji 5

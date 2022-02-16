@@ -353,36 +353,38 @@ public class SemanticPass extends VisitorAdaptor {
 	/////////////////// STATEMENTS START ////////////////////////
 
 	public void visit(FactorNumberConst f) {
-		f.struct = Tab.find("int").getType();
+		f.obj = Tab.find("int");
 	}
 
 	public void visit(FactorCharConst f) {
-		f.struct = Tab.find("char").getType();
+		f.obj = Tab.find("char");
 	}
 
 	public void visit(FactorBoolConst f) {
-		f.struct = Tab.find("bool").getType();
+		f.obj = Tab.find("bool");
 	}
 
 	public void visit(FactorExprInParens f) {
-		f.struct = f.getExpr().struct;
+		f.obj = f.getExpr().obj;
 	}
 
+	private static int objectIdGen = 0;
 	public void visit(FactorNew f) {
 		if (f.getType().struct.getKind() != Struct.Class) {
 			report_error("Posle 'new' mora da ide naziv klase", f);
 		}
 
-		f.struct = f.getType().struct;
+		f.obj = Tab.insert(Obj.Var, "NewObject"+objectIdGen++, f.getType().struct);
 	}
 
+	private static int arrayIdGen = 0;
 	public void visit(FactorNewArray f) {
-		if (f.getExpr().struct.getKind() != Struct.Int) {
+		if (f.getExpr().obj.getType().getKind() != Struct.Int) {
 			report_error("Ne moze u uglastim zagradama nesto sto nije integer", f);
 			return;
 		}
 
-		f.struct = new Struct(Struct.Array, f.getType().struct);
+		f.obj = Tab.insert(Obj.Var, "NewArray"+arrayIdGen++, new Struct(Struct.Array, f.getType().struct));
 	}
 
 	public void visit(FactorDesignator f) {
@@ -391,7 +393,7 @@ public class SemanticPass extends VisitorAdaptor {
 			return;
 		}
 
-		f.struct = f.getDesignator().obj.getType();
+		f.obj = f.getDesignator().obj;
 	}
 
 	public void visit(FactorDesignatorCall f) {
@@ -403,7 +405,7 @@ public class SemanticPass extends VisitorAdaptor {
 			}
 		}
 		Designator methodDesignator = f.getDesignator();
-		f.struct = methodDesignator.obj.getType();
+		f.obj = methodDesignator.obj;
 
 		OptionalActPars actualPars = f.getOptionalActPars();
 		Collection c = methodDesignator.obj.getLocalSymbols();
@@ -415,13 +417,13 @@ public class SemanticPass extends VisitorAdaptor {
 			if (actualPars instanceof YesActPars) {
 				ActPars ac = ((YesActPars) actualPars).getActPars();
 				while (ac instanceof NonLastExprActPar) {
-					if (((NonLastExprActPar) ac).getExpr().struct != ((Obj) i.next()).getType()) {
+					if (((NonLastExprActPar) ac).getExpr().obj.getType() != ((Obj) i.next()).getType()) { //TODO check if obj.getType() works as intended
 						report_error("Ne poklapaju se svi tipovi", actualPars);
 					}
 					++numOfPars;
 					ac = ((NonLastExprActPar) ac).getActPars();
 				}
-				if (((LastExprActPars) ac).getExpr().struct != ((Obj) i.next()).getType()) {
+				if (((LastExprActPars) ac).getExpr().obj.getType() != ((Obj) i.next()).getType()) { //TODO check if obj.getType() works as intended
 					report_error("Ne poklapaju se svi tipovi", actualPars);
 				}
 				++numOfPars;
@@ -438,7 +440,7 @@ public class SemanticPass extends VisitorAdaptor {
 	public void visit(MultiFactorTerm multiFactorTerm) {
 		Factor firstFactor = multiFactorTerm.getFactor();
 
-		if (firstFactor.struct != Tab.find("int").getType()) {
+		if (firstFactor.obj.getType() != Tab.find("int").getType()) {
 			report_error("Samo tip int moze da ucestvuje u operaciji mnozenja/deljenja/ostatka pri deljenju",
 					multiFactorTerm);
 		}
@@ -454,40 +456,40 @@ public class SemanticPass extends VisitorAdaptor {
 				LastFactor lf = (LastFactor) mpf;
 				f = lf.getFactor();
 			}
-			if (!firstFactor.struct.compatibleWith(f.struct)) {
+			if (!firstFactor.obj.getType().compatibleWith(f.obj.getType())) {
 				report_error("Tipovi nisu kompatibilni", multiFactorTerm);
 			}
-			if (f.struct != Tab.find("int").getType()) {
+			if (f.obj.getType() != Tab.find("int").getType()) {
 				report_error("Samo tip int moze da ucestvuje u operaciji mnozenja/deljenja/ostatka pri deljenju",
 						multiFactorTerm);
 			}
 		} while (mpf instanceof NonLastFactor);
 
-		multiFactorTerm.struct = Tab.find("int").getType();
+		multiFactorTerm.obj = Tab.find("int");
 	}
 
 	public void visit(SingleFactorTerm term) {
-		term.struct = term.getFactor().struct;
+		term.obj = term.getFactor().obj;
 	}
 
 	public void visit(JustTermExpr expr) {
-		expr.struct = expr.getTerm().struct;
+		expr.obj = expr.getTerm().obj;
 	}
 
 	public void visit(MinusJustTermExpr expr) {
-		if (expr.getTerm().struct != Tab.find("int").getType()) {
+		if (!expr.getTerm().obj.equals(Tab.find("int"))) {
 			report_error("Moze se negirati samo integer", expr);
 		}
-		expr.struct = expr.getTerm().struct;
+		expr.obj = expr.getTerm().obj;
 	}
 
 	public void visit(NullExpr expr) {
-		expr.struct = Tab.find("null").getType();
+		expr.obj = Tab.find("null");
 	}
 
 	public void visit(MultiAddOpExpr expr) {
 		Term firstTerm = expr.getTerm();
-		if (firstTerm.struct != Tab.find("int").getType()) {
+		if (firstTerm.obj.getType() != Tab.find("int").getType()) {
 			report_error("Mogu se dodavati i oduzimati samo integeri", expr);
 		}
 
@@ -500,17 +502,17 @@ public class SemanticPass extends VisitorAdaptor {
 			} else {
 				t = ((LastTerm) atl).getTerm();
 			}
-			if (t.struct != Tab.find("int").getType()) {
+			if (t.obj.getType() != Tab.find("int").getType()) {
 				report_error("Mogu se dodavati i oduzimati samo integeri", expr);
 			}
 		} while (atl instanceof NonLastTerm);
 
-		expr.struct = Tab.find("int").getType();
+		expr.obj = Tab.find("int");
 	}
 
 	public void visit(MinusMultiAddOpExpr expr) {
 		Term firstTerm = expr.getTerm();
-		if (firstTerm.struct != Tab.find("int").getType()) {
+		if (firstTerm.obj.getType() != Tab.find("int").getType()) {
 			report_error("Mogu se dodavati i oduzimati samo integeri", expr);
 		}
 
@@ -523,12 +525,12 @@ public class SemanticPass extends VisitorAdaptor {
 			} else {
 				t = ((LastTerm) atl).getTerm();
 			}
-			if (t.struct != Tab.find("int").getType()) {
+			if (t.obj.getType() != Tab.find("int").getType()) {
 				report_error("Mogu se dodavati i oduzimati samo integeri", expr);
 			}
 		} while (atl instanceof NonLastTerm);
 
-		expr.struct = Tab.find("int").getType();
+		expr.obj = Tab.find("int");
 	}
 
 	public void visit(DesignatorIdent designator) {
@@ -560,7 +562,7 @@ public class SemanticPass extends VisitorAdaptor {
 				if (type.getKind() != Struct.Array) {
 					report_error("Samo se nizu moze pristupati elementima", daa);
 				}
-				if (daa.getExpr().struct.getKind() != Struct.Int) {
+				if (daa.getExpr().obj.getType().getKind() != Struct.Int) {
 					report_error("Samo integer moze biti indeks niza", daa);
 				}
 				target = new Obj(Obj.Elem, target.getName() + "_element", target.getType().getElemType());
@@ -575,7 +577,7 @@ public class SemanticPass extends VisitorAdaptor {
 		Designator d = stmt.getDesignator();
 		Expr e = stmt.getExpr();
 
-		if (!e.struct.assignableTo(d.obj.getType())) {
+		if (!e.obj.getType().assignableTo(d.obj.getType())) {
 			report_error("Nisu kompatibilni tipovi za dodelu", stmt);
 		}
 	}
@@ -614,13 +616,13 @@ public class SemanticPass extends VisitorAdaptor {
 			if (actualPars instanceof YesActPars) {
 				ActPars ac = ((YesActPars) actualPars).getActPars();
 				while (ac instanceof NonLastExprActPar) {
-					if (((NonLastExprActPar) ac).getExpr().struct != ((Obj) i.next()).getType()) {
+					if (((NonLastExprActPar) ac).getExpr().obj.getType() != ((Obj) i.next()).getType()) {
 						report_error("Ne poklapaju se svi tipovi", actualPars);
 					}
 					++numOfPars;
 					ac = ((NonLastExprActPar) ac).getActPars();
 				}
-				if (((LastExprActPars) ac).getExpr().struct != ((Obj) i.next()).getType()) {
+				if (((LastExprActPars) ac).getExpr().obj.getType() != ((Obj) i.next()).getType()) {
 					report_error("Ne poklapaju se svi tipovi", actualPars);
 				}
 				++numOfPars;
@@ -639,7 +641,7 @@ public class SemanticPass extends VisitorAdaptor {
 			report_error("Return se mora nalaziti unutar funkcije, a ne ovde", stmt);
 		}
 
-		if (!currentMethod.getType().compatibleWith(stmt.getExpr().struct)) {
+		if (!currentMethod.getType().compatibleWith(stmt.getExpr().obj.getType())) {
 			report_error("Ne moze se taj tip vratiti", stmt);
 		}
 
@@ -684,14 +686,14 @@ public class SemanticPass extends VisitorAdaptor {
 	}
 
 	public void visit(PrintStmt stmt) {
-		int kind = stmt.getExpr().struct.getKind();
+		int kind = stmt.getExpr().obj.getType().getKind();
 		if (kind != Struct.Int && kind != Struct.Char && kind != Struct.Bool) {
 			report_error("Mogu se ispisivati samo primitivni tipovi", stmt);
 		}
 	}
 
 	public void visit(PrintStmtWithWidth stmt) {
-		int kind = stmt.getExpr().struct.getKind();
+		int kind = stmt.getExpr().obj.getType().getKind();
 		if (kind != Struct.Int && kind != Struct.Char && kind != Struct.Bool) {
 			report_error("Mogu se ispisivati samo primitivni tipovi", stmt);
 		}
@@ -703,7 +705,7 @@ public class SemanticPass extends VisitorAdaptor {
 
 	public void visit(CondFactJustExpr condFact) {
 		Expr expr = condFact.getExpr();
-		if (expr.struct.getKind() != Struct.Bool) {
+		if (expr.obj.getType().getKind() != Struct.Bool) {
 			report_error("Uslov mora biti nesto sto je bool tipa", condFact);
 		}
 	}
@@ -712,17 +714,17 @@ public class SemanticPass extends VisitorAdaptor {
 		Expr e0 = condFact.getExpr();
 		Expr e1 = condFact.getExpr1();
 
-		if (e0.struct == null || e1.struct == null) {
+		if (e0.obj == null || e1.obj == null) {
 			report_error("Ne moze se ispitati validnost na kompatibilnost u slucaju nepostojeceg designatora", e0);
 			return;
 		}
 
-		if (!e0.struct.compatibleWith(e1.struct)) {
+		if (!e0.obj.getType().compatibleWith(e1.obj.getType())) {
 			report_error("Ne mogu se porediti tipovi koji nisu kompatibilni", condFact);
 			return;
 		}
 
-		if (e0.struct.getKind() == Struct.Array || e0.struct.getKind() == Struct.Class) {
+		if (e0.obj.getType().getKind() == Struct.Array || e0.obj.getType().getKind() == Struct.Class) {
 			RelOp operator = condFact.getRelOp();
 			if (!(operator instanceof RelOpEq || operator instanceof RelOpNeq)) {
 				report_error("Klase, recordi i nizovi se mogu porediti samo na jednakost", operator);

@@ -62,7 +62,7 @@ nonterminal ClassExtension, ClassBody, ClassConstructor;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, RecordIdent, RecordDecl, ClassName, ClassDecl, MethodSignature;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj BlockOfStatementsStart, BlockOfStatements, Designator;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, PrimitiveType, TypeOrVoid;
-nonterminal rs.etf.pp1.symboltable.concepts.Struct Expr, AdditionTermList, Term, MultipleFactorList, Factor;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj Expr, AdditionTermList, Term, MultipleFactorList, Factor;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct ConditionList;
 
 precedence left ELSE;
