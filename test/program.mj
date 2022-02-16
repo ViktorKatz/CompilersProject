@@ -1,24 +1,31 @@
 program MJAUProgram
 int a, b;
-record r{
-	int a, b;
+record R{
+	int x, b;
+	int niz[];
 }
 {	
-	void printArray(int arr[]){
-		print(len(arr));
-		print(arr[3]);
-	}
-
 	void main()
-	int niz[];
-	char nizc[];
-	bool nizb[];
+	R reccc;
+	int nizzz[];
 	{
-		niz = new int[50];
+		reccc = new R;
 		
-		niz[3] = 7;
+		nizzz = new int[5];
+		nizzz[3] = 7;
 		
-		printArray(niz);
+		///RADI DO OVDE
+
+		
+		reccc.x=77;
+		reccc.b=88;
+		
+		a = reccc.x + reccc.b;
+		b = reccc.b + nizzz[3];
+		
+		print(a+b);
+		
+		
 	}	
 }
 

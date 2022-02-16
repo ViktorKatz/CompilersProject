@@ -54,13 +54,13 @@ nonterminal PreMethodDeclList, PreMethodDecl, BoolValue;
 nonterminal VarDecls, VarList, VarDecl, ConstDecl, ConstDeclArray, ConstExpr, VarDeclsList;
 nonterminal MethodDeclList, MethodDecl, FormPars, OptionalVarDeclsList, FormParsList;
 nonterminal StatementList, Label, Statement, StatementOrBlockOfStatements, NonLabeledStatement;
-nonterminal DesignatorStatement, OptionalActPars, ActPars, DesignationList, DesignationArrayEntry;
+nonterminal DesignatorStatement, OptionalActPars, ActPars, DesignationArrayEntry, DesignationArrayLoad;
 nonterminal AddOp, MulOp, FirstTermNegative;
 nonterminal Condition, CondTerm, CondFact, RelOp;
 nonterminal ClassExtension, ClassBody, ClassConstructor;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, RecordIdent, RecordDecl, ClassName, ClassDecl, MethodSignature;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj BlockOfStatementsStart, BlockOfStatements, Designator;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj BlockOfStatementsStart, BlockOfStatements, Designator, DesignationList;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, PrimitiveType, TypeOrVoid;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Expr, AdditionTermList, Term, MultipleFactorList, Factor;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct ConditionList;
@@ -202,10 +202,11 @@ Designator ::= (DesignatorIdent) IDENT:designatorName DesignationList
 			 | (DesignatorSuper) SUPER DesignationList;		/* Just a guess, TODO check if proper */
 
 DesignationList ::= (DesignationObjectAccess) DOT IDENT:memberName DesignationList
-				  | (DesignationArrayAccess) DesignationArrayEntry Expr RBRACKET DesignationList
+				  | (DesignationArrayAccess) DesignationArrayEntry Expr DesignationArrayLoad DesignationList
 				  | (DesignationNone);
 				  
 DesignationArrayEntry ::= (DesignationArrayEntry) LBRACKET;
+DesignationArrayLoad ::= (DesignationArrayLoad) RBRACKET;
 				  
 Expr ::= (JustTermExpr) Term
 	   | (MultiAddOpExpr) Term AddOp AdditionTermList

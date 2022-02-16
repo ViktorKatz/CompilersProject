@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 16/1/2022 16:52:36
+// 16/1/2022 20:1:3
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,13 +9,16 @@ public class DesignationArrayAccess extends DesignationList {
 
     private DesignationArrayEntry DesignationArrayEntry;
     private Expr Expr;
+    private DesignationArrayLoad DesignationArrayLoad;
     private DesignationList DesignationList;
 
-    public DesignationArrayAccess (DesignationArrayEntry DesignationArrayEntry, Expr Expr, DesignationList DesignationList) {
+    public DesignationArrayAccess (DesignationArrayEntry DesignationArrayEntry, Expr Expr, DesignationArrayLoad DesignationArrayLoad, DesignationList DesignationList) {
         this.DesignationArrayEntry=DesignationArrayEntry;
         if(DesignationArrayEntry!=null) DesignationArrayEntry.setParent(this);
         this.Expr=Expr;
         if(Expr!=null) Expr.setParent(this);
+        this.DesignationArrayLoad=DesignationArrayLoad;
+        if(DesignationArrayLoad!=null) DesignationArrayLoad.setParent(this);
         this.DesignationList=DesignationList;
         if(DesignationList!=null) DesignationList.setParent(this);
     }
@@ -36,6 +39,14 @@ public class DesignationArrayAccess extends DesignationList {
         this.Expr=Expr;
     }
 
+    public DesignationArrayLoad getDesignationArrayLoad() {
+        return DesignationArrayLoad;
+    }
+
+    public void setDesignationArrayLoad(DesignationArrayLoad DesignationArrayLoad) {
+        this.DesignationArrayLoad=DesignationArrayLoad;
+    }
+
     public DesignationList getDesignationList() {
         return DesignationList;
     }
@@ -51,6 +62,7 @@ public class DesignationArrayAccess extends DesignationList {
     public void childrenAccept(Visitor visitor) {
         if(DesignationArrayEntry!=null) DesignationArrayEntry.accept(visitor);
         if(Expr!=null) Expr.accept(visitor);
+        if(DesignationArrayLoad!=null) DesignationArrayLoad.accept(visitor);
         if(DesignationList!=null) DesignationList.accept(visitor);
     }
 
@@ -58,12 +70,14 @@ public class DesignationArrayAccess extends DesignationList {
         accept(visitor);
         if(DesignationArrayEntry!=null) DesignationArrayEntry.traverseTopDown(visitor);
         if(Expr!=null) Expr.traverseTopDown(visitor);
+        if(DesignationArrayLoad!=null) DesignationArrayLoad.traverseTopDown(visitor);
         if(DesignationList!=null) DesignationList.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(DesignationArrayEntry!=null) DesignationArrayEntry.traverseBottomUp(visitor);
         if(Expr!=null) Expr.traverseBottomUp(visitor);
+        if(DesignationArrayLoad!=null) DesignationArrayLoad.traverseBottomUp(visitor);
         if(DesignationList!=null) DesignationList.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -81,6 +95,12 @@ public class DesignationArrayAccess extends DesignationList {
 
         if(Expr!=null)
             buffer.append(Expr.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(DesignationArrayLoad!=null)
+            buffer.append(DesignationArrayLoad.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

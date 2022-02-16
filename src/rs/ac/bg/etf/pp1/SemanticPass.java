@@ -555,8 +555,10 @@ public class SemanticPass extends VisitorAdaptor {
 				if (type.getKind() != Struct.Class) {
 					report_error("Samo se klasama/rekordima moze pristupati memberima", doa);
 				}
-				target = type.getMembersTable().searchKey(doa.getMemberName());
-
+				Obj tmpTar = type.getMembersTable().searchKey(doa.getMemberName()); // TODO Test if this properly propagates record membership
+				target = new Obj(Obj.Fld, Integer.toString(target.getAdr()) , tmpTar.getType(), tmpTar.getAdr(), target.getLevel());
+				//target = tmpTar;
+				
 				designationList = doa.getDesignationList();
 			} else if (designationList instanceof DesignationArrayAccess) {
 				DesignationArrayAccess daa = (DesignationArrayAccess) designationList;
@@ -567,7 +569,7 @@ public class SemanticPass extends VisitorAdaptor {
 				if (daa.getExpr().obj.getType().getKind() != Struct.Int) {
 					report_error("Samo integer moze biti indeks niza", daa);
 				}
-				target = new Obj(Obj.Elem, target.getName() + "_element", target.getType().getElemType(), target.getAdr(), target.getLevel());
+				target = new Obj(Obj.Elem, Integer.toString(target.getAdr()), target.getType().getElemType(), target.getAdr(), target.getLevel());
 				// TODO check if this works. Looks like it works...
 				designationList = daa.getDesignationList();
 			}

@@ -1,7 +1,6 @@
 package rs.ac.bg.etf.pp1;
 
 import rs.ac.bg.etf.pp1.ast.*;
-import rs.ac.bg.etf.pp1.ast.VisitorAdaptor;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.*;
@@ -45,7 +44,7 @@ public class CodeGenerator extends VisitorAdaptor {
 			break;
 		case Struct.Bool:
 			byte value = Code.buf[--Code.pc]; // Eliminate the bool value and shoot chars
-			String output = value != 15 ? "true" : "false";
+			String output = (value & 1) == 1 ? "true" : "false";
 			for (int i = 0; i < output.length(); ++i) {
 				Code.loadConst((int) (output.charAt(i)));
 				Code.loadConst(1);
@@ -101,27 +100,57 @@ public class CodeGenerator extends VisitorAdaptor {
 			return;
 		}
 		
-		// Specijalna provera za len(arr)
 		/*
-		if(designator.obj.getType().getKind() == Struct.Array && designator.getDesignationList() instanceof DesignationNone) {
-			SyntaxNode potentialFuncCall = designator.getParent();
-			for(int i = 0; i<5; ++i) { // Sesti predak mora bit func call
-				if(potentialFuncCall == null) break;
-				potentialFuncCall = potentialFuncCall.getParent();
+		DesignationList dl = designator.getDesignationList();
+		while(dl instanceof DesignationArrayAccess || dl instanceof DesignationObjectAccess) {
+			DesignationArrayAccess daa;
+			DesignationObjectAccess doa;
+			if(dl instanceof DesignationArrayAccess) {
+				daa = (DesignationArrayAccess) dl;
+				daa.getDesignationArrayLoad();daa.get
+				dl = daa.getDesignationList();
 			}
-			
-			if(potentialFuncCall != null && potentialFuncCall instanceof FactorDesignatorCall) {
-				FactorDesignatorCall fdc = (FactorDesignatorCall) potentialFuncCall;
+			else if(dl instanceof DesignationObjectAccess) {
+				doa = (DesignationObjectAccess) dl;
+				
+				dl = doa.getDesignationList();
 			}
-			// Referenca na array, bez elementa. Tipa za len(arr);
-			
 		}
 		*/
-		
+
 		SyntaxNode parent = designator.getParent();
 		if (FactorDesignator.class == parent.getClass()) { // Ako je sa desne strane izraza, baca se na expr stack
+			if(designator.obj.getKind() == Obj.Fld) {
+			//if(false) {
+				Obj o = designator.obj;				
+				String name = o.getName();
+				try {
+					int nameLoc = Integer.parseInt(name);
+					Code.load(new Obj(Obj.Var, o.getName(), o.getType(), nameLoc, o.getLevel()));
+				}catch(NumberFormatException e) {
+					//Code.load(new Obj(Obj.Var, o.getName(), o.getType(), o.getAdr(), o.getLevel()));
+				}
+			}
+			
 			Code.load(designator.obj);
+			
 		}
+		if (DesignatorStatementAssign.class == parent.getClass()) { // Ako je sa leve strane izraza...
+			// ...ako je klasni objekat, pukni njenu adresu
+			String name = designator.obj.getName();
+			try {
+				int nameLoc = Integer.parseInt(name);
+				Code.load(new Obj(Obj.Var, designator.obj.getName(), designator.obj.getType(), nameLoc,
+						designator.obj.getLevel()));
+			}catch(NumberFormatException e) {
+				//Code.load(new Obj(Obj.Var, designator.obj.getName(), designator.obj.getType(), designator.obj.getAdr(),
+				//		designator.obj.getLevel()));
+			}
+		}
+	}
+	
+	public void visit(DesignationArrayAccess daa) {
+		
 	}
 
 	public void visit(MultiFactorTerm multiFactorTerm) {
@@ -195,12 +224,12 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 
 	public void visit(FactorDesignatorCall funcCall) {
-		if(((DesignatorIdent)funcCall.getDesignator()).getDesignatorName().equals("len")) {
+		if (((DesignatorIdent) funcCall.getDesignator()).getDesignatorName().equals("len")) {
 			Code.put(Code.arraylength);
 			return;
 		}
 		// TODO Like len(arr) implement chr(int) and ord(chr);
-		
+
 		Obj methObj = funcCall.getDesignator().obj;
 		int offset = methObj.getAdr() - Code.pc;
 
@@ -210,20 +239,23 @@ public class CodeGenerator extends VisitorAdaptor {
 
 	public void visit(FactorNewArray newArrayFact) {
 		Code.put(Code.newarray);
-		int isItWideWord = newArrayFact.getType().struct == Tab.find("int").getType() ? 1 : 0;
+		int isItWideWord = newArrayFact.getType().struct == Tab.find("char").getType() ? 0 : 1;
 		Code.put(isItWideWord);
+	}
+
+	public void visit(FactorNew factorNew) {
+		Code.put(Code.new_);
+		Code.put2(factorNew.getType().struct.getNumberOfFields());
 	}
 
 	public void visit(DesignationArrayEntry dae) {
 		SyntaxNode ancestor = dae.getParent();
 		while (!(ancestor instanceof DesignatorIdent))
 			ancestor = ancestor.getParent();
-		
+
 		Obj designatorObj = ((DesignatorIdent) ancestor).obj;
-		Code.load(new Obj(Obj.Var,
-				"ArrayDesignationAccess",
-				designatorObj.getType(),
-				designatorObj.getAdr(),
+		Code.load(new Obj(Obj.Var, "ArrayDesignationAccess", designatorObj.getType(), designatorObj.getAdr(),
 				designatorObj.getLevel()));
 	}
+
 }
