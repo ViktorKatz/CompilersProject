@@ -477,7 +477,7 @@ public class SemanticPass extends VisitorAdaptor {
 	}
 
 	public void visit(MinusJustTermExpr expr) {
-		if (!expr.getTerm().obj.equals(Tab.find("int"))) {
+		if (expr.getTerm().obj.getType() != Tab.find("int").getType()) {
 			report_error("Moze se negirati samo integer", expr);
 		}
 		expr.obj = expr.getTerm().obj;
@@ -511,7 +511,7 @@ public class SemanticPass extends VisitorAdaptor {
 	}
 
 	public void visit(MinusMultiAddOpExpr expr) {
-		Term firstTerm = expr.getTerm();
+		Term firstTerm = expr.getFirstTermNegative().getTerm();
 		if (firstTerm.obj.getType() != Tab.find("int").getType()) {
 			report_error("Mogu se dodavati i oduzimati samo integeri", expr);
 		}

@@ -55,7 +55,7 @@ nonterminal VarDecls, VarList, VarDecl, ConstDecl, ConstDeclArray, ConstExpr, Va
 nonterminal MethodDeclList, MethodDecl, FormPars, OptionalVarDeclsList, FormParsList;
 nonterminal StatementList, Label, Statement, StatementOrBlockOfStatements, NonLabeledStatement;
 nonterminal DesignatorStatement, OptionalActPars, ActPars, DesignationList;
-nonterminal AddOp, MulOp;
+nonterminal AddOp, MulOp, FirstTermNegative;
 nonterminal Condition, CondTerm, CondFact, RelOp;
 nonterminal ClassExtension, ClassBody, ClassConstructor;
 
@@ -206,21 +206,23 @@ DesignationList ::= (DesignationObjectAccess) DOT IDENT:memberName DesignationLi
 				  | (DesignationNone);
 				  
 Expr ::= (JustTermExpr) Term
-	   | (MultiAddOpExpr) Term AdditionTermList
+	   | (MultiAddOpExpr) Term AddOp AdditionTermList
 	   | (MinusJustTermExpr) MINUS Term
-	   | (MinusMultiAddOpExpr) MINUS Term AdditionTermList
+	   | (MinusMultiAddOpExpr) MINUS FirstTermNegative AddOp AdditionTermList
 	   | (NullExpr) NULL;
 	   
+FirstTermNegative ::= (FirstTermNegative) Term;
+	   
 AdditionTermList ::= (NonLastTerm) AdditionTermList AddOp Term
-				   | (LastTerm) AddOp Term;
+				   | (LastTerm) Term;
 
 AddOp ::= (AddOpPlus) PLUS | (AddOpMinus) MINUS;
 
 Term ::= (SingleFactorTerm) Factor
-	   | (MultiFactorTerm) Factor MultipleFactorList;
+	   | (MultiFactorTerm) MultipleFactorList MulOp Factor;
 
 MultipleFactorList ::= (NonLastFactor) MultipleFactorList MulOp Factor
-					 | (LastFactor) MulOp Factor;
+					 | (LastFactor) Factor;
 
 MulOp ::= (MulOpTimes) TIMES | (MulOpDiv) DIV | (MulOpPercent) PERCENT;
 

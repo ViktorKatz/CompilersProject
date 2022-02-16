@@ -76,6 +76,7 @@ nonterminal ActPars ActPars;
 nonterminal DesignationList DesignationList;
 nonterminal AddOp AddOp;
 nonterminal MulOp MulOp;
+nonterminal FirstTermNegative FirstTermNegative;
 nonterminal Condition Condition;
 nonterminal CondTerm CondTerm;
 nonterminal CondFact CondFact;
@@ -231,21 +232,23 @@ DesignationList ::= (DesignationObjectAccess) DOT IDENT:memberName DesignationLi
 				  | (DesignationNone) {: RESULT=new DesignationNone(); :};
 				  
 Expr ::= (JustTermExpr) Term:T1 {: RESULT=new JustTermExpr(T1); RESULT.setLine(T1left); :}
-	   | (MultiAddOpExpr) Term:T1 AdditionTermList:A2 {: RESULT=new MultiAddOpExpr(T1, A2); RESULT.setLine(T1left); :}
+	   | (MultiAddOpExpr) Term:T1 AddOp:A2 AdditionTermList:A3 {: RESULT=new MultiAddOpExpr(T1, A2, A3); RESULT.setLine(T1left); :}
 	   | (MinusJustTermExpr) MINUS Term:T1 {: RESULT=new MinusJustTermExpr(T1); RESULT.setLine(T1left); :}
-	   | (MinusMultiAddOpExpr) MINUS Term:T1 AdditionTermList:A2 {: RESULT=new MinusMultiAddOpExpr(T1, A2); RESULT.setLine(T1left); :}
+	   | (MinusMultiAddOpExpr) MINUS FirstTermNegative:F1 AddOp:A2 AdditionTermList:A3 {: RESULT=new MinusMultiAddOpExpr(F1, A2, A3); RESULT.setLine(F1left); :}
 	   | (NullExpr) NULL {: RESULT=new NullExpr(); :};
 	   
+FirstTermNegative ::= (FirstTermNegative) Term:T1 {: RESULT=new FirstTermNegative(T1); RESULT.setLine(T1left); :};
+	   
 AdditionTermList ::= (NonLastTerm) AdditionTermList:A1 AddOp:A2 Term:T3 {: RESULT=new NonLastTerm(A1, A2, T3); RESULT.setLine(A1left); :}
-				   | (LastTerm) AddOp:A1 Term:T2 {: RESULT=new LastTerm(A1, T2); RESULT.setLine(A1left); :};
+				   | (LastTerm) Term:T1 {: RESULT=new LastTerm(T1); RESULT.setLine(T1left); :};
 
 AddOp ::= (AddOpPlus) PLUS {: RESULT=new AddOpPlus(); :} | (AddOpMinus) MINUS {: RESULT=new AddOpMinus(); :};
 
 Term ::= (SingleFactorTerm) Factor:F1 {: RESULT=new SingleFactorTerm(F1); RESULT.setLine(F1left); :}
-	   | (MultiFactorTerm) Factor:F1 MultipleFactorList:M2 {: RESULT=new MultiFactorTerm(F1, M2); RESULT.setLine(F1left); :};
+	   | (MultiFactorTerm) MultipleFactorList:M1 MulOp:M2 Factor:F3 {: RESULT=new MultiFactorTerm(M1, M2, F3); RESULT.setLine(M1left); :};
 
 MultipleFactorList ::= (NonLastFactor) MultipleFactorList:M1 MulOp:M2 Factor:F3 {: RESULT=new NonLastFactor(M1, M2, F3); RESULT.setLine(M1left); :}
-					 | (LastFactor) MulOp:M1 Factor:F2 {: RESULT=new LastFactor(M1, F2); RESULT.setLine(M1left); :};
+					 | (LastFactor) Factor:F1 {: RESULT=new LastFactor(F1); RESULT.setLine(F1left); :};
 
 MulOp ::= (MulOpTimes) TIMES {: RESULT=new MulOpTimes(); :} | (MulOpDiv) DIV {: RESULT=new MulOpDiv(); :} | (MulOpPercent) PERCENT {: RESULT=new MulOpPercent(); :};
 

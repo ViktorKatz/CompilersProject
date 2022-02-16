@@ -1,10 +1,20 @@
 program MJAUProgram
-int a;
-int b;
+int a, b;
 {	
 	void main()
+	int c, d;
 	{
-		print(7);
+		a=3;
+		b=7;
+		
+		c = -a*b-a*a;
+		
+		c--;
+		
+		d = c + c;
+		
+		
+		print(d);
 	}
 	
 }
