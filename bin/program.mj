@@ -1,46 +1,10 @@
 program MJAUProgram
 int a;
 int b;
-record r{
-	int a,b;
-	char xxxx;
-}
-r reccc;
-r seccc;
-char c;
-int niz[];
 {	
-	r method(int i, bool j, r paramccc)
-	r returnecc;
+	void main()
 	{
-		returnecc = new r;
-		returnecc.a = i;
-		returnecc.b = i+1;
-		if(j)
-			returnecc.xxxx = 'y';
-		else{
-			returnecc.xxxx = 'n';
-			returnecc.a--;
-		}
-		return returnecc;
-	}
-
-	void main(int i, int j)
-	r mainccc;
-	{
-		mainccc = method(3,false, reccc);
-		a=-b+2%b+6*2/5%b-7 + reccc.a + niz[2+b%3] + mainccc.a;
-		method(3, false, reccc);
-		
-		do{
-			a++;
-			if (c == c) {
-				continue;
-			}
-		}while(a>3);
-		
-		//continue;
-		
+		print(7);
 	}
 	
 }

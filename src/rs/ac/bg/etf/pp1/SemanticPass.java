@@ -25,6 +25,8 @@ public class SemanticPass extends VisitorAdaptor {
 	Stack classNesting = new Stack();
 	Stack classNestingSymbolData = new Stack();
 
+	public int numberOfGlobalVars = 0;
+
 	public SemanticPass() {
 		Tab.insert(Obj.Type, "bool", new Struct(Struct.Bool));
 		Tab.insert(Obj.Type, "void", new Struct(Struct.None));
@@ -58,14 +60,14 @@ public class SemanticPass extends VisitorAdaptor {
 			report_error("Vec je deklarisano " + name, info);
 			return Tab.noObj;
 		}
-		
+
 		kind = classNesting.empty() ? kind : Obj.Fld;
 
 		Obj inserted = Tab.insert(kind, name, type);
 
 		if (currentMethod != null) {
 			currentMethodLocals.insertKey(inserted);
-		}else if (!classNesting.empty()) {
+		} else if (!classNesting.empty()) {
 			kind = Obj.Fld;
 			SymbolDataStructure currentClassData = (SymbolDataStructure) classNestingSymbolData.peek();
 			currentClassData.insertKey(inserted);
@@ -104,6 +106,7 @@ public class SemanticPass extends VisitorAdaptor {
 
 	public void visit(Program program) {
 		Tab.chainLocalSymbols(program.getProgName().obj);
+		numberOfGlobalVars = Tab.currentScope.getnVars();
 		Tab.closeScope();
 	}
 
@@ -287,7 +290,7 @@ public class SemanticPass extends VisitorAdaptor {
 			report_error("Semanticka greska na liniji " + methodDecl.getLine() + ": funkcija " + currentMethod.getName()
 					+ " nema return iskaz!", null);
 		}
-
+		
 		Tab.chainLocalSymbols(currentMethod);
 		Tab.closeScope();
 		report_info("Gotova obrada funkcije " + methodDecl.getMethodSignature().getMethName(), methodDecl);
@@ -379,15 +382,15 @@ public class SemanticPass extends VisitorAdaptor {
 			return;
 		}
 
-		f.struct = f.getType().struct;
+		f.struct = new Struct(Struct.Array, f.getType().struct);
 	}
 
 	public void visit(FactorDesignator f) {
-		if(f.getDesignator().obj == null) {
+		if (f.getDesignator().obj == null) {
 			report_error("Designator ne postoji", f);
 			return;
 		}
-		
+
 		f.struct = f.getDesignator().obj.getType();
 	}
 
@@ -542,7 +545,6 @@ public class SemanticPass extends VisitorAdaptor {
 				report_error("Pristupanje nekom clanu klase/recorda/niza je moguce samo u slucaju varijable",
 						designator);
 			}
-			;
 			if (designationList instanceof DesignationObjectAccess) {
 				DesignationObjectAccess doa = (DesignationObjectAccess) designationList;
 				Struct type = target.getType();
@@ -561,7 +563,7 @@ public class SemanticPass extends VisitorAdaptor {
 				if (daa.getExpr().struct.getKind() != Struct.Int) {
 					report_error("Samo integer moze biti indeks niza", daa);
 				}
-				target = new Obj(Obj.Var, target.getName() + "_element", target.getType().getElemType());
+				target = new Obj(Obj.Elem, target.getName() + "_element", target.getType().getElemType());
 				// TODO check if this works. Looks like it works...
 				designationList = daa.getDesignationList();
 			}
@@ -672,7 +674,7 @@ public class SemanticPass extends VisitorAdaptor {
 
 	public void visit(ReadStmt stmt) {
 		int kind = stmt.getDesignator().obj.getKind();
-		if (kind != Obj.Fld && kind != Obj.Var) {
+		if (kind != Obj.Fld && kind != Obj.Var && kind != Obj.Elem) {
 			report_error("Ovo se ne moze ucitati od korisnika", stmt);
 		}
 		if (stmt.getDesignator().obj.getType() != Tab.intType && stmt.getDesignator().obj.getType() != Tab.charType
@@ -694,7 +696,6 @@ public class SemanticPass extends VisitorAdaptor {
 			report_error("Mogu se ispisivati samo primitivni tipovi", stmt);
 		}
 	}
-	
 
 	/////////////////// STATEMENTS END ////////////////////////
 
@@ -711,24 +712,24 @@ public class SemanticPass extends VisitorAdaptor {
 		Expr e0 = condFact.getExpr();
 		Expr e1 = condFact.getExpr1();
 
-		if(e0.struct == null || e1.struct == null) {
+		if (e0.struct == null || e1.struct == null) {
 			report_error("Ne moze se ispitati validnost na kompatibilnost u slucaju nepostojeceg designatora", e0);
 			return;
 		}
-		
+
 		if (!e0.struct.compatibleWith(e1.struct)) {
 			report_error("Ne mogu se porediti tipovi koji nisu kompatibilni", condFact);
 			return;
 		}
-		
-		if(e0.struct.getKind() == Struct.Array || e0.struct.getKind() == Struct.Class) {
+
+		if (e0.struct.getKind() == Struct.Array || e0.struct.getKind() == Struct.Class) {
 			RelOp operator = condFact.getRelOp();
-			if(!(operator instanceof RelOpEq || operator instanceof RelOpNeq)) {
+			if (!(operator instanceof RelOpEq || operator instanceof RelOpNeq)) {
 				report_error("Klase, recordi i nizovi se mogu porediti samo na jednakost", operator);
 			}
 		}
 	}
-	
+
 	// TODO uraditi ostalo ako treba... Za sad se cini da ne treba
 
 	/////////////////// CONDITIONS END ////////////////////////
