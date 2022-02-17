@@ -95,8 +95,6 @@ public class CodeGenerator extends VisitorAdaptor {
 		myJumpAddr.put(CL, new Integer(Code.pc));
 		Code.putJump(Code.pc);
 		endAddr.put(CL, new Integer(Code.pc));
-
-		CL.traverseBottomUp(new AddressFixer(-1, -1));
 	}
 
 	private class AddressFixer extends VisitorAdaptor {
@@ -138,6 +136,49 @@ public class CodeGenerator extends VisitorAdaptor {
 			Code.fixup(addrToFix + 1);
 			Code.pc = pcBackup;
 		}
+	}
+
+	public void visit(IfStmt stmt) {
+		Condition rootCondition = stmt.getCondition();
+		int thenAddr = ((Integer) endAddr.get(rootCondition)).intValue();
+		int afterBodyAddr = Code.pc;
+
+		rootCondition.traverseBottomUp(new AddressFixer(thenAddr, afterBodyAddr));
+	}
+
+	public void visit(IfElseStmt stmt) {
+		Condition rootCondition = stmt.getCondition();
+		int thenAddr = ((Integer) endAddr.get(rootCondition)).intValue();
+		int afterBodyAddr = Code.pc;
+
+		int elseAddr = ((Integer) endAddr.get(stmt.getElseCheckpoint())).intValue();
+
+		rootCondition.traverseBottomUp(new AddressFixer(thenAddr, elseAddr));
+
+		// Jump out of the THEN branch, not to continue to ELSE
+		int pcBackup = Code.pc;
+		Code.pc = afterBodyAddr;
+		Code.fixup(((Integer) myJumpAddr.get(stmt.getElseCheckpoint())).intValue() + 1);
+		Code.pc = pcBackup;
+
+	}
+
+	public void visit(ElseCheckpoint checkpoint) {
+		myJumpAddr.put(checkpoint, new Integer(Code.pc));
+		Code.putJump(Code.pc); // Jump to after else
+		endAddr.put(checkpoint, new Integer(Code.pc));
+	}
+	
+	public void visit(DoWhileStmt stmt) {
+		Condition rootCondition = stmt.getCondition();
+		int thenAddr = ((Integer)endAddr.get(stmt.getDoCheckpoint())).intValue();
+		int afterBodyAddr = Code.pc;
+
+		rootCondition.traverseBottomUp(new AddressFixer(thenAddr, afterBodyAddr));
+	}
+	
+	public void visit(DoCheckpoint checkpoint) {
+		endAddr.put(checkpoint, new Integer(Code.pc));
 	}
 
 	///////////////////////// NODE VISIT START //////////////////////
@@ -275,7 +316,6 @@ public class CodeGenerator extends VisitorAdaptor {
 				if (dl instanceof DesignationArrayAccess) {
 					daa = (DesignationArrayAccess) dl;
 					Code.load(daa.obj);
-					int debugPc = Code.pc;
 
 					// Swap out the bug
 					byte tmp = Code.buf[Code.pc - 4];

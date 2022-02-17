@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 17/1/2022 6:20:0
+// 17/1/2022 10:34:3
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,13 +9,16 @@ public class IfElseStmt extends NonLabeledStatement {
 
     private Condition Condition;
     private StatementOrBlockOfStatements StatementOrBlockOfStatements;
+    private ElseCheckpoint ElseCheckpoint;
     private StatementOrBlockOfStatements StatementOrBlockOfStatements1;
 
-    public IfElseStmt (Condition Condition, StatementOrBlockOfStatements StatementOrBlockOfStatements, StatementOrBlockOfStatements StatementOrBlockOfStatements1) {
+    public IfElseStmt (Condition Condition, StatementOrBlockOfStatements StatementOrBlockOfStatements, ElseCheckpoint ElseCheckpoint, StatementOrBlockOfStatements StatementOrBlockOfStatements1) {
         this.Condition=Condition;
         if(Condition!=null) Condition.setParent(this);
         this.StatementOrBlockOfStatements=StatementOrBlockOfStatements;
         if(StatementOrBlockOfStatements!=null) StatementOrBlockOfStatements.setParent(this);
+        this.ElseCheckpoint=ElseCheckpoint;
+        if(ElseCheckpoint!=null) ElseCheckpoint.setParent(this);
         this.StatementOrBlockOfStatements1=StatementOrBlockOfStatements1;
         if(StatementOrBlockOfStatements1!=null) StatementOrBlockOfStatements1.setParent(this);
     }
@@ -36,6 +39,14 @@ public class IfElseStmt extends NonLabeledStatement {
         this.StatementOrBlockOfStatements=StatementOrBlockOfStatements;
     }
 
+    public ElseCheckpoint getElseCheckpoint() {
+        return ElseCheckpoint;
+    }
+
+    public void setElseCheckpoint(ElseCheckpoint ElseCheckpoint) {
+        this.ElseCheckpoint=ElseCheckpoint;
+    }
+
     public StatementOrBlockOfStatements getStatementOrBlockOfStatements1() {
         return StatementOrBlockOfStatements1;
     }
@@ -51,6 +62,7 @@ public class IfElseStmt extends NonLabeledStatement {
     public void childrenAccept(Visitor visitor) {
         if(Condition!=null) Condition.accept(visitor);
         if(StatementOrBlockOfStatements!=null) StatementOrBlockOfStatements.accept(visitor);
+        if(ElseCheckpoint!=null) ElseCheckpoint.accept(visitor);
         if(StatementOrBlockOfStatements1!=null) StatementOrBlockOfStatements1.accept(visitor);
     }
 
@@ -58,12 +70,14 @@ public class IfElseStmt extends NonLabeledStatement {
         accept(visitor);
         if(Condition!=null) Condition.traverseTopDown(visitor);
         if(StatementOrBlockOfStatements!=null) StatementOrBlockOfStatements.traverseTopDown(visitor);
+        if(ElseCheckpoint!=null) ElseCheckpoint.traverseTopDown(visitor);
         if(StatementOrBlockOfStatements1!=null) StatementOrBlockOfStatements1.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
         if(Condition!=null) Condition.traverseBottomUp(visitor);
         if(StatementOrBlockOfStatements!=null) StatementOrBlockOfStatements.traverseBottomUp(visitor);
+        if(ElseCheckpoint!=null) ElseCheckpoint.traverseBottomUp(visitor);
         if(StatementOrBlockOfStatements1!=null) StatementOrBlockOfStatements1.traverseBottomUp(visitor);
         accept(visitor);
     }
@@ -81,6 +95,12 @@ public class IfElseStmt extends NonLabeledStatement {
 
         if(StatementOrBlockOfStatements!=null)
             buffer.append(StatementOrBlockOfStatements.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
+
+        if(ElseCheckpoint!=null)
+            buffer.append(ElseCheckpoint.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

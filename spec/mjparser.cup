@@ -56,7 +56,7 @@ nonterminal MethodDeclList, MethodDecl, FormPars, OptionalVarDeclsList, FormPars
 nonterminal StatementList, Label, Statement, StatementOrBlockOfStatements, NonLabeledStatement;
 nonterminal DesignatorStatement, OptionalActPars, ActPars, DesignationArrayEntry, DesignationArrayLoad;
 nonterminal AddOp, MulOp, FirstTermNegative;
-nonterminal Condition, CondTerm, CondFact, RelOp;
+nonterminal Condition, CondTerm, CondFact, RelOp, ElseCheckpoint, DoCheckpoint;
 nonterminal ClassExtension, ClassBody, ClassConstructor;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, RecordIdent, RecordDecl, ClassName, ClassDecl, MethodSignature;
@@ -169,8 +169,11 @@ NonLabeledStatement ::= (DesignatorStmt) DesignatorStatement SEMI
 					  | (PrintStmtWithWidth) PRINT LPAREN Expr COMMA NUMBER RPAREN SEMI
 					  | (GotoStmt) GOTO Label SEMI
 					  | (IfStmt) IF LPAREN Condition RPAREN StatementOrBlockOfStatements
-					  | (IfElseStmt) IF LPAREN Condition RPAREN StatementOrBlockOfStatements ELSE StatementOrBlockOfStatements
-					  | (DoWhileStmt) DO StatementOrBlockOfStatements WHILE LPAREN Condition RPAREN SEMI;
+					  | (IfElseStmt) IF LPAREN Condition RPAREN StatementOrBlockOfStatements ElseCheckpoint StatementOrBlockOfStatements
+					  | (DoWhileStmt) DoCheckpoint StatementOrBlockOfStatements WHILE LPAREN Condition RPAREN SEMI;
+
+ElseCheckpoint ::= (ElseCheckpoint) ELSE;
+DoCheckpoint ::= (DoCheckpoint) DO;
 
 Condition ::= (Condition) ConditionList;
 
