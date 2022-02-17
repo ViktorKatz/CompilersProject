@@ -76,9 +76,9 @@ Test t1, t2;
 		if(i == 3 && verify()) print(-4);
 		else print(4);  
 		
-		read(t1.niz[0]);
-		read(t1.niz[1]);
-		read(t1.niz[2]);
+		t1.niz[0] = 4;
+		t1.niz[1] = 5;
+		t1.niz[2] = 6;
 		print(eol);
 		
 		print(sum (sum(t1.niz[0], t1.niz[1]), t1.niz[2])); 
