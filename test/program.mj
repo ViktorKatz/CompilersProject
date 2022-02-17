@@ -1,13 +1,21 @@
 program MJAUProgram
 int a, b;
 {	
+	int sum(int z, int d)
+	{
+		return z + d;
+	}
 	void main()
 	bool tacno;
+	int niz[];
 	{
 		tacno = true;
 		a = 15;
-		if(a<=10 && tacno || a>15 && a<20){
-		}
+		niz = new int[3];
+		
+		niz[0] = 17;
+		niz[1] = 13;
+		niz[2] = sum(niz[0], niz[1]);
 		
 	}	
 }

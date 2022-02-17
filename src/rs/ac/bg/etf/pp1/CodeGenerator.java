@@ -96,18 +96,16 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.putJump(Code.pc);
 		endAddr.put(CL, new Integer(Code.pc));
 
-		CL.traverseBottomUp(new AddressFixer(-1, -1, -1));
+		CL.traverseBottomUp(new AddressFixer(-1, -1));
 	}
 
 	private class AddressFixer extends VisitorAdaptor {
 		private int thenAddres;
-		private int elseAddress;
 		private int afterBodyAddress;
 
-		public AddressFixer(int thenAddres, int elseAddress, int afterBodyAddress) {
+		public AddressFixer(int thenAddres, int afterBodyOrElseAddress) {
 			this.thenAddres = thenAddres;
-			this.elseAddress = elseAddress;
-			this.afterBodyAddress = afterBodyAddress;
+			this.afterBodyAddress = afterBodyOrElseAddress;
 		}
 
 		public void visit(NonLastCondFact CF) {
@@ -131,7 +129,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		}
 
 		public void visit(Condition CL) {
-
+			substituteAddress(((Integer) myJumpAddr.get(CL)).intValue(), afterBodyAddress);
 		}
 
 		private void substituteAddress(int addrToFix, int targetAddr) {
@@ -375,7 +373,14 @@ public class CodeGenerator extends VisitorAdaptor {
 			Code.put(Code.arraylength);
 			return;
 		}
-		// TODO Like len(arr) implement chr(int) and ord(chr);
+		if (((DesignatorIdent) funcCall.getDesignator()).getDesignatorName().equals("ord")) {
+			// Vec je na steku lol
+			return;
+		}
+		if (((DesignatorIdent) funcCall.getDesignator()).getDesignatorName().equals("chr")) {
+			// Vec je na steku lol
+			return;
+		}
 
 		Obj methObj = funcCall.getDesignator().obj;
 		int offset = methObj.getAdr() - Code.pc;
