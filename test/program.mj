@@ -11,17 +11,17 @@ record R{
 	{
 		reccc = new R;
 		
-		nizzz = new int[5];
+		nizzz = new int[7];
 		nizzz[3] = 7;
-		
-		///RADI DO OVDE
+		nizzz[4] = 3 + nizzz[3];
 
+		// Sve radi jupi jej!
 		
 		reccc.x=77;
 		reccc.b=88;
 		
 		a = reccc.x + reccc.b;
-		b = reccc.b + nizzz[3];
+		b = reccc.b + nizzz[4];
 		
 		print(a+b);
 		

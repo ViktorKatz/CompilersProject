@@ -557,7 +557,8 @@ public class SemanticPass extends VisitorAdaptor {
 				}
 				Obj tmpTar = type.getMembersTable().searchKey(doa.getMemberName()); // TODO Test if this properly propagates record membership
 				target = new Obj(Obj.Fld, Integer.toString(target.getAdr()) , tmpTar.getType(), tmpTar.getAdr(), target.getLevel());
-				//target = tmpTar;
+				
+				doa.obj = tmpTar;
 				
 				designationList = doa.getDesignationList();
 			} else if (designationList instanceof DesignationArrayAccess) {
@@ -572,6 +573,8 @@ public class SemanticPass extends VisitorAdaptor {
 				target = new Obj(Obj.Elem, Integer.toString(target.getAdr()), target.getType().getElemType(), target.getAdr(), target.getLevel());
 				// TODO check if this works. Looks like it works...
 				designationList = daa.getDesignationList();
+				
+				daa.obj = target;
 			}
 		}
 		designator.obj = target;

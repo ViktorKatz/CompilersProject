@@ -99,58 +99,63 @@ public class CodeGenerator extends VisitorAdaptor {
 			Code.load(Tab.find("eol"));
 			return;
 		}
-		
+
 		/*
-		DesignationList dl = designator.getDesignationList();
-		while(dl instanceof DesignationArrayAccess || dl instanceof DesignationObjectAccess) {
-			DesignationArrayAccess daa;
-			DesignationObjectAccess doa;
-			if(dl instanceof DesignationArrayAccess) {
-				daa = (DesignationArrayAccess) dl;
-				daa.getDesignationArrayLoad();daa.get
-				dl = daa.getDesignationList();
-			}
-			else if(dl instanceof DesignationObjectAccess) {
-				doa = (DesignationObjectAccess) dl;
-				
-				dl = doa.getDesignationList();
-			}
-		}
-		*/
+		 * DesignationList dl = designator.getDesignationList(); while(dl instanceof
+		 * DesignationArrayAccess || dl instanceof DesignationObjectAccess) {
+		 * DesignationArrayAccess daa; DesignationObjectAccess doa; if(dl instanceof
+		 * DesignationArrayAccess) { daa = (DesignationArrayAccess) dl;
+		 * daa.getDesignationArrayLoad();daa.get dl = daa.getDesignationList(); } else
+		 * if(dl instanceof DesignationObjectAccess) { doa = (DesignationObjectAccess)
+		 * dl;
+		 * 
+		 * dl = doa.getDesignationList(); } }
+		 */
 
 		SyntaxNode parent = designator.getParent();
 		if (FactorDesignator.class == parent.getClass()) { // Ako je sa desne strane izraza, baca se na expr stack
-			if(designator.obj.getKind() == Obj.Fld) {
-			//if(false) {
-				Obj o = designator.obj;				
+			if (designator.obj.getKind() == Obj.Fld) {
+				Obj o = designator.obj;
 				String name = o.getName();
 				try {
 					int nameLoc = Integer.parseInt(name);
 					Code.load(new Obj(Obj.Var, o.getName(), o.getType(), nameLoc, o.getLevel()));
-				}catch(NumberFormatException e) {
-					//Code.load(new Obj(Obj.Var, o.getName(), o.getType(), o.getAdr(), o.getLevel()));
+				} catch (NumberFormatException e) {
+					// Code.load(new Obj(Obj.Var, o.getName(), o.getType(), o.getAdr(),
+					// o.getLevel()));
 				}
 			}
-			
+
 			Code.load(designator.obj);
-			
+
 		}
 		if (DesignatorStatementAssign.class == parent.getClass()) { // Ako je sa leve strane izraza...
-			// ...ako je klasni objekat, pukni njenu adresu
-			String name = designator.obj.getName();
-			try {
-				int nameLoc = Integer.parseInt(name);
-				Code.load(new Obj(Obj.Var, designator.obj.getName(), designator.obj.getType(), nameLoc,
+			if(designator.obj.getKind() == Obj.Fld)
+				Code.load(new Obj(Obj.Var,
+						designator.obj.getName(),
+						designator.obj.getType(),
+						Integer.parseInt(designator.obj.getName()),	// Kroz name se propagira originalna adresa maticnog objekta
 						designator.obj.getLevel()));
-			}catch(NumberFormatException e) {
-				//Code.load(new Obj(Obj.Var, designator.obj.getName(), designator.obj.getType(), designator.obj.getAdr(),
-				//		designator.obj.getLevel()));
+			
+			DesignationList dl = designator.getDesignationList();
+			while (dl instanceof DesignationArrayAccess || dl instanceof DesignationObjectAccess) {
+				DesignationArrayAccess daa;
+				DesignationObjectAccess doa;
+				if (dl instanceof DesignationArrayAccess) {
+					daa = (DesignationArrayAccess) dl;
+					// Code.load(daa.obj);
+					dl = daa.getDesignationList();
+				} else if (dl instanceof DesignationObjectAccess) {
+					doa = (DesignationObjectAccess) dl;
+					// Code.load(doa.obj);
+					dl = doa.getDesignationList();
+				}
 			}
 		}
 	}
-	
+
 	public void visit(DesignationArrayAccess daa) {
-		
+
 	}
 
 	public void visit(MultiFactorTerm multiFactorTerm) {

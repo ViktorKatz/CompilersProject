@@ -42,8 +42,8 @@ program test301
 		bodovi = bodovi + (pet * jedan - 1) * bodovi - (3 % 2 + 3 * 2 - 3); 
 		print(bodovi);
 			
-		read(bodovi);
-		print(bodovi);
+		//read(bodovi);
+		//print(bodovi);
 	}
 }
 

@@ -73,7 +73,6 @@ nonterminal NonLabeledStatement NonLabeledStatement;
 nonterminal DesignatorStatement DesignatorStatement;
 nonterminal OptionalActPars OptionalActPars;
 nonterminal ActPars ActPars;
-nonterminal DesignationList DesignationList;
 nonterminal DesignationArrayEntry DesignationArrayEntry;
 nonterminal DesignationArrayLoad DesignationArrayLoad;
 nonterminal AddOp AddOp;
@@ -88,7 +87,7 @@ nonterminal ClassBody ClassBody;
 nonterminal ClassConstructor ClassConstructor;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgName, Program, RecordIdent, RecordDecl, ClassName, ClassDecl, MethodSignature;
-nonterminal rs.etf.pp1.symboltable.concepts.Obj BlockOfStatementsStart, BlockOfStatements, Designator;
+nonterminal rs.etf.pp1.symboltable.concepts.Obj BlockOfStatementsStart, BlockOfStatements, Designator, DesignationList;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct Type, PrimitiveType, TypeOrVoid;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Expr, AdditionTermList, Term, MultipleFactorList, Factor;
 nonterminal rs.etf.pp1.symboltable.concepts.Struct ConditionList;

@@ -71,6 +71,15 @@
 	<target name="runObj">
 		<java classname="rs.etf.pp1.mj.runtime.Run">
 			<arg value="test/bin/program_test.obj" />
+			<classpath>
+				<pathelement location="lib/mj-runtime.jar" />
+			</classpath>
+		</java>
+	</target>
+	
+	<target name="debugObj">
+		<java classname="rs.etf.pp1.mj.runtime.Run">
+			<arg value="test/bin/program_test.obj" />
 			<arg value="-debug" />
 			<classpath>
 				<pathelement location="lib/mj-runtime.jar" />
