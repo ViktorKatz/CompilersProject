@@ -5,11 +5,141 @@ import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.*;
 
+import java.util.HashMap;
+
 public class CodeGenerator extends VisitorAdaptor {
 	private int mainPc;
 
 	public int getMainPc() {
 		return mainPc;
+	}
+
+	////////////////////// Conditions start/////////////////
+
+	// Ordered
+	Class[] relOpClasses = { RelOpEq.class, RelOpNeq.class, RelOpLess.class, RelOpLeq.class, RelOpGre.class,
+			RelOpGeq.class };
+
+	HashMap myJumpAddr = new HashMap(128);
+	HashMap endAddr = new HashMap(128); // Initial capacity
+
+	private SyntaxNode getCondTreeParent(SyntaxNode child) {
+		SyntaxNode parent = child.getParent();
+		if (child instanceof LastCondFact || child instanceof NonLastCondFact) {
+			while (!(parent instanceof LastCondTerm || parent instanceof NonLastCondTerm)) {
+				parent = parent.getParent();
+			}
+			return parent;
+		} else if (child instanceof LastCondTerm || child instanceof NonLastCondTerm) {
+			while (!(parent instanceof Condition)) {
+				parent = parent.getParent();
+			}
+			return parent;
+		}
+		throw new Error("Ovo pozivaj samo na CondFact i CondTerm");
+	}
+
+	public void visit(NonLastCondFact CF) {
+		CondFact factor = CF.getCondFact();
+		if (factor instanceof CondFactRelOp) {
+			CondFactRelOp factorRelOp = (CondFactRelOp) factor;
+			for (int op = 0; op < relOpClasses.length; ++op) {
+				if (relOpClasses[op] == factorRelOp.getRelOp().getClass()) {
+					myJumpAddr.put(CF, new Integer(Code.pc)); // Ovde je moj skokic
+					Code.putFalseJump(op, Code.pc);
+					break;
+				}
+			}
+		} else {
+			Code.load(new Obj(Obj.Con, "Poligraf", new Struct(Struct.Bool), 0, 100));
+			myJumpAddr.put(CF, new Integer(Code.pc)); // Ovde je moj skokic
+			Code.putFalseJump(Code.ne, Code.pc);
+		}
+
+		endAddr.put(CF, new Integer(Code.pc));
+	}
+
+	public void visit(LastCondFact CF) {
+		CondFact factor = CF.getCondFact();
+		if (factor instanceof CondFactRelOp) {
+			CondFactRelOp factorRelOp = (CondFactRelOp) factor;
+			for (int op = 0; op < relOpClasses.length; ++op) {
+				if (relOpClasses[op] == factorRelOp.getRelOp().getClass()) {
+					myJumpAddr.put(CF, new Integer(Code.pc)); // Ovde je moj skokic
+					Code.putFalseJump(op, Code.pc);
+					break;
+				}
+			}
+		} else {
+			Code.load(new Obj(Obj.Con, "Poligraf", new Struct(Struct.Bool), 0, 100));
+			myJumpAddr.put(CF, new Integer(Code.pc)); // Ovde je moj skokic
+			Code.putFalseJump(Code.ne, Code.pc);
+		}
+
+		endAddr.put(CF, new Integer(Code.pc));
+	}
+
+	public void visit(NonLastCondTerm CT) {
+		myJumpAddr.put(CT, new Integer(Code.pc));
+		Code.putJump(Code.pc);
+		endAddr.put(CT, new Integer(Code.pc));
+	}
+
+	public void visit(LastCondTerm CT) {
+		myJumpAddr.put(CT, new Integer(Code.pc));
+		Code.putJump(Code.pc);
+		endAddr.put(CT, new Integer(Code.pc));
+	}
+
+	public void visit(Condition CL) {
+		myJumpAddr.put(CL, new Integer(Code.pc));
+		Code.putJump(Code.pc);
+		endAddr.put(CL, new Integer(Code.pc));
+
+		CL.traverseBottomUp(new AddressFixer(-1, -1, -1));
+	}
+
+	private class AddressFixer extends VisitorAdaptor {
+		private int thenAddres;
+		private int elseAddress;
+		private int afterBodyAddress;
+
+		public AddressFixer(int thenAddres, int elseAddress, int afterBodyAddress) {
+			this.thenAddres = thenAddres;
+			this.elseAddress = elseAddress;
+			this.afterBodyAddress = afterBodyAddress;
+		}
+
+		public void visit(NonLastCondFact CF) {
+			ConditionList termActually = (ConditionList) getCondTreeParent(CF);
+			substituteAddress(((Integer) myJumpAddr.get(CF)).intValue(),
+					((Integer) endAddr.get(termActually)).intValue());
+		}
+
+		public void visit(LastCondFact CF) {
+			ConditionList termActually = (ConditionList) getCondTreeParent(CF);
+			substituteAddress(((Integer) myJumpAddr.get(CF)).intValue(),
+					((Integer) endAddr.get(termActually)).intValue());
+		}
+
+		public void visit(NonLastCondTerm CT) {
+			substituteAddress(((Integer) myJumpAddr.get(CT)).intValue(), thenAddres);
+		}
+
+		public void visit(LastCondTerm CT) {
+			substituteAddress(((Integer) myJumpAddr.get(CT)).intValue(), thenAddres);
+		}
+
+		public void visit(Condition CL) {
+
+		}
+
+		private void substituteAddress(int addrToFix, int targetAddr) {
+			int pcBackup = Code.pc;
+			Code.pc = targetAddr;
+			Code.fixup(addrToFix + 1);
+			Code.pc = pcBackup;
+		}
 	}
 
 	///////////////////////// NODE VISIT START //////////////////////
@@ -148,15 +278,14 @@ public class CodeGenerator extends VisitorAdaptor {
 					daa = (DesignationArrayAccess) dl;
 					Code.load(daa.obj);
 					int debugPc = Code.pc;
-					
+
 					// Swap out the bug
-					byte tmp = Code.buf[Code.pc-4];
-					for(int index=Code.pc-4; index < Code.pc-1; ++index) {
-						Code.buf[index] = Code.buf[index+1];
+					byte tmp = Code.buf[Code.pc - 4];
+					for (int index = Code.pc - 4; index < Code.pc - 1; ++index) {
+						Code.buf[index] = Code.buf[index + 1];
 					}
-					Code.buf[Code.pc-1] = tmp;
-					
-					
+					Code.buf[Code.pc - 1] = tmp;
+
 					dl = daa.getDesignationList();
 				} else if (dl instanceof DesignationObjectAccess) {
 					doa = (DesignationObjectAccess) dl;
@@ -270,10 +399,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		SyntaxNode grandparent = dae.getParent().getParent();
 		if (grandparent instanceof DesignationObjectAccess) {
 			Obj parentObj = (((DesignationArrayAccess) dae.getParent())).obj;
-			Code.load(new Obj(Obj.Var,
-					parentObj.getName(),
-					parentObj.getType(),
-					Integer.parseInt(parentObj.getName()),
+			Code.load(new Obj(Obj.Var, parentObj.getName(), parentObj.getType(), Integer.parseInt(parentObj.getName()),
 					parentObj.getLevel()));
 			return; // If it is a part of an object, don't
 		}

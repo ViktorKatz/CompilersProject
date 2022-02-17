@@ -202,7 +202,7 @@ NonLabeledStatement ::= (DesignatorStmt) DesignatorStatement:D1 SEMI {: RESULT=n
 Condition ::= (Condition) ConditionList:C1 {: RESULT=new Condition(C1); RESULT.setLine(C1left); :};
 
 ConditionList ::= (LastCondTerm) CondTerm:C1 {: RESULT=new LastCondTerm(C1); RESULT.setLine(C1left); :}
-				| (NonLastCondTerm) Condition:C1 OR_OR CondTerm:C2 {: RESULT=new NonLastCondTerm(C1, C2); RESULT.setLine(C1left); :};
+				| (NonLastCondTerm) ConditionList:C1 OR_OR CondTerm:C2 {: RESULT=new NonLastCondTerm(C1, C2); RESULT.setLine(C1left); :};
 	
 CondTerm ::= (LastCondFact) CondFact:C1 {: RESULT=new LastCondFact(C1); RESULT.setLine(C1left); :}
 		   | (NonLastCondFact) CondTerm:C1 AND_AND CondFact:C2 {: RESULT=new NonLastCondFact(C1, C2); RESULT.setLine(C1left); :};

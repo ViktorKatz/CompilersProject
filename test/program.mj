@@ -1,34 +1,13 @@
 program MJAUProgram
 int a, b;
-record R{
-	int x, b;
-	int niz[];
-}
 {	
 	void main()
-	R reccc;
-	int nizzz[];
+	bool tacno;
 	{
-		reccc = new R;
-		
-		nizzz = new int[7];
-		nizzz[3] = 7;
-		reccc.b = 1000;
-		reccc.x = reccc.b;
-		//nizzz[4] = 3 + nizzz[3];
-		
-		reccc.niz = new int[5];
-		reccc.niz[1] = 100;
-		reccc.niz[2] = 200;
-		
-		reccc.x=77;
-		reccc.b=88;
-		
-		a = reccc.x + reccc.b;
-		b = reccc.b + nizzz[4];
-		
-		print(a+b);
-		
+		tacno = true;
+		a = 15;
+		if(a<=10 && tacno || a>15 && a<20){
+		}
 		
 	}	
 }

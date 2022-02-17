@@ -175,7 +175,7 @@ NonLabeledStatement ::= (DesignatorStmt) DesignatorStatement SEMI
 Condition ::= (Condition) ConditionList;
 
 ConditionList ::= (LastCondTerm) CondTerm
-				| (NonLastCondTerm) Condition OR_OR CondTerm;
+				| (NonLastCondTerm) ConditionList OR_OR CondTerm;
 	
 CondTerm ::= (LastCondFact) CondFact
 		   | (NonLastCondFact) CondTerm AND_AND CondFact;
