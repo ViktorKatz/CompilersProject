@@ -294,6 +294,35 @@ public class CodeGenerator extends VisitorAdaptor {
 					// o.getLevel()));
 				}
 			}
+			
+			if (designator.obj.getKind() == Obj.Elem) {
+				DesignationList dl = designator.getDesignationList();
+				if (dl instanceof DesignationArrayAccess)
+					dl = ((DesignationArrayAccess) dl).getDesignationList();
+				if (dl instanceof DesignationObjectAccess)
+					dl = ((DesignationObjectAccess) dl).getDesignationList();
+				while (dl instanceof DesignationArrayAccess || dl instanceof DesignationObjectAccess) {
+					DesignationArrayAccess daa;
+					DesignationObjectAccess doa;
+					if (dl instanceof DesignationArrayAccess) {
+						daa = (DesignationArrayAccess) dl;
+						Code.load(daa.obj);
+
+						// Swap out the bug
+						byte tmp = Code.buf[Code.pc - 4];
+						for (int index = Code.pc - 4; index < Code.pc - 1; ++index) {
+							Code.buf[index] = Code.buf[index + 1];
+						}
+						Code.buf[Code.pc - 1] = tmp;
+
+						dl = daa.getDesignationList();
+					} else if (dl instanceof DesignationObjectAccess) {
+						doa = (DesignationObjectAccess) dl;
+						// Code.load(doa.obj);
+						dl = doa.getDesignationList();
+					}
+				}
+			}
 
 			Code.load(designator.obj);
 

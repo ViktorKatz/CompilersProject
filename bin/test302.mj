@@ -86,11 +86,13 @@ Test t1, t2;
 		print(eol); 
 		print(inkrement(t1.niz[2], 2));
 		
+		// Line 498
 		t2 = new Test;
 		t2.a = 3;
 		t2.niz = new int[3];
 		i = 0;
 		do{
+			// Line 524
 			t2.niz[i] = t1.niz[i] * 2 * t2.a;
 			i++;
 		}while (i < 3);
