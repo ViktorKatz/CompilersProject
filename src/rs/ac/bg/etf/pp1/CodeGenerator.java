@@ -130,20 +130,33 @@ public class CodeGenerator extends VisitorAdaptor {
 
 		}
 		if (DesignatorStatementAssign.class == parent.getClass()) { // Ako je sa leve strane izraza...
-			if(designator.obj.getKind() == Obj.Fld)
-				Code.load(new Obj(Obj.Var,
-						designator.obj.getName(),
-						designator.obj.getType(),
-						Integer.parseInt(designator.obj.getName()),	// Kroz name se propagira originalna adresa maticnog objekta
+			if (designator.obj.getKind() == Obj.Fld)
+				Code.load(new Obj(Obj.Var, designator.obj.getName(), designator.obj.getType(),
+						Integer.parseInt(designator.obj.getName()), // Kroz name se propagira originalna adresa maticnog
+																	// objekta
 						designator.obj.getLevel()));
-			
+
 			DesignationList dl = designator.getDesignationList();
+			if (dl instanceof DesignationArrayAccess)
+				dl = ((DesignationArrayAccess) dl).getDesignationList();
+			if (dl instanceof DesignationObjectAccess)
+				dl = ((DesignationObjectAccess) dl).getDesignationList();
 			while (dl instanceof DesignationArrayAccess || dl instanceof DesignationObjectAccess) {
 				DesignationArrayAccess daa;
 				DesignationObjectAccess doa;
 				if (dl instanceof DesignationArrayAccess) {
 					daa = (DesignationArrayAccess) dl;
-					// Code.load(daa.obj);
+					Code.load(daa.obj);
+					int debugPc = Code.pc;
+					
+					// Swap out the bug
+					byte tmp = Code.buf[Code.pc-4];
+					for(int index=Code.pc-4; index < Code.pc-1; ++index) {
+						Code.buf[index] = Code.buf[index+1];
+					}
+					Code.buf[Code.pc-1] = tmp;
+					
+					
 					dl = daa.getDesignationList();
 				} else if (dl instanceof DesignationObjectAccess) {
 					doa = (DesignationObjectAccess) dl;
@@ -254,6 +267,17 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 
 	public void visit(DesignationArrayEntry dae) {
+		SyntaxNode grandparent = dae.getParent().getParent();
+		if (grandparent instanceof DesignationObjectAccess) {
+			Obj parentObj = (((DesignationArrayAccess) dae.getParent())).obj;
+			Code.load(new Obj(Obj.Var,
+					parentObj.getName(),
+					parentObj.getType(),
+					Integer.parseInt(parentObj.getName()),
+					parentObj.getLevel()));
+			return; // If it is a part of an object, don't
+		}
+
 		SyntaxNode ancestor = dae.getParent();
 		while (!(ancestor instanceof DesignatorIdent))
 			ancestor = ancestor.getParent();

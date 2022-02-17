@@ -570,11 +570,12 @@ public class SemanticPass extends VisitorAdaptor {
 				if (daa.getExpr().obj.getType().getKind() != Struct.Int) {
 					report_error("Samo integer moze biti indeks niza", daa);
 				}
+				
+				daa.obj = target; // Hack to find ex-obj
+				
 				target = new Obj(Obj.Elem, Integer.toString(target.getAdr()), target.getType().getElemType(), target.getAdr(), target.getLevel());
 				// TODO check if this works. Looks like it works...
 				designationList = daa.getDesignationList();
-				
-				daa.obj = target;
 			}
 		}
 		designator.obj = target;
