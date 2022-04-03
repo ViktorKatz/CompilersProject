@@ -1,0 +1,162 @@
+INFO  00:37:37,467 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\miniPG.mj
+INFO  00:37:37,568 - #2 program
+INFO  00:37:37,568 - #54 MJAUProgram
+INFO  00:37:37,568 - #21 record
+INFO  00:37:37,570 - #54 R
+INFO  00:37:37,570 - #45 {
+INFO  00:37:37,571 - #49 int
+INFO  00:37:37,571 - #54 niz
+INFO  00:37:37,573 - #47 [
+INFO  00:37:37,573 - #48 ]
+INFO  00:37:37,573 - #40 ;
+INFO  00:37:37,574 - #46 }
+INFO  00:37:37,575 - #45 {
+INFO  00:37:37,577 - #6 void
+INFO  00:37:37,577 - #54 main
+INFO  00:37:37,578 - #43 (
+INFO  00:37:37,579 - #44 )
+INFO  00:37:37,580 - #54 R
+INFO  00:37:37,580 - #54 rec
+INFO  00:37:37,580 - #40 ;
+INFO  00:37:37,580 - #45 {
+INFO  00:37:37,580 - #54 rec
+INFO  00:37:37,585 - #39 =
+INFO  00:37:37,586 - #19 new
+INFO  00:37:37,586 - #54 R
+INFO  00:37:37,586 - #40 ;
+INFO  00:37:37,587 - #54 rec
+INFO  00:37:37,587 - #20 .
+INFO  00:37:37,587 - #54 niz
+INFO  00:37:37,587 - #39 =
+INFO  00:37:37,587 - #19 new
+INFO  00:37:37,587 - #49 int
+INFO  00:37:37,587 - #47 [
+INFO  00:37:37,588 - #53 5
+INFO  00:37:37,588 - #48 ]
+INFO  00:37:37,588 - #40 ;
+INFO  00:37:37,588 - #46 }
+INFO  00:37:37,588 - #46 }
+INFO  00:37:37,593 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    EmptyPreMethodDeclList(
+    ) [EmptyPreMethodDeclList]
+    PreMethodDeclRecord(
+      RecordDecl(
+        RecordIdent(
+         R
+        ) [RecordIdent]
+        SingleVarDecls(
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            SingleVar(
+              VarDeclArr(
+               niz
+              ) [VarDeclArr]
+            ) [SingleVar]
+          ) [VarDecls]
+        ) [SingleVarDecls]
+      ) [RecordDecl]
+    ) [PreMethodDeclRecord]
+  ) [NonEmptyPreMethodDeclList]
+  MethodDecls(
+    MethodDecl(
+      MethodSignature(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodSignature]
+      NoFormalParams(
+      ) [NoFormalParams]
+      YesVarDeclsList(
+        SingleVarDecls(
+          VarDecls(
+            TypeNonPrimitive(
+             R
+            ) [TypeNonPrimitive]
+            SingleVar(
+              VarDeclNotArr(
+               rec
+              ) [VarDeclNotArr]
+            ) [SingleVar]
+          ) [VarDecls]
+        ) [SingleVarDecls]
+      ) [YesVarDeclsList]
+      BlockOfStatements(
+        BlockOfStatementsStart(
+        ) [BlockOfStatementsStart]
+        NonEmptyStatementListStmt(
+          NonEmptyStatementListStmt(
+            EmptyStatementList(
+            ) [EmptyStatementList]
+            StatementWithoutLabel(
+              DesignatorStmt(
+                DesignatorStatementAssign(
+                  DesignatorIdent(
+                   rec
+                    DesignationNone(
+                    ) [DesignationNone]
+                  ) [DesignatorIdent]
+                  JustTermExpr(
+                    SingleFactorTerm(
+                      FactorNew(
+                        TypeNonPrimitive(
+                         R
+                        ) [TypeNonPrimitive]
+                      ) [FactorNew]
+                    ) [SingleFactorTerm]
+                  ) [JustTermExpr]
+                ) [DesignatorStatementAssign]
+              ) [DesignatorStmt]
+            ) [StatementWithoutLabel]
+          ) [NonEmptyStatementListStmt]
+          StatementWithoutLabel(
+            DesignatorStmt(
+              DesignatorStatementAssign(
+                DesignatorIdent(
+                 rec
+                  DesignationObjectAccess(
+                   niz
+                    DesignationNone(
+                    ) [DesignationNone]
+                  ) [DesignationObjectAccess]
+                ) [DesignatorIdent]
+                JustTermExpr(
+                  SingleFactorTerm(
+                    FactorNewArray(
+                      TypePrimitive(
+                        PrimitiveTypeInt(
+                        ) [PrimitiveTypeInt]
+                      ) [TypePrimitive]
+                      JustTermExpr(
+                        SingleFactorTerm(
+                          FactorNumberConst(
+                           5
+                          ) [FactorNumberConst]
+                        ) [SingleFactorTerm]
+                      ) [JustTermExpr]
+                    ) [FactorNewArray]
+                  ) [SingleFactorTerm]
+                ) [JustTermExpr]
+              ) [DesignatorStatementAssign]
+            ) [DesignatorStmt]
+          ) [StatementWithoutLabel]
+        ) [NonEmptyStatementListStmt]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+    NoMethodDecls(
+    ) [NoMethodDecls]
+  ) [MethodDecls]
+) [Program]
+INFO  00:37:37,594 - ===================================
+INFO  00:37:37,611 - Deklarisan(a) klasni tip R na liniji 2
+INFO  00:37:37,611 - Deklarisan(a) polje niz na liniji 3
+INFO  00:37:37,611 - Deklarisan(a) metoda main na liniji 6
+INFO  00:37:37,611 - Obradjuje se funkcija main na liniji 6
+INFO  00:37:37,611 - Deklarisan(a) promenljiva rec na liniji 7
+INFO  00:37:37,612 - Gotova obrada funkcije main na liniji 6

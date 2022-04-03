@@ -1,0 +1,25 @@
+program MJAUProgram
+record R{
+	int niz[];
+}
+{	
+	void main()
+	R rec;
+	{
+	
+	rec = new R;
+	rec.niz = new int[5];
+	rec.niz[0] = 99;
+	
+	}	
+}
+
+
+
+
+
+
+
+
+
+
