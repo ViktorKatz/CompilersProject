@@ -306,14 +306,8 @@ public class CodeGenerator extends VisitorAdaptor {
 					DesignationObjectAccess doa;
 					if (dl instanceof DesignationArrayAccess) {
 						daa = (DesignationArrayAccess) dl;
-						Code.load(daa.obj);
+						//Code.load(daa.obj);
 
-						// Swap out the bug
-						byte tmp = Code.buf[Code.pc - 4];
-						for (int index = Code.pc - 4; index < Code.pc - 1; ++index) {
-							Code.buf[index] = Code.buf[index + 1];
-						}
-						Code.buf[Code.pc - 1] = tmp;
 
 						dl = daa.getDesignationList();
 					} else if (dl instanceof DesignationObjectAccess) {
@@ -344,14 +338,9 @@ public class CodeGenerator extends VisitorAdaptor {
 				DesignationObjectAccess doa;
 				if (dl instanceof DesignationArrayAccess) {
 					daa = (DesignationArrayAccess) dl;
-					Code.load(daa.obj);
+					//Code.load(daa.obj);
 
-					// Swap out the bug
-					byte tmp = Code.buf[Code.pc - 4];
-					for (int index = Code.pc - 4; index < Code.pc - 1; ++index) {
-						Code.buf[index] = Code.buf[index + 1];
-					}
-					Code.buf[Code.pc - 1] = tmp;
+
 
 					dl = daa.getDesignationList();
 				} else if (dl instanceof DesignationObjectAccess) {
@@ -362,7 +351,7 @@ public class CodeGenerator extends VisitorAdaptor {
 			}
 		}
 	}
-
+	
 	public void visit(DesignationArrayAccess daa) {
 
 	}
@@ -475,6 +464,8 @@ public class CodeGenerator extends VisitorAdaptor {
 			Obj parentObj = (((DesignationArrayAccess) dae.getParent())).obj;
 			Code.load(new Obj(Obj.Var, parentObj.getName(), parentObj.getType(), Integer.parseInt(parentObj.getName()),
 					parentObj.getLevel()));
+			
+			Code.load(parentObj);
 			return; // If it is a part of an object, don't
 		}
 

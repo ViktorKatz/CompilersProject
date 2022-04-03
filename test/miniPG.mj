@@ -1,15 +1,22 @@
 program MJAUProgram
 record R{
+	int a,b;
 	int niz[];
+	int c,d;
 }
 {	
 	void main()
 	R rec;
+	int a[];
 	{
+	a = new int[3];
+	a[2] = 2;
 	
 	rec = new R;
 	rec.niz = new int[5];
-	rec.niz[0] = 99;
+	rec.niz[2 + 1 - 3] = 99;
+	
+	print(rec.niz[5/5-1]);
 	
 	}	
 }
