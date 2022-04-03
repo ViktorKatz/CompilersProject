@@ -54,7 +54,7 @@
 				<pathelement path="lib/cup_v10k.jar" />
 				<pathelement path="lib/log4j-1.2.17.jar" />
 				<pathelement path="lib/symboltable.jar" />
-				<pathelement path="lib/mj-runtime.jar" />
+				<pathelement path="lib/mj-runtime-1.1.jar" />
 			</classpath>
 		</javac>
 	</target>
@@ -63,7 +63,7 @@
 		<java classname="rs.etf.pp1.mj.runtime.disasm">
 			<arg value="test/bin/program_test.obj" />
 			<classpath>
-				<pathelement location="lib/mj-runtime.jar" />
+				<pathelement location="lib/mj-runtime-1.1.jar" />
 			</classpath>
 		</java>
 	</target>
@@ -72,7 +72,7 @@
 		<java classname="rs.etf.pp1.mj.runtime.Run">
 			<arg value="test/bin/program_test.obj" />
 			<classpath>
-				<pathelement location="lib/mj-runtime.jar" />
+				<pathelement location="lib/mj-runtime-1.1.jar" />
 			</classpath>
 		</java>
 	</target>
@@ -82,7 +82,7 @@
 			<arg value="test/bin/program_test.obj" />
 			<arg value="-debug" />
 			<classpath>
-				<pathelement location="lib/mj-runtime.jar" />
+				<pathelement location="lib/mj-runtime-1.1.jar" />
 			</classpath>
 		</java>
 	</target>
