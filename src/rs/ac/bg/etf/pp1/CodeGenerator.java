@@ -169,17 +169,65 @@ public class CodeGenerator extends VisitorAdaptor {
 		endAddr.put(checkpoint, new Integer(Code.pc));
 	}
 	
+	//////////////////////////  DO WHILE START  //////////////////////
+	
 	public void visit(DoWhileStmt stmt) {
 		Condition rootCondition = stmt.getCondition();
 		int thenAddr = ((Integer)endAddr.get(stmt.getDoCheckpoint())).intValue();
 		int afterBodyAddr = Code.pc;
 
 		rootCondition.traverseBottomUp(new AddressFixer(thenAddr, afterBodyAddr));
+		
+		StatementOrBlockOfStatements stmtBlock = stmt.getStatementOrBlockOfStatements();
+		
+		stmtBlock.traverseBottomUp(new BreakContinueFixer(thenAddr, afterBodyAddr));
 	}
 	
 	public void visit(DoCheckpoint checkpoint) {
 		endAddr.put(checkpoint, new Integer(Code.pc));
 	}
+	
+	public void visit(BreakStmt stmt) {
+		myJumpAddr.put(stmt, new Integer(Code.pc));
+		Code.putJump(Code.pc); // Fake. Will be replaced by the end address of block.
+	}
+	
+	public void visit(ContinueStmt stmt) {
+		myJumpAddr.put(stmt, new Integer(Code.pc));
+		Code.putJump(Code.pc); // Fake. Will be replaced by the beginning address of block.
+	}
+	
+	private class BreakContinueFixer extends VisitorAdaptor {
+		private int blockBegin;
+		private int blockEnd;
+
+		public BreakContinueFixer(int blockBegin, int blockEnd) {
+			this.blockBegin = blockBegin;
+			this.blockEnd = blockEnd;
+		}
+		
+		public void visit(BreakStmt stmt) {
+			if(myJumpAddr.containsKey(stmt)) {
+				int statementAddress = ((Integer)myJumpAddr.remove(stmt)).intValue(); // Remove it so nesting is not interrupted
+				substituteAddress(statementAddress, blockEnd);
+			}
+		}
+		
+		public void visit(ContinueStmt stmt) {
+			if(myJumpAddr.containsKey(stmt)) {
+				int statementAddress = ((Integer)myJumpAddr.remove(stmt)).intValue(); // Remove it so nesting is not interrupted
+				substituteAddress(statementAddress, blockBegin);
+			}
+		}
+		
+		private void substituteAddress(int addrToFix, int targetAddr) {
+			int pcBackup = Code.pc;
+			Code.pc = targetAddr;
+			Code.fixup(addrToFix + 1);
+			Code.pc = pcBackup;
+		}
+	}
+	
 
 	///////////////////////// NODE VISIT START //////////////////////
 

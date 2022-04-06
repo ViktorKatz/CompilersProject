@@ -1,22 +1,30 @@
 program MJAUProgram
-record R{
-	int a,b;
-	int niz[];
-	int c,d;
-}
 {	
 	void main()
-	R rec;
-	int a[];
+	int i;
+	int j;
 	{
-	a = new int[3];
-	a[2] = 2;
-	
-	rec = new R;
-	rec.niz = new int[5];
-	rec.niz[2 + 1 - 3] = 99;
-	
-	print(rec.niz[5/5-1]);
+	i = 0;
+	do{
+		i++;
+		print('i');
+		print(i);
+		print(eol);
+		
+		j=0;
+		print('j');
+		do{
+			j++;
+			print(j);
+			if(j==3){
+				print('C');
+				continue;
+			}
+			
+		}while(j<5);
+		print(eol);
+		
+	}while(i<5);
 	
 	}	
 }
