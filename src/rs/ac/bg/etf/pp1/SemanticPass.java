@@ -1,6 +1,8 @@
 package rs.ac.bg.etf.pp1;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Stack;
@@ -8,6 +10,7 @@ import java.util.Stack;
 import org.apache.log4j.Logger;
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.symboltable.Tab;
+import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.*;
 import rs.etf.pp1.symboltable.concepts.*;
 import rs.etf.pp1.symboltable.structure.HashTableDataStructure;
@@ -26,7 +29,9 @@ public class SemanticPass extends VisitorAdaptor {
 	Stack classNestingSymbolData = new Stack();
 
 	public int numberOfGlobalVars = 0;
-
+	
+	public HashMap<String, String> methodsWithVarArgs = new HashMap<String, String>();
+	
 	public SemanticPass() {
 		Tab.insert(Obj.Type, "bool", new Struct(Struct.Bool));
 		Tab.insert(Obj.Type, "void", new Struct(Struct.None));
@@ -99,9 +104,17 @@ public class SemanticPass extends VisitorAdaptor {
 		log.info(msg.toString());
 	}
 
+	
+	public Obj intVarArgsArrayBuiltIn;
+	public Obj charVarArgsArrayBuiltIn;
 	public void visit(ProgName progName) {
 		progName.obj = Tab.insert(Obj.Prog, progName.getProgNameString(), Tab.noType);
 		Tab.openScope();
+		
+		intVarArgsArrayBuiltIn = insertOrFail(Obj.Var, "IntVarArgsArrayBuiltIn", Tab.insert(Obj.Type,
+				"intArrType", new Struct(Struct.Array, new Struct(Struct.Int))).getType());
+		charVarArgsArrayBuiltIn = insertOrFail(Obj.Var, "CharVarArgsArrayBuiltIn", Tab.insert(Obj.Type,
+				"charArrType", new Struct(Struct.Array, new Struct(Struct.Char))).getType());
 	};
 
 	public void visit(Program program) {
@@ -319,7 +332,7 @@ public class SemanticPass extends VisitorAdaptor {
 								new Struct(Struct.Array, type)).getType(),
 						yesFormalParams).setFpPos(numberOfFormalParams);
 			} else {
-				report_error("WTF, ovo nije ni Array ni NotArray", varDecl);
+				report_error("WTF, ovo nije ni Array ni NotArray, a varargs ne moze biti na ne-poslednjem mestu", varDecl);
 			}
 
 			++numberOfFormalParams;
@@ -341,6 +354,13 @@ public class SemanticPass extends VisitorAdaptor {
 			insertOrFail(Obj.Var, varDeclArr.getVarName(),
 					Tab.insert(Obj.Type, structKindToString(type.getKind()) + "ArrType", new Struct(Struct.Array, type))
 							.getType(),
+					yesFormalParams).setFpPos(numberOfFormalParams);
+		} else if (varDecl instanceof VarDeclVarArgs) {
+			methodsWithVarArgs.put(currentMethod.getName(), type.getKind() == Struct.Int ? "int" : "char");
+			VarDeclVarArgs varDeclArr = (VarDeclVarArgs) varDecl;
+			insertOrFail(Obj.Var, varDeclArr.getVarName(),
+					Tab.insert(Obj.Type, structKindToString(type.getKind()) + "ArrType",
+							new Struct(Struct.Array, type)).getType(),
 					yesFormalParams).setFpPos(numberOfFormalParams);
 		} else {
 			report_error("WTF, ovo nije ni Array ni NotArray", varDecl);
@@ -406,6 +426,10 @@ public class SemanticPass extends VisitorAdaptor {
 		}
 		Designator methodDesignator = f.getDesignator();
 		f.obj = methodDesignator.obj;
+		
+		if (methodsWithVarArgs.containsKey(methodDesignator.obj.getName())) {
+			return;
+		}
 
 		OptionalActPars actualPars = f.getOptionalActPars();
 		Collection c = methodDesignator.obj.getLocalSymbols();
@@ -612,6 +636,10 @@ public class SemanticPass extends VisitorAdaptor {
 
 		if (methodDesignator.obj.getKind() != Obj.Meth) {
 			report_error("Ne moze se pozvati nesto sto nije metoda", stmt);
+			return;
+		}
+		
+		if (methodsWithVarArgs.containsKey(methodDesignator.obj.getName())) {
 			return;
 		}
 

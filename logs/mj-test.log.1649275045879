@@ -1,0 +1,176 @@
+INFO  21:56:44,209 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\miniPG.mj
+INFO  21:56:44,561 - #2 program
+INFO  21:56:44,561 - #54 MJAUProgram
+INFO  21:56:44,561 - #45 {
+INFO  21:56:44,565 - #6 void
+INFO  21:56:44,565 - #54 main
+INFO  21:56:44,566 - #43 (
+INFO  21:56:44,568 - #44 )
+INFO  21:56:44,570 - #49 int
+INFO  21:56:44,570 - #54 i
+INFO  21:56:44,573 - #40 ;
+INFO  21:56:44,574 - #45 {
+INFO  21:56:44,576 - #54 i
+INFO  21:56:44,578 - #39 =
+INFO  21:56:44,579 - #53 0
+INFO  21:56:44,579 - #40 ;
+INFO  21:56:44,580 - #10 do
+INFO  21:56:44,581 - #45 {
+INFO  21:56:44,602 - #54 i
+INFO  21:56:44,602 - #32 ++
+INFO  21:56:44,602 - #40 ;
+INFO  21:56:44,602 - #4 print
+INFO  21:56:44,602 - #43 (
+INFO  21:56:44,603 - #54 i
+INFO  21:56:44,603 - #44 )
+INFO  21:56:44,603 - #40 ;
+INFO  21:56:44,603 - #46 }
+INFO  21:56:44,603 - #11 while
+INFO  21:56:44,605 - #43 (
+INFO  21:56:44,606 - #54 i
+INFO  21:56:44,606 - #28 <
+INFO  21:56:44,606 - #53 5
+INFO  21:56:44,608 - #44 )
+INFO  21:56:44,618 - #40 ;
+INFO  21:56:44,618 - #46 }
+INFO  21:56:44,619 - #46 }
+INFO  21:56:44,623 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  EmptyPreMethodDeclList(
+  ) [EmptyPreMethodDeclList]
+  MethodDecls(
+    MethodDecl(
+      MethodSignature(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodSignature]
+      NoFormalParams(
+      ) [NoFormalParams]
+      YesVarDeclsList(
+        SingleVarDecls(
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            SingleVar(
+              VarDeclNotArr(
+               i
+              ) [VarDeclNotArr]
+            ) [SingleVar]
+          ) [VarDecls]
+        ) [SingleVarDecls]
+      ) [YesVarDeclsList]
+      BlockOfStatements(
+        BlockOfStatementsStart(
+        ) [BlockOfStatementsStart]
+        NonEmptyStatementListStmt(
+          NonEmptyStatementListStmt(
+            EmptyStatementList(
+            ) [EmptyStatementList]
+            StatementWithoutLabel(
+              DesignatorStmt(
+                DesignatorStatementAssign(
+                  DesignatorIdent(
+                   i
+                    DesignationNone(
+                    ) [DesignationNone]
+                  ) [DesignatorIdent]
+                  JustTermExpr(
+                    SingleFactorTerm(
+                      FactorNumberConst(
+                       0
+                      ) [FactorNumberConst]
+                    ) [SingleFactorTerm]
+                  ) [JustTermExpr]
+                ) [DesignatorStatementAssign]
+              ) [DesignatorStmt]
+            ) [StatementWithoutLabel]
+          ) [NonEmptyStatementListStmt]
+          StatementWithoutLabel(
+            DoWhileStmt(
+              DoCheckpoint(
+              ) [DoCheckpoint]
+              MultiStatement(
+                BlockOfStatements(
+                  BlockOfStatementsStart(
+                  ) [BlockOfStatementsStart]
+                  NonEmptyStatementListStmt(
+                    NonEmptyStatementListStmt(
+                      EmptyStatementList(
+                      ) [EmptyStatementList]
+                      StatementWithoutLabel(
+                        DesignatorStmt(
+                          DesignatorStatementInc(
+                            DesignatorIdent(
+                             i
+                              DesignationNone(
+                              ) [DesignationNone]
+                            ) [DesignatorIdent]
+                          ) [DesignatorStatementInc]
+                        ) [DesignatorStmt]
+                      ) [StatementWithoutLabel]
+                    ) [NonEmptyStatementListStmt]
+                    StatementWithoutLabel(
+                      PrintStmt(
+                        JustTermExpr(
+                          SingleFactorTerm(
+                            FactorDesignator(
+                              DesignatorIdent(
+                               i
+                                DesignationNone(
+                                ) [DesignationNone]
+                              ) [DesignatorIdent]
+                            ) [FactorDesignator]
+                          ) [SingleFactorTerm]
+                        ) [JustTermExpr]
+                      ) [PrintStmt]
+                    ) [StatementWithoutLabel]
+                  ) [NonEmptyStatementListStmt]
+                ) [BlockOfStatements]
+              ) [MultiStatement]
+              Condition(
+                LastCondTerm(
+                  LastCondFact(
+                    CondFactRelOp(
+                      JustTermExpr(
+                        SingleFactorTerm(
+                          FactorDesignator(
+                            DesignatorIdent(
+                             i
+                              DesignationNone(
+                              ) [DesignationNone]
+                            ) [DesignatorIdent]
+                          ) [FactorDesignator]
+                        ) [SingleFactorTerm]
+                      ) [JustTermExpr]
+                      RelOpLess(
+                      ) [RelOpLess]
+                      JustTermExpr(
+                        SingleFactorTerm(
+                          FactorNumberConst(
+                           5
+                          ) [FactorNumberConst]
+                        ) [SingleFactorTerm]
+                      ) [JustTermExpr]
+                    ) [CondFactRelOp]
+                  ) [LastCondFact]
+                ) [LastCondTerm]
+              ) [Condition]
+            ) [DoWhileStmt]
+          ) [StatementWithoutLabel]
+        ) [NonEmptyStatementListStmt]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+    NoMethodDecls(
+    ) [NoMethodDecls]
+  ) [MethodDecls]
+) [Program]
+INFO  21:56:44,624 - ===================================
+INFO  21:56:44,641 - Deklarisan(a) metoda main na liniji 3
+INFO  21:56:44,641 - Obradjuje se funkcija main na liniji 3
+INFO  21:56:44,641 - Deklarisan(a) promenljiva i na liniji 4
+INFO  21:56:44,642 - Gotova obrada funkcije main na liniji 3

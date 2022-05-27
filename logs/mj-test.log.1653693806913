@@ -1,0 +1,596 @@
+INFO  01:22:08,509 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  01:22:08,676 - #2 program
+INFO  01:22:08,676 - #54 MJAUProgram
+INFO  01:22:08,676 - #49 int
+INFO  01:22:08,679 - #54 a
+INFO  01:22:08,682 - #42 ,
+INFO  01:22:08,683 - #54 b
+INFO  01:22:08,683 - #40 ;
+INFO  01:22:08,683 - #45 {
+INFO  01:22:08,685 - #49 int
+INFO  01:22:08,685 - #54 sum
+INFO  01:22:08,686 - #43 (
+INFO  01:22:08,687 - #49 int
+INFO  01:22:08,687 - #54 numArgs
+INFO  01:22:08,687 - #42 ,
+INFO  01:22:08,687 - #49 int
+INFO  01:22:08,687 - #20 .
+INFO  01:22:08,687 - #20 .
+INFO  01:22:08,688 - #20 .
+INFO  01:22:08,688 - #54 args
+INFO  01:22:08,688 - #44 )
+INFO  01:22:08,688 - #49 int
+INFO  01:22:08,689 - #54 suma
+INFO  01:22:08,689 - #40 ;
+INFO  01:22:08,689 - #45 {
+INFO  01:22:08,690 - #54 suma
+INFO  01:22:08,693 - #39 =
+INFO  01:22:08,695 - #53 0
+INFO  01:22:08,696 - #40 ;
+INFO  01:22:08,697 - #10 do
+INFO  01:22:08,698 - #45 {
+INFO  01:22:08,699 - #54 numArgs
+INFO  01:22:08,699 - #33 --
+INFO  01:22:08,700 - #40 ;
+INFO  01:22:08,700 - #54 suma
+INFO  01:22:08,700 - #39 =
+INFO  01:22:08,700 - #54 suma
+INFO  01:22:08,700 - #34 +
+INFO  01:22:08,700 - #54 args
+INFO  01:22:08,703 - #47 [
+INFO  01:22:08,703 - #54 numArgs
+INFO  01:22:08,704 - #48 ]
+INFO  01:22:08,705 - #40 ;
+INFO  01:22:08,707 - #46 }
+INFO  01:22:08,707 - #11 while
+INFO  01:22:08,709 - #43 (
+INFO  01:22:08,709 - #54 numArgs
+INFO  01:22:08,709 - #26 >
+INFO  01:22:08,710 - #53 0
+INFO  01:22:08,712 - #44 )
+INFO  01:22:08,716 - #40 ;
+INFO  01:22:08,716 - #5 return
+INFO  01:22:08,716 - #54 suma
+INFO  01:22:08,716 - #40 ;
+INFO  01:22:08,717 - #46 }
+INFO  01:22:08,717 - #6 void
+INFO  01:22:08,719 - #54 printaj
+INFO  01:22:08,721 - #43 (
+INFO  01:22:08,721 - #49 int
+INFO  01:22:08,721 - #54 numArgs
+INFO  01:22:08,721 - #42 ,
+INFO  01:22:08,721 - #50 char
+INFO  01:22:08,721 - #20 .
+INFO  01:22:08,723 - #20 .
+INFO  01:22:08,723 - #20 .
+INFO  01:22:08,723 - #54 args
+INFO  01:22:08,723 - #44 )
+INFO  01:22:08,724 - #49 int
+INFO  01:22:08,724 - #54 i
+INFO  01:22:08,724 - #40 ;
+INFO  01:22:08,724 - #45 {
+INFO  01:22:08,724 - #10 do
+INFO  01:22:08,724 - #45 {
+INFO  01:22:08,724 - #4 print
+INFO  01:22:08,724 - #43 (
+INFO  01:22:08,724 - #54 args
+INFO  01:22:08,724 - #47 [
+INFO  01:22:08,724 - #54 i
+INFO  01:22:08,725 - #48 ]
+INFO  01:22:08,725 - #44 )
+INFO  01:22:08,725 - #40 ;
+INFO  01:22:08,725 - #54 i
+INFO  01:22:08,725 - #32 ++
+INFO  01:22:08,725 - #40 ;
+INFO  01:22:08,726 - #46 }
+INFO  01:22:08,726 - #11 while
+INFO  01:22:08,726 - #43 (
+INFO  01:22:08,726 - #54 i
+INFO  01:22:08,726 - #28 <
+INFO  01:22:08,727 - #54 numArgs
+INFO  01:22:08,728 - #44 )
+INFO  01:22:08,729 - #40 ;
+INFO  01:22:08,729 - #46 }
+INFO  01:22:08,729 - #6 void
+INFO  01:22:08,729 - #54 main
+INFO  01:22:08,729 - #43 (
+INFO  01:22:08,729 - #44 )
+INFO  01:22:08,731 - #49 int
+INFO  01:22:08,732 - #54 asd
+INFO  01:22:08,732 - #47 [
+INFO  01:22:08,732 - #48 ]
+INFO  01:22:08,732 - #40 ;
+INFO  01:22:08,732 - #45 {
+INFO  01:22:08,732 - #54 printaj
+INFO  01:22:08,732 - #43 (
+INFO  01:22:08,732 - #53 3
+INFO  01:22:08,732 - #42 ,
+INFO  01:22:08,732 - #55 a
+INFO  01:22:08,733 - #42 ,
+INFO  01:22:08,733 - #55 b
+INFO  01:22:08,733 - #42 ,
+INFO  01:22:08,733 - #55 c
+INFO  01:22:08,733 - #44 )
+INFO  01:22:08,733 - #40 ;
+INFO  01:22:08,734 - #46 }
+INFO  01:22:08,734 - #46 }
+INFO  01:22:08,739 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    EmptyPreMethodDeclList(
+    ) [EmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypePrimitive(
+          PrimitiveTypeInt(
+          ) [PrimitiveTypeInt]
+        ) [TypePrimitive]
+        MultiVar(
+          SingleVar(
+            VarDeclNotArr(
+             a
+            ) [VarDeclNotArr]
+          ) [SingleVar]
+          VarDeclNotArr(
+           b
+          ) [VarDeclNotArr]
+        ) [MultiVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  MethodDecls(
+    MethodDecl(
+      MethodSignature(
+        NotVoidType(
+          TypePrimitive(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+          ) [TypePrimitive]
+        ) [NotVoidType]
+       sum
+      ) [MethodSignature]
+      YesFormalParams(
+        MultiFormalParam(
+          TypePrimitive(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+          ) [TypePrimitive]
+          VarDeclNotArr(
+           numArgs
+          ) [VarDeclNotArr]
+          SingleFormalParam(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            VarDeclVarArgs(
+             args
+            ) [VarDeclVarArgs]
+          ) [SingleFormalParam]
+        ) [MultiFormalParam]
+      ) [YesFormalParams]
+      YesVarDeclsList(
+        SingleVarDecls(
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            SingleVar(
+              VarDeclNotArr(
+               suma
+              ) [VarDeclNotArr]
+            ) [SingleVar]
+          ) [VarDecls]
+        ) [SingleVarDecls]
+      ) [YesVarDeclsList]
+      BlockOfStatements(
+        BlockOfStatementsStart(
+        ) [BlockOfStatementsStart]
+        NonEmptyStatementListStmt(
+          NonEmptyStatementListStmt(
+            NonEmptyStatementListStmt(
+              EmptyStatementList(
+              ) [EmptyStatementList]
+              StatementWithoutLabel(
+                DesignatorStmt(
+                  DesignatorStatementAssign(
+                    DesignatorIdent(
+                     suma
+                      DesignationNone(
+                      ) [DesignationNone]
+                    ) [DesignatorIdent]
+                    JustTermExpr(
+                      SingleFactorTerm(
+                        FactorNumberConst(
+                         0
+                        ) [FactorNumberConst]
+                      ) [SingleFactorTerm]
+                    ) [JustTermExpr]
+                  ) [DesignatorStatementAssign]
+                ) [DesignatorStmt]
+              ) [StatementWithoutLabel]
+            ) [NonEmptyStatementListStmt]
+            StatementWithoutLabel(
+              DoWhileStmt(
+                DoCheckpoint(
+                ) [DoCheckpoint]
+                MultiStatement(
+                  BlockOfStatements(
+                    BlockOfStatementsStart(
+                    ) [BlockOfStatementsStart]
+                    NonEmptyStatementListStmt(
+                      NonEmptyStatementListStmt(
+                        EmptyStatementList(
+                        ) [EmptyStatementList]
+                        StatementWithoutLabel(
+                          DesignatorStmt(
+                            DesignatorStatementDec(
+                              DesignatorIdent(
+                               numArgs
+                                DesignationNone(
+                                ) [DesignationNone]
+                              ) [DesignatorIdent]
+                            ) [DesignatorStatementDec]
+                          ) [DesignatorStmt]
+                        ) [StatementWithoutLabel]
+                      ) [NonEmptyStatementListStmt]
+                      StatementWithoutLabel(
+                        DesignatorStmt(
+                          DesignatorStatementAssign(
+                            DesignatorIdent(
+                             suma
+                              DesignationNone(
+                              ) [DesignationNone]
+                            ) [DesignatorIdent]
+                            MultiAddOpExpr(
+                              SingleFactorTerm(
+                                FactorDesignator(
+                                  DesignatorIdent(
+                                   suma
+                                    DesignationNone(
+                                    ) [DesignationNone]
+                                  ) [DesignatorIdent]
+                                ) [FactorDesignator]
+                              ) [SingleFactorTerm]
+                              AddOpPlus(
+                              ) [AddOpPlus]
+                              LastTerm(
+                                SingleFactorTerm(
+                                  FactorDesignator(
+                                    DesignatorIdent(
+                                     args
+                                      DesignationArrayAccess(
+                                        DesignationArrayEntry(
+                                        ) [DesignationArrayEntry]
+                                        JustTermExpr(
+                                          SingleFactorTerm(
+                                            FactorDesignator(
+                                              DesignatorIdent(
+                                               numArgs
+                                                DesignationNone(
+                                                ) [DesignationNone]
+                                              ) [DesignatorIdent]
+                                            ) [FactorDesignator]
+                                          ) [SingleFactorTerm]
+                                        ) [JustTermExpr]
+                                        DesignationArrayLoad(
+                                        ) [DesignationArrayLoad]
+                                        DesignationNone(
+                                        ) [DesignationNone]
+                                      ) [DesignationArrayAccess]
+                                    ) [DesignatorIdent]
+                                  ) [FactorDesignator]
+                                ) [SingleFactorTerm]
+                              ) [LastTerm]
+                            ) [MultiAddOpExpr]
+                          ) [DesignatorStatementAssign]
+                        ) [DesignatorStmt]
+                      ) [StatementWithoutLabel]
+                    ) [NonEmptyStatementListStmt]
+                  ) [BlockOfStatements]
+                ) [MultiStatement]
+                Condition(
+                  LastCondTerm(
+                    LastCondFact(
+                      CondFactRelOp(
+                        JustTermExpr(
+                          SingleFactorTerm(
+                            FactorDesignator(
+                              DesignatorIdent(
+                               numArgs
+                                DesignationNone(
+                                ) [DesignationNone]
+                              ) [DesignatorIdent]
+                            ) [FactorDesignator]
+                          ) [SingleFactorTerm]
+                        ) [JustTermExpr]
+                        RelOpGre(
+                        ) [RelOpGre]
+                        JustTermExpr(
+                          SingleFactorTerm(
+                            FactorNumberConst(
+                             0
+                            ) [FactorNumberConst]
+                          ) [SingleFactorTerm]
+                        ) [JustTermExpr]
+                      ) [CondFactRelOp]
+                    ) [LastCondFact]
+                  ) [LastCondTerm]
+                ) [Condition]
+              ) [DoWhileStmt]
+            ) [StatementWithoutLabel]
+          ) [NonEmptyStatementListStmt]
+          StatementWithoutLabel(
+            ReturnStmt(
+              JustTermExpr(
+                SingleFactorTerm(
+                  FactorDesignator(
+                    DesignatorIdent(
+                     suma
+                      DesignationNone(
+                      ) [DesignationNone]
+                    ) [DesignatorIdent]
+                  ) [FactorDesignator]
+                ) [SingleFactorTerm]
+              ) [JustTermExpr]
+            ) [ReturnStmt]
+          ) [StatementWithoutLabel]
+        ) [NonEmptyStatementListStmt]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+    MethodDecls(
+      MethodDecl(
+        MethodSignature(
+          VoidType(
+          ) [VoidType]
+         printaj
+        ) [MethodSignature]
+        YesFormalParams(
+          MultiFormalParam(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            VarDeclNotArr(
+             numArgs
+            ) [VarDeclNotArr]
+            SingleFormalParam(
+              TypePrimitive(
+                PrimitiveTypeChar(
+                ) [PrimitiveTypeChar]
+              ) [TypePrimitive]
+              VarDeclVarArgs(
+               args
+              ) [VarDeclVarArgs]
+            ) [SingleFormalParam]
+          ) [MultiFormalParam]
+        ) [YesFormalParams]
+        YesVarDeclsList(
+          SingleVarDecls(
+            VarDecls(
+              TypePrimitive(
+                PrimitiveTypeInt(
+                ) [PrimitiveTypeInt]
+              ) [TypePrimitive]
+              SingleVar(
+                VarDeclNotArr(
+                 i
+                ) [VarDeclNotArr]
+              ) [SingleVar]
+            ) [VarDecls]
+          ) [SingleVarDecls]
+        ) [YesVarDeclsList]
+        BlockOfStatements(
+          BlockOfStatementsStart(
+          ) [BlockOfStatementsStart]
+          NonEmptyStatementListStmt(
+            EmptyStatementList(
+            ) [EmptyStatementList]
+            StatementWithoutLabel(
+              DoWhileStmt(
+                DoCheckpoint(
+                ) [DoCheckpoint]
+                MultiStatement(
+                  BlockOfStatements(
+                    BlockOfStatementsStart(
+                    ) [BlockOfStatementsStart]
+                    NonEmptyStatementListStmt(
+                      NonEmptyStatementListStmt(
+                        EmptyStatementList(
+                        ) [EmptyStatementList]
+                        StatementWithoutLabel(
+                          PrintStmt(
+                            JustTermExpr(
+                              SingleFactorTerm(
+                                FactorDesignator(
+                                  DesignatorIdent(
+                                   args
+                                    DesignationArrayAccess(
+                                      DesignationArrayEntry(
+                                      ) [DesignationArrayEntry]
+                                      JustTermExpr(
+                                        SingleFactorTerm(
+                                          FactorDesignator(
+                                            DesignatorIdent(
+                                             i
+                                              DesignationNone(
+                                              ) [DesignationNone]
+                                            ) [DesignatorIdent]
+                                          ) [FactorDesignator]
+                                        ) [SingleFactorTerm]
+                                      ) [JustTermExpr]
+                                      DesignationArrayLoad(
+                                      ) [DesignationArrayLoad]
+                                      DesignationNone(
+                                      ) [DesignationNone]
+                                    ) [DesignationArrayAccess]
+                                  ) [DesignatorIdent]
+                                ) [FactorDesignator]
+                              ) [SingleFactorTerm]
+                            ) [JustTermExpr]
+                          ) [PrintStmt]
+                        ) [StatementWithoutLabel]
+                      ) [NonEmptyStatementListStmt]
+                      StatementWithoutLabel(
+                        DesignatorStmt(
+                          DesignatorStatementInc(
+                            DesignatorIdent(
+                             i
+                              DesignationNone(
+                              ) [DesignationNone]
+                            ) [DesignatorIdent]
+                          ) [DesignatorStatementInc]
+                        ) [DesignatorStmt]
+                      ) [StatementWithoutLabel]
+                    ) [NonEmptyStatementListStmt]
+                  ) [BlockOfStatements]
+                ) [MultiStatement]
+                Condition(
+                  LastCondTerm(
+                    LastCondFact(
+                      CondFactRelOp(
+                        JustTermExpr(
+                          SingleFactorTerm(
+                            FactorDesignator(
+                              DesignatorIdent(
+                               i
+                                DesignationNone(
+                                ) [DesignationNone]
+                              ) [DesignatorIdent]
+                            ) [FactorDesignator]
+                          ) [SingleFactorTerm]
+                        ) [JustTermExpr]
+                        RelOpLess(
+                        ) [RelOpLess]
+                        JustTermExpr(
+                          SingleFactorTerm(
+                            FactorDesignator(
+                              DesignatorIdent(
+                               numArgs
+                                DesignationNone(
+                                ) [DesignationNone]
+                              ) [DesignatorIdent]
+                            ) [FactorDesignator]
+                          ) [SingleFactorTerm]
+                        ) [JustTermExpr]
+                      ) [CondFactRelOp]
+                    ) [LastCondFact]
+                  ) [LastCondTerm]
+                ) [Condition]
+              ) [DoWhileStmt]
+            ) [StatementWithoutLabel]
+          ) [NonEmptyStatementListStmt]
+        ) [BlockOfStatements]
+      ) [MethodDecl]
+      MethodDecls(
+        MethodDecl(
+          MethodSignature(
+            VoidType(
+            ) [VoidType]
+           main
+          ) [MethodSignature]
+          NoFormalParams(
+          ) [NoFormalParams]
+          YesVarDeclsList(
+            SingleVarDecls(
+              VarDecls(
+                TypePrimitive(
+                  PrimitiveTypeInt(
+                  ) [PrimitiveTypeInt]
+                ) [TypePrimitive]
+                SingleVar(
+                  VarDeclArr(
+                   asd
+                  ) [VarDeclArr]
+                ) [SingleVar]
+              ) [VarDecls]
+            ) [SingleVarDecls]
+          ) [YesVarDeclsList]
+          BlockOfStatements(
+            BlockOfStatementsStart(
+            ) [BlockOfStatementsStart]
+            NonEmptyStatementListStmt(
+              EmptyStatementList(
+              ) [EmptyStatementList]
+              StatementWithoutLabel(
+                DesignatorStmt(
+                  DesignatorStatementFuncCall(
+                    DesignatorIdent(
+                     printaj
+                      DesignationNone(
+                      ) [DesignationNone]
+                    ) [DesignatorIdent]
+                    YesActPars(
+                      NonLastExprActPar(
+                        JustTermExpr(
+                          SingleFactorTerm(
+                            FactorNumberConst(
+                             3
+                            ) [FactorNumberConst]
+                          ) [SingleFactorTerm]
+                        ) [JustTermExpr]
+                        NonLastExprActPar(
+                          JustTermExpr(
+                            SingleFactorTerm(
+                              FactorCharConst(
+                               a
+                              ) [FactorCharConst]
+                            ) [SingleFactorTerm]
+                          ) [JustTermExpr]
+                          NonLastExprActPar(
+                            JustTermExpr(
+                              SingleFactorTerm(
+                                FactorCharConst(
+                                 b
+                                ) [FactorCharConst]
+                              ) [SingleFactorTerm]
+                            ) [JustTermExpr]
+                            LastExprActPars(
+                              JustTermExpr(
+                                SingleFactorTerm(
+                                  FactorCharConst(
+                                   c
+                                  ) [FactorCharConst]
+                                ) [SingleFactorTerm]
+                              ) [JustTermExpr]
+                            ) [LastExprActPars]
+                          ) [NonLastExprActPar]
+                        ) [NonLastExprActPar]
+                      ) [NonLastExprActPar]
+                    ) [YesActPars]
+                  ) [DesignatorStatementFuncCall]
+                ) [DesignatorStmt]
+              ) [StatementWithoutLabel]
+            ) [NonEmptyStatementListStmt]
+          ) [BlockOfStatements]
+        ) [MethodDecl]
+        NoMethodDecls(
+        ) [NoMethodDecls]
+      ) [MethodDecls]
+    ) [MethodDecls]
+  ) [MethodDecls]
+) [Program]
+INFO  01:22:08,740 - ===================================
+INFO  01:22:08,766 - Deklarisan(a) promenljiva IntVarArgsArrayBuiltIn
+INFO  01:22:08,767 - Deklarisan(a) promenljiva CharVarArgsArrayBuiltIn
+INFO  01:22:08,767 - Deklarisan(a) promenljiva b na liniji 2
+INFO  01:22:08,767 - Deklarisan(a) promenljiva a na liniji 2
+INFO  01:22:08,767 - Deklarisan(a) metoda sum na liniji 5
+INFO  01:22:08,767 - Obradjuje se funkcija sum na liniji 5
+INFO  01:22:08,767 - Deklarisan(a) promenljiva numArgs na liniji 5
+INFO  01:22:08,767 - Deklarisan(a) promenljiva args na liniji 5
+INFO  01:22:08,768 - Deklarisan(a) promenljiva suma na liniji 6
+INFO  01:22:08,768 - Gotova obrada funkcije sum na liniji 5
+INFO  01:22:08,768 - Deklarisan(a) metoda printaj na liniji 16
+INFO  01:22:08,768 - Obradjuje se funkcija printaj na liniji 16
+INFO  01:22:08,772 - Deklarisan(a) promenljiva numArgs na liniji 16
+INFO  01:22:08,772 - Deklarisan(a) promenljiva args na liniji 16
+INFO  01:22:08,772 - Deklarisan(a) promenljiva i na liniji 17
+INFO  01:22:08,772 - Gotova obrada funkcije printaj na liniji 16
+INFO  01:22:08,772 - Deklarisan(a) metoda main na liniji 25
+INFO  01:22:08,772 - Obradjuje se funkcija main na liniji 25
+INFO  01:22:08,772 - Deklarisan(a) promenljiva asd na liniji 26
+INFO  01:22:08,773 - Gotova obrada funkcije main na liniji 25

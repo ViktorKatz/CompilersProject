@@ -18,6 +18,7 @@ import rs.ac.bg.etf.pp1.ast.Program;
 import rs.ac.bg.etf.pp1.util.Log4JUtils;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
+import rs.etf.pp1.symboltable.concepts.Obj;
 
 public class MJParserTest {
 
@@ -32,7 +33,7 @@ public class MJParserTest {
 
 		Reader br = null;
 		try {
-			File sourceCode = new File("test/test302.mj");
+			File sourceCode = new File("test/program.mj");
 			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
 
 			br = new BufferedReader(new FileReader(sourceCode));
@@ -67,6 +68,9 @@ public class MJParserTest {
 				objFile.createNewFile();
 				
 				CodeGenerator cg = new CodeGenerator();
+				cg.methodsWithVarArgs = v.methodsWithVarArgs;
+				cg.intVarArgsArrayBuiltIn = v.intVarArgsArrayBuiltIn;
+				cg.charVarArgsArrayBuiltIn = v.charVarArgsArrayBuiltIn;
 				prog.traverseBottomUp(cg);
 
 				Code.dataSize = v.numberOfGlobalVars;

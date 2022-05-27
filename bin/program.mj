@@ -1,55 +1,36 @@
 program MJAUProgram
 int a, b;
+int niz[];
 {	
-	void main(){
-		a = 5;
+
+	int sum(int numArgs, int... args)
+	int suma;
+	{
+		suma = 0;
 		do{
-			print(a);
-			a++;
-		}while(a<=10);
-		print('d');
+			numArgs--;
+			suma = suma + args[numArgs];
+		}while(numArgs>0);
+		return suma;
 	}
-
-	int sum(int z, int d)
+	
+	void printaj(int numArgs, char... args)
+	int i;
 	{
-		return z + d;
+		do{
+			print(args[i]);
+			i++;
+		}while(i<numArgs);
 	}
-	void mainBackup()
-	bool tacno;
-	int niz[];
+	
+	void main()
+	int asd[];
 	{
-		tacno = false;
-		a = 15;
-		niz = new int[3];
-		
-		niz[0] = 16;
-		niz[1] = 13;
-		niz[2] = 6;
-		if(a>=15)
-			a = 15;
-		
-		
-		if(a>=15)
-			niz[2] = sum(niz[0], niz[1]);
-		else{
-			if(niz[0] == 17){
-				niz[2] = 999;
-			}
-			else
-				niz[2] = 777;
-		}
-		
-		print(niz[2]);
-		
-	}	
+		asd = new int[3];
+		asd[0] = 15;
+		asd[1] = 17;
+		print(sum(5, 3, 20, 20, 300, 200));
+		printaj(5, eol, 'a', 'b', 'c', eol);
+		print(sum(2, asd[0], asd[1]));
+	}
 }
-
-
-
-
-
-
-
-
-
-

@@ -127,7 +127,8 @@ VarList ::= (MultiVar) VarList:V1 COMMA VarDecl:V2 {: RESULT=new MultiVar(V1, V2
 		  | (SingleVar) VarDecl:V1 {: RESULT=new SingleVar(V1); RESULT.setLine(V1left); :};
 		  
 VarDecl ::= (VarDeclArr) IDENT:varName LBRACKET RBRACKET {: RESULT=new VarDeclArr(varName); RESULT.setLine(varNameleft); :}
-		  | (VarDeclNotArr) IDENT:varName {: RESULT=new VarDeclNotArr(varName); RESULT.setLine(varNameleft); :};
+		  | (VarDeclNotArr) IDENT:varName {: RESULT=new VarDeclNotArr(varName); RESULT.setLine(varNameleft); :}
+		  | (VarDeclVarArgs) DOT DOT DOT IDENT:varName {: RESULT=new VarDeclVarArgs(varName); RESULT.setLine(varNameleft); :};
 
 
 ClassDecl ::= (ClassDecl) CLASS ClassName:C1 ClassExtension:C2 LBRACE VarDeclsList:V3 ClassBody:C4 RBRACE {: RESULT=new ClassDecl(C1, C2, V3, C4); RESULT.setLine(C1left); :};

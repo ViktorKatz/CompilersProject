@@ -1,0 +1,181 @@
+INFO  02:00:23,222 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program.mj
+INFO  02:00:23,793 - #2 program
+INFO  02:00:23,794 - #54 MJAUProgram
+INFO  02:00:23,794 - #49 int
+INFO  02:00:23,808 - #54 a
+INFO  02:00:23,824 - #42 ,
+INFO  02:00:23,824 - #54 b
+INFO  02:00:23,824 - #40 ;
+INFO  02:00:23,824 - #51 bool
+INFO  02:00:23,827 - #54 jakoMeSmaras
+INFO  02:00:23,853 - #40 ;
+INFO  02:00:23,854 - #45 {
+INFO  02:00:23,854 - #6 void
+INFO  02:00:23,854 - #54 main
+INFO  02:00:23,855 - #43 (
+INFO  02:00:23,857 - #44 )
+INFO  02:00:23,876 - #45 {
+INFO  02:00:23,886 - #46 }
+INFO  02:00:23,896 - #49 int
+INFO  02:00:23,902 - #54 sum
+INFO  02:00:23,902 - #43 (
+INFO  02:00:23,902 - #49 int
+INFO  02:00:23,903 - #54 z
+INFO  02:00:23,903 - #42 ,
+INFO  02:00:23,903 - #49 int
+INFO  02:00:23,903 - #54 d
+INFO  02:00:23,903 - #44 )
+INFO  02:00:23,904 - #45 {
+INFO  02:00:23,904 - #5 return
+INFO  02:00:23,904 - #54 z
+INFO  02:00:23,904 - #34 +
+INFO  02:00:23,918 - #54 d
+INFO  02:00:23,940 - #40 ;
+INFO  02:00:23,940 - #46 }
+INFO  02:00:23,941 - #46 }
+INFO  02:00:23,965 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      EmptyPreMethodDeclList(
+      ) [EmptyPreMethodDeclList]
+      PreMethodDeclVar(
+        VarDecls(
+          TypePrimitive(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+          ) [TypePrimitive]
+          MultiVar(
+            SingleVar(
+              VarDeclNotArr(
+               a
+              ) [VarDeclNotArr]
+            ) [SingleVar]
+            VarDeclNotArr(
+             b
+            ) [VarDeclNotArr]
+          ) [MultiVar]
+        ) [VarDecls]
+      ) [PreMethodDeclVar]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypePrimitive(
+          PrimitiveTypeBool(
+          ) [PrimitiveTypeBool]
+        ) [TypePrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           jakoMeSmaras
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  MethodDecls(
+    MethodDecl(
+      MethodSignature(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodSignature]
+      NoFormalParams(
+      ) [NoFormalParams]
+      NoVarDeclsList(
+      ) [NoVarDeclsList]
+      BlockOfStatements(
+        BlockOfStatementsStart(
+        ) [BlockOfStatementsStart]
+        EmptyStatementList(
+        ) [EmptyStatementList]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+    MethodDecls(
+      MethodDecl(
+        MethodSignature(
+          NotVoidType(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+          ) [NotVoidType]
+         sum
+        ) [MethodSignature]
+        YesFormalParams(
+          MultiFormalParam(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            VarDeclNotArr(
+             z
+            ) [VarDeclNotArr]
+            SingleFormalParam(
+              TypePrimitive(
+                PrimitiveTypeInt(
+                ) [PrimitiveTypeInt]
+              ) [TypePrimitive]
+              VarDeclNotArr(
+               d
+              ) [VarDeclNotArr]
+            ) [SingleFormalParam]
+          ) [MultiFormalParam]
+        ) [YesFormalParams]
+        NoVarDeclsList(
+        ) [NoVarDeclsList]
+        BlockOfStatements(
+          BlockOfStatementsStart(
+          ) [BlockOfStatementsStart]
+          NonEmptyStatementListStmt(
+            EmptyStatementList(
+            ) [EmptyStatementList]
+            StatementWithoutLabel(
+              ReturnStmt(
+                MultiAddOpExpr(
+                  SingleFactorTerm(
+                    FactorDesignator(
+                      DesignatorIdent(
+                       z
+                        DesignationNone(
+                        ) [DesignationNone]
+                      ) [DesignatorIdent]
+                    ) [FactorDesignator]
+                  ) [SingleFactorTerm]
+                  AddOpPlus(
+                  ) [AddOpPlus]
+                  LastTerm(
+                    SingleFactorTerm(
+                      FactorDesignator(
+                        DesignatorIdent(
+                         d
+                          DesignationNone(
+                          ) [DesignationNone]
+                        ) [DesignatorIdent]
+                      ) [FactorDesignator]
+                    ) [SingleFactorTerm]
+                  ) [LastTerm]
+                ) [MultiAddOpExpr]
+              ) [ReturnStmt]
+            ) [StatementWithoutLabel]
+          ) [NonEmptyStatementListStmt]
+        ) [BlockOfStatements]
+      ) [MethodDecl]
+      NoMethodDecls(
+      ) [NoMethodDecls]
+    ) [MethodDecls]
+  ) [MethodDecls]
+) [Program]
+INFO  02:00:23,966 - ===================================
+INFO  02:00:23,996 - Deklarisan(a) promenljiva b na liniji 2
+INFO  02:00:23,996 - Deklarisan(a) promenljiva a na liniji 2
+INFO  02:00:23,996 - Deklarisan(a) promenljiva jakoMeSmaras na liniji 3
+INFO  02:00:23,996 - Deklarisan(a) metoda main na liniji 5
+INFO  02:00:23,996 - Obradjuje se funkcija main na liniji 5
+INFO  02:00:23,996 - Gotova obrada funkcije main na liniji 5
+INFO  02:00:23,996 - Deklarisan(a) metoda sum na liniji 9
+INFO  02:00:23,997 - Obradjuje se funkcija sum na liniji 9
+INFO  02:00:23,997 - Deklarisan(a) promenljiva z na liniji 9
+INFO  02:00:23,997 - Deklarisan(a) promenljiva d na liniji 9
+INFO  02:00:23,997 - Gotova obrada funkcije sum na liniji 9

@@ -6,6 +6,7 @@ import rs.etf.pp1.symboltable.Tab;
 import rs.etf.pp1.symboltable.concepts.*;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class CodeGenerator extends VisitorAdaptor {
 	private int mainPc;
@@ -15,6 +16,8 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 
 	////////////////////// Conditions start/////////////////
+
+	public HashMap<String, String> methodsWithVarArgs;
 
 	// Ordered
 	Class[] relOpClasses = { RelOpEq.class, RelOpNeq.class, RelOpLess.class, RelOpLeq.class, RelOpGre.class,
@@ -168,35 +171,35 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.putJump(Code.pc); // Jump to after else
 		endAddr.put(checkpoint, new Integer(Code.pc));
 	}
-	
-	//////////////////////////  DO WHILE START  //////////////////////
-	
+
+	////////////////////////// DO WHILE START //////////////////////
+
 	public void visit(DoWhileStmt stmt) {
 		Condition rootCondition = stmt.getCondition();
-		int thenAddr = ((Integer)endAddr.get(stmt.getDoCheckpoint())).intValue();
+		int thenAddr = ((Integer) endAddr.get(stmt.getDoCheckpoint())).intValue();
 		int afterBodyAddr = Code.pc;
 
 		rootCondition.traverseBottomUp(new AddressFixer(thenAddr, afterBodyAddr));
-		
+
 		StatementOrBlockOfStatements stmtBlock = stmt.getStatementOrBlockOfStatements();
-		
+
 		stmtBlock.traverseBottomUp(new BreakContinueFixer(thenAddr, afterBodyAddr));
 	}
-	
+
 	public void visit(DoCheckpoint checkpoint) {
 		endAddr.put(checkpoint, new Integer(Code.pc));
 	}
-	
+
 	public void visit(BreakStmt stmt) {
 		myJumpAddr.put(stmt, new Integer(Code.pc));
 		Code.putJump(Code.pc); // Fake. Will be replaced by the end address of block.
 	}
-	
+
 	public void visit(ContinueStmt stmt) {
 		myJumpAddr.put(stmt, new Integer(Code.pc));
 		Code.putJump(Code.pc); // Fake. Will be replaced by the beginning address of block.
 	}
-	
+
 	private class BreakContinueFixer extends VisitorAdaptor {
 		private int blockBegin;
 		private int blockEnd;
@@ -205,21 +208,23 @@ public class CodeGenerator extends VisitorAdaptor {
 			this.blockBegin = blockBegin;
 			this.blockEnd = blockEnd;
 		}
-		
+
 		public void visit(BreakStmt stmt) {
-			if(myJumpAddr.containsKey(stmt)) {
-				int statementAddress = ((Integer)myJumpAddr.remove(stmt)).intValue(); // Remove it so nesting is not interrupted
+			if (myJumpAddr.containsKey(stmt)) {
+				int statementAddress = ((Integer) myJumpAddr.remove(stmt)).intValue(); // Remove it so nesting is not
+																						// interrupted
 				substituteAddress(statementAddress, blockEnd);
 			}
 		}
-		
+
 		public void visit(ContinueStmt stmt) {
-			if(myJumpAddr.containsKey(stmt)) {
-				int statementAddress = ((Integer)myJumpAddr.remove(stmt)).intValue(); // Remove it so nesting is not interrupted
+			if (myJumpAddr.containsKey(stmt)) {
+				int statementAddress = ((Integer) myJumpAddr.remove(stmt)).intValue(); // Remove it so nesting is not
+																						// interrupted
 				substituteAddress(statementAddress, blockBegin);
 			}
 		}
-		
+
 		private void substituteAddress(int addrToFix, int targetAddr) {
 			int pcBackup = Code.pc;
 			Code.pc = targetAddr;
@@ -227,7 +232,6 @@ public class CodeGenerator extends VisitorAdaptor {
 			Code.pc = pcBackup;
 		}
 	}
-	
 
 	///////////////////////// NODE VISIT START //////////////////////
 
@@ -342,7 +346,7 @@ public class CodeGenerator extends VisitorAdaptor {
 					// o.getLevel()));
 				}
 			}
-			
+
 			if (designator.obj.getKind() == Obj.Elem) {
 				DesignationList dl = designator.getDesignationList();
 				if (dl instanceof DesignationArrayAccess)
@@ -354,8 +358,7 @@ public class CodeGenerator extends VisitorAdaptor {
 					DesignationObjectAccess doa;
 					if (dl instanceof DesignationArrayAccess) {
 						daa = (DesignationArrayAccess) dl;
-						//Code.load(daa.obj);
-
+						// Code.load(daa.obj);
 
 						dl = daa.getDesignationList();
 					} else if (dl instanceof DesignationObjectAccess) {
@@ -386,9 +389,7 @@ public class CodeGenerator extends VisitorAdaptor {
 				DesignationObjectAccess doa;
 				if (dl instanceof DesignationArrayAccess) {
 					daa = (DesignationArrayAccess) dl;
-					//Code.load(daa.obj);
-
-
+					// Code.load(daa.obj);
 
 					dl = daa.getDesignationList();
 				} else if (dl instanceof DesignationObjectAccess) {
@@ -399,7 +400,7 @@ public class CodeGenerator extends VisitorAdaptor {
 			}
 		}
 	}
-	
+
 	public void visit(DesignationArrayAccess daa) {
 
 	}
@@ -468,11 +469,44 @@ public class CodeGenerator extends VisitorAdaptor {
 
 	public void visit(DesignatorStatementFuncCall stmt) {
 		Obj methObj = stmt.getDesignator().obj;
+		
+		if (methodsWithVarArgs.containsKey(methObj.getName())) {			
+			String varArgsType = methodsWithVarArgs.get(methObj.getName());
+			Obj varArgsArray = varArgsType.contentEquals("char") ? charVarArgsArrayBuiltIn : intVarArgsArrayBuiltIn;
+
+			int fixedArgs = methObj.getLevel() - 1;// -1 jer je poslednji zapravo varargs
+			int realArgs = countRealArgs(stmt.getOptionalActPars());
+			int numOfVarArgs = realArgs - fixedArgs;
+			
+			Code.loadConst(numOfVarArgs); // Max number of var args
+			Code.put(Code.newarray);
+			Code.put(varArgsType.contentEquals("char") ? 0 : 1);
+			Code.store(varArgsArray);
+			
+			
+			for(int i = numOfVarArgs - 1; i>=0; --i) {
+				Code.load(varArgsArray);
+				Code.put(Code.dup_x1);
+				Code.put(Code.pop);
+				
+				Code.loadConst(i);
+				Code.put(Code.dup_x1);
+				Code.put(Code.pop);
+				
+				Code.put(varArgsType.contentEquals("char")? Code.bastore : Code.astore);
+			}
+			
+			Code.load(varArgsArray);
+		}
+		
 		int offset = methObj.getAdr() - Code.pc;
 
 		Code.put(Code.call);
 		Code.put2(offset);
 	}
+
+	public Obj intVarArgsArrayBuiltIn;
+	public Obj charVarArgsArrayBuiltIn;
 
 	public void visit(FactorDesignatorCall funcCall) {
 		if (((DesignatorIdent) funcCall.getDesignator()).getDesignatorName().equals("len")) {
@@ -489,10 +523,52 @@ public class CodeGenerator extends VisitorAdaptor {
 		}
 
 		Obj methObj = funcCall.getDesignator().obj;
+
+		if (methodsWithVarArgs.containsKey(methObj.getName())) {			
+			String varArgsType = methodsWithVarArgs.get(methObj.getName());
+			Obj varArgsArray = varArgsType.contentEquals("char") ? charVarArgsArrayBuiltIn : intVarArgsArrayBuiltIn;
+
+			int fixedArgs = methObj.getLevel() - 1;// -1 jer je poslednji zapravo varargs
+			int realArgs = countRealArgs(funcCall.getOptionalActPars());
+			int numOfVarArgs = realArgs - fixedArgs;
+			
+			Code.loadConst(numOfVarArgs); // Max number of var args
+			Code.put(Code.newarray);
+			Code.put(varArgsType.contentEquals("char") ? 0 : 1);
+			Code.store(varArgsArray);
+			
+			
+			for(int i = numOfVarArgs - 1; i >= 0; --i) {
+				Code.load(varArgsArray);
+				Code.put(Code.dup_x1);
+				Code.put(Code.pop);
+				
+				Code.loadConst(i);
+				Code.put(Code.dup_x1);
+				Code.put(Code.pop);
+				
+				Code.put(varArgsType.contentEquals("char")? Code.bastore : Code.astore);
+			}
+			
+			Code.load(varArgsArray);
+		}
+
 		int offset = methObj.getAdr() - Code.pc;
 
 		Code.put(Code.call);
 		Code.put2(offset);
+	}
+
+	private int countRealArgs(OptionalActPars oap) {
+		if (oap instanceof NoActPars)
+			return 0;
+		ActPars actPars = ((YesActPars) oap).getActPars();
+		int number = 1;
+		while (actPars instanceof NonLastExprActPar) {
+			number++;
+			actPars = ((NonLastExprActPar) actPars).getActPars();
+		}
+		return number;
 	}
 
 	public void visit(FactorNewArray newArrayFact) {
@@ -512,7 +588,7 @@ public class CodeGenerator extends VisitorAdaptor {
 			Obj parentObj = (((DesignationArrayAccess) dae.getParent())).obj;
 			Code.load(new Obj(Obj.Var, parentObj.getName(), parentObj.getType(), Integer.parseInt(parentObj.getName()),
 					parentObj.getLevel()));
-			
+
 			Code.load(parentObj);
 			return; // If it is a part of an object, don't
 		}

@@ -98,7 +98,8 @@ VarList ::= (MultiVar) VarList COMMA VarDecl
 		  | (SingleVar) VarDecl;
 		  
 VarDecl ::= (VarDeclArr) IDENT:varName LBRACKET RBRACKET
-		  | (VarDeclNotArr) IDENT:varName;
+		  | (VarDeclNotArr) IDENT:varName
+		  | (VarDeclVarArgs) DOT DOT DOT IDENT:varName;
 
 
 ClassDecl ::= (ClassDecl) CLASS ClassName ClassExtension LBRACE VarDeclsList ClassBody RBRACE;
