@@ -22,7 +22,7 @@ int a;
 		return z + d;
 	}
 	
-	int printArgs(int num, char... args)
+	void printArgs(int num, char... args)
 		int i;
 	{
 		i = 0;
@@ -31,7 +31,7 @@ int a;
 			i++;
 		}while(i < num);
 	}
-	int inkrement(int a, int inc) 
+	int inkrement(int a, int... inc) 
 		int pom; 
 	{
 		if(inc[0] == jedan) pom = 1;
@@ -83,9 +83,9 @@ int a;
 		if(i == 3 && verify()) print(-4);
 		else print(4);  
 		
-		read(niz[0]);
-		read(niz[1]);
-		read(niz[2]);
+		//read(niz[0]);
+		//read(niz[1]);
+		//read(niz[2]);
 		print(eol);
 		
 		print(sum (sum(niz[0], niz[1]), niz[2])); 

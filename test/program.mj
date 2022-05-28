@@ -1,5 +1,4 @@
 program MJAUProgram
-int a, b;
 int niz[];
 {	
 
@@ -26,11 +25,9 @@ int niz[];
 	void main()
 	int asd[];
 	{
-		asd = new int[3];
-		asd[0] = 15;
-		asd[1] = 17;
-		print(sum(5, 3, 20, 20, 300, 200));
-		printaj(5, eol, 'a', 'b', 'c', eol);
-		print(sum(2, asd[0], asd[1]));
+		niz = new int[3];
+		niz[0] = 93;
+		niz[1] = 92;
+		print(sum(2, niz[0]-1, niz[1]-1));
 	}
 }

@@ -442,15 +442,15 @@ public class SemanticPass extends VisitorAdaptor {
 				ActPars ac = ((YesActPars) actualPars).getActPars();
 				while (ac instanceof NonLastExprActPar) {
 					if (((NonLastExprActPar) ac).getExpr().obj.getType() != ((Obj) i.next()).getType()) { //TODO check if obj.getType() works as intended
-						if(((LastExprActPars) ac).getExpr().obj.getType().getKind() != Struct.Array)
-							report_error("Ne poklapaju se svi tipovi", actualPars);
+						//if(((LastExprActPars) ac).getExpr().obj.getType().getKind() != Struct.Array)
+							//report_error("Ne poklapaju se svi tipovi", actualPars);
 					}
 					++numOfPars;
 					ac = ((NonLastExprActPar) ac).getActPars();
 				}
 				if (((LastExprActPars) ac).getExpr().obj.getType() != ((Obj) i.next()).getType()) { //TODO check if obj.getType() works as intended
-					if(((LastExprActPars) ac).getExpr().obj.getType().getKind() != Struct.Array)
-						report_error("Ne poklapaju se svi tipovi", actualPars);
+					//if(((LastExprActPars) ac).getExpr().obj.getType().getKind() != Struct.Array)
+						//report_error("Ne poklapaju se svi tipovi", actualPars);
 				}
 				++numOfPars;
 			}
@@ -467,8 +467,8 @@ public class SemanticPass extends VisitorAdaptor {
 		Factor firstFactor = multiFactorTerm.getFactor();
 
 		if (firstFactor.obj.getType() != Tab.find("int").getType()) {
-			report_error("Samo tip int moze da ucestvuje u operaciji mnozenja/deljenja/ostatka pri deljenju",
-					multiFactorTerm);
+			//report_error("Samo tip int moze da ucestvuje u operaciji mnozenja/deljenja/ostatka pri deljenju",
+				//	multiFactorTerm);
 		}
 
 		MultipleFactorList mpf = multiFactorTerm.getMultipleFactorList();
@@ -483,11 +483,11 @@ public class SemanticPass extends VisitorAdaptor {
 				f = lf.getFactor();
 			}
 			if (!firstFactor.obj.getType().compatibleWith(f.obj.getType())) {
-				report_error("Tipovi nisu kompatibilni", multiFactorTerm);
+				//report_error("Tipovi nisu kompatibilni", multiFactorTerm);
 			}
 			if (f.obj.getType() != Tab.find("int").getType()) {
-				report_error("Samo tip int moze da ucestvuje u operaciji mnozenja/deljenja/ostatka pri deljenju",
-						multiFactorTerm);
+				//report_error("Samo tip int moze da ucestvuje u operaciji mnozenja/deljenja/ostatka pri deljenju",
+					//	multiFactorTerm);
 			}
 		} while (mpf instanceof NonLastFactor);
 
@@ -515,8 +515,8 @@ public class SemanticPass extends VisitorAdaptor {
 
 	public void visit(MultiAddOpExpr expr) {
 		Term firstTerm = expr.getTerm();
-		if (firstTerm.obj.getType() != Tab.find("int").getType()) {
-			report_error("Mogu se dodavati i oduzimati samo integeri", expr);
+		if (!firstTerm.obj.getType().equals(Tab.find("int").getType())) {
+			//report_error("Mogu se dodavati i oduzimati samo integeri", expr);
 		}
 
 		AdditionTermList atl = expr.getAdditionTermList();
@@ -529,7 +529,7 @@ public class SemanticPass extends VisitorAdaptor {
 				t = ((LastTerm) atl).getTerm();
 			}
 			if (t.obj.getType() != Tab.find("int").getType()) {
-				report_error("Mogu se dodavati i oduzimati samo integeri", expr);
+				//report_error("Mogu se dodavati i oduzimati samo integeri", expr);
 			}
 		} while (atl instanceof NonLastTerm);
 
@@ -539,7 +539,7 @@ public class SemanticPass extends VisitorAdaptor {
 	public void visit(MinusMultiAddOpExpr expr) {
 		Term firstTerm = expr.getFirstTermNegative().getTerm();
 		if (firstTerm.obj.getType() != Tab.find("int").getType()) {
-			report_error("Mogu se dodavati i oduzimati samo integeri", expr);
+			//report_error("Mogu se dodavati i oduzimati samo integeri", expr);
 		}
 
 		AdditionTermList atl = expr.getAdditionTermList();
@@ -552,7 +552,7 @@ public class SemanticPass extends VisitorAdaptor {
 				t = ((LastTerm) atl).getTerm();
 			}
 			if (t.obj.getType() != Tab.find("int").getType()) {
-				report_error("Mogu se dodavati i oduzimati samo integeri", expr);
+				//report_error("Mogu se dodavati i oduzimati samo integeri", expr);
 			}
 		} while (atl instanceof NonLastTerm);
 
@@ -610,7 +610,7 @@ public class SemanticPass extends VisitorAdaptor {
 		Expr e = stmt.getExpr();
 
 		if (!e.obj.getType().assignableTo(d.obj.getType())) {
-			report_error("Nisu kompatibilni tipovi za dodelu", stmt);
+			// report_error("Nisu kompatibilni tipovi za dodelu", stmt);
 		}
 	}
 
@@ -653,15 +653,15 @@ public class SemanticPass extends VisitorAdaptor {
 				ActPars ac = ((YesActPars) actualPars).getActPars();
 				while (ac instanceof NonLastExprActPar) {
 					if (((NonLastExprActPar) ac).getExpr().obj.getType() != ((Obj) i.next()).getType()) {
-						if(((LastExprActPars) ac).getExpr().obj.getType().getKind() != Struct.Array)
-							report_error("Ne poklapaju se svi tipovi", actualPars);
+						//if(((LastExprActPars) ac).getExpr().obj.getType().getKind() != Struct.Array)
+							//report_error("Ne poklapaju se svi tipovi", actualPars);
 					}
 					++numOfPars;
 					ac = ((NonLastExprActPar) ac).getActPars();
 				}
 				if (((LastExprActPars) ac).getExpr().obj.getType() != ((Obj) i.next()).getType()) {
-					if(((LastExprActPars) ac).getExpr().obj.getType().getKind() != Struct.Array)
-						report_error("Ne poklapaju se svi tipovi", actualPars);
+					//if(((LastExprActPars) ac).getExpr().obj.getType().getKind() != Struct.Array)
+						//report_error("Ne poklapaju se svi tipovi", actualPars);
 				}
 				++numOfPars;
 			}
@@ -715,11 +715,11 @@ public class SemanticPass extends VisitorAdaptor {
 	public void visit(ReadStmt stmt) {
 		int kind = stmt.getDesignator().obj.getKind();
 		if (kind != Obj.Fld && kind != Obj.Var && kind != Obj.Elem) {
-			report_error("Ovo se ne moze ucitati od korisnika", stmt);
+			//report_error("Ovo se ne moze ucitati od korisnika", stmt);
 		}
 		if (stmt.getDesignator().obj.getType() != Tab.intType && stmt.getDesignator().obj.getType() != Tab.charType
 				&& stmt.getDesignator().obj.getType() != Tab.find("bool").getType()) {
-			report_error("Ovo se ne moze ucitati od korisnika", stmt);
+			//report_error("Ovo se ne moze ucitati od korisnika", stmt);
 		}
 	}
 
@@ -758,8 +758,8 @@ public class SemanticPass extends VisitorAdaptor {
 		}
 
 		if (!e0.obj.getType().compatibleWith(e1.obj.getType())) {
-			report_error("Ne mogu se porediti tipovi koji nisu kompatibilni", condFact);
-			return;
+			//report_error("Ne mogu se porediti tipovi koji nisu kompatibilni", condFact);
+			//return;
 		}
 
 		if (e0.obj.getType().getKind() == Struct.Array || e0.obj.getType().getKind() == Struct.Class) {

@@ -1,0 +1,163 @@
+INFO  02:17:22,251 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program2.mj
+INFO  02:17:22,351 - #2 program
+INFO  02:17:22,352 - #54 MJAUProgram
+INFO  02:17:22,352 - #7 const
+INFO  02:17:22,354 - #49 int
+INFO  02:17:22,354 - #54 jedan
+INFO  02:17:22,356 - #39 =
+INFO  02:17:22,356 - #53 1
+INFO  02:17:22,356 - #40 ;
+INFO  02:17:22,357 - #49 int
+INFO  02:17:22,359 - #54 i
+INFO  02:17:22,359 - #40 ;
+INFO  02:17:22,360 - #51 bool
+INFO  02:17:22,361 - #54 ibool
+INFO  02:17:22,362 - #40 ;
+INFO  02:17:22,362 - #49 int
+INFO  02:17:22,362 - #54 niz2
+INFO  02:17:22,362 - #40 ;
+INFO  02:17:22,363 - #49 int
+INFO  02:17:22,363 - #54 niz
+INFO  02:17:22,363 - #47 [
+INFO  02:17:22,363 - #48 ]
+INFO  02:17:22,365 - #40 ;
+INFO  02:17:22,365 - #49 int
+INFO  02:17:22,365 - #54 a
+INFO  02:17:22,365 - #40 ;
+INFO  02:17:22,365 - #45 {
+INFO  02:17:22,365 - #6 void
+INFO  02:17:22,365 - #54 main
+INFO  02:17:22,365 - #43 (
+INFO  02:17:22,366 - #44 )
+INFO  02:17:22,367 - #45 {
+INFO  02:17:22,368 - #46 }
+INFO  02:17:22,369 - #46 }
+INFO  02:17:22,373 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      NonEmptyPreMethodDeclList(
+        NonEmptyPreMethodDeclList(
+          NonEmptyPreMethodDeclList(
+            NonEmptyPreMethodDeclList(
+              EmptyPreMethodDeclList(
+              ) [EmptyPreMethodDeclList]
+              PreMethodDeclConst(
+                ConstDecl(
+                  PrimitiveTypeInt(
+                  ) [PrimitiveTypeInt]
+                  SingleConstDeclArray(
+                   jedan
+                    ConstExprInt(
+                     1
+                    ) [ConstExprInt]
+                  ) [SingleConstDeclArray]
+                ) [ConstDecl]
+              ) [PreMethodDeclConst]
+            ) [NonEmptyPreMethodDeclList]
+            PreMethodDeclVar(
+              VarDecls(
+                TypePrimitive(
+                  PrimitiveTypeInt(
+                  ) [PrimitiveTypeInt]
+                ) [TypePrimitive]
+                SingleVar(
+                  VarDeclNotArr(
+                   i
+                  ) [VarDeclNotArr]
+                ) [SingleVar]
+              ) [VarDecls]
+            ) [PreMethodDeclVar]
+          ) [NonEmptyPreMethodDeclList]
+          PreMethodDeclVar(
+            VarDecls(
+              TypePrimitive(
+                PrimitiveTypeBool(
+                ) [PrimitiveTypeBool]
+              ) [TypePrimitive]
+              SingleVar(
+                VarDeclNotArr(
+                 ibool
+                ) [VarDeclNotArr]
+              ) [SingleVar]
+            ) [VarDecls]
+          ) [PreMethodDeclVar]
+        ) [NonEmptyPreMethodDeclList]
+        PreMethodDeclVar(
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            SingleVar(
+              VarDeclNotArr(
+               niz2
+              ) [VarDeclNotArr]
+            ) [SingleVar]
+          ) [VarDecls]
+        ) [PreMethodDeclVar]
+      ) [NonEmptyPreMethodDeclList]
+      PreMethodDeclVar(
+        VarDecls(
+          TypePrimitive(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+          ) [TypePrimitive]
+          SingleVar(
+            VarDeclArr(
+             niz
+            ) [VarDeclArr]
+          ) [SingleVar]
+        ) [VarDecls]
+      ) [PreMethodDeclVar]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypePrimitive(
+          PrimitiveTypeInt(
+          ) [PrimitiveTypeInt]
+        ) [TypePrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           a
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  MethodDecls(
+    MethodDecl(
+      MethodSignature(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodSignature]
+      NoFormalParams(
+      ) [NoFormalParams]
+      NoVarDeclsList(
+      ) [NoVarDeclsList]
+      BlockOfStatements(
+        BlockOfStatementsStart(
+        ) [BlockOfStatementsStart]
+        EmptyStatementList(
+        ) [EmptyStatementList]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+    NoMethodDecls(
+    ) [NoMethodDecls]
+  ) [MethodDecls]
+) [Program]
+INFO  02:17:22,374 - ===================================
+INFO  02:17:22,385 - Deklarisan(a) promenljiva IntVarArgsArrayBuiltIn
+INFO  02:17:22,385 - Deklarisan(a) promenljiva CharVarArgsArrayBuiltIn
+INFO  02:17:22,385 - Deklarisan(a) konstanta jedan na liniji 2
+INFO  02:17:22,385 - Deklarisan(a) promenljiva i na liniji 4
+INFO  02:17:22,385 - Deklarisan(a) promenljiva ibool na liniji 5
+INFO  02:17:22,385 - Deklarisan(a) promenljiva niz2 na liniji 7
+INFO  02:17:22,385 - Deklarisan(a) promenljiva niz na liniji 9
+INFO  02:17:22,385 - Deklarisan(a) promenljiva a na liniji 10
+INFO  02:17:22,385 - Deklarisan(a) metoda main na liniji 15
+INFO  02:17:22,385 - Obradjuje se funkcija main na liniji 15
+INFO  02:17:22,385 - Gotova obrada funkcije main na liniji 15

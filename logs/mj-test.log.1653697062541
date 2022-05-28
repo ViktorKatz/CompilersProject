@@ -1,0 +1,255 @@
+INFO  02:17:32,603 - Compiling source file: D:\ETF\Godina 4\PP projekat\PROJEKAT\MJCompiler\test\program2.mj
+INFO  02:17:32,706 - #2 program
+INFO  02:17:32,706 - #54 MJAUProgram
+INFO  02:17:32,707 - #7 const
+INFO  02:17:32,709 - #49 int
+INFO  02:17:32,709 - #54 jedan
+INFO  02:17:32,710 - #39 =
+INFO  02:17:32,711 - #53 1
+INFO  02:17:32,711 - #40 ;
+INFO  02:17:32,711 - #49 int
+INFO  02:17:32,712 - #54 i
+INFO  02:17:32,713 - #40 ;
+INFO  02:17:32,713 - #51 bool
+INFO  02:17:32,714 - #54 ibool
+INFO  02:17:32,715 - #40 ;
+INFO  02:17:32,715 - #49 int
+INFO  02:17:32,715 - #54 niz2
+INFO  02:17:32,716 - #40 ;
+INFO  02:17:32,716 - #49 int
+INFO  02:17:32,716 - #54 niz
+INFO  02:17:32,716 - #47 [
+INFO  02:17:32,716 - #48 ]
+INFO  02:17:32,717 - #40 ;
+INFO  02:17:32,717 - #49 int
+INFO  02:17:32,717 - #54 a
+INFO  02:17:32,717 - #40 ;
+INFO  02:17:32,717 - #45 {
+INFO  02:17:32,718 - #49 int
+INFO  02:17:32,718 - #54 sum
+INFO  02:17:32,718 - #43 (
+INFO  02:17:32,719 - #49 int
+INFO  02:17:32,719 - #54 z
+INFO  02:17:32,719 - #42 ,
+INFO  02:17:32,719 - #49 int
+INFO  02:17:32,719 - #54 d
+INFO  02:17:32,719 - #44 )
+INFO  02:17:32,720 - #45 {
+INFO  02:17:32,721 - #5 return
+INFO  02:17:32,724 - #54 z
+INFO  02:17:32,724 - #34 +
+INFO  02:17:32,725 - #54 d
+INFO  02:17:32,726 - #40 ;
+INFO  02:17:32,727 - #46 }
+INFO  02:17:32,727 - #6 void
+INFO  02:17:32,729 - #54 main
+INFO  02:17:32,730 - #43 (
+INFO  02:17:32,731 - #44 )
+INFO  02:17:32,731 - #45 {
+INFO  02:17:32,731 - #46 }
+INFO  02:17:32,732 - #46 }
+INFO  02:17:32,735 - Program(
+  ProgName(
+   MJAUProgram
+  ) [ProgName]
+  NonEmptyPreMethodDeclList(
+    NonEmptyPreMethodDeclList(
+      NonEmptyPreMethodDeclList(
+        NonEmptyPreMethodDeclList(
+          NonEmptyPreMethodDeclList(
+            NonEmptyPreMethodDeclList(
+              EmptyPreMethodDeclList(
+              ) [EmptyPreMethodDeclList]
+              PreMethodDeclConst(
+                ConstDecl(
+                  PrimitiveTypeInt(
+                  ) [PrimitiveTypeInt]
+                  SingleConstDeclArray(
+                   jedan
+                    ConstExprInt(
+                     1
+                    ) [ConstExprInt]
+                  ) [SingleConstDeclArray]
+                ) [ConstDecl]
+              ) [PreMethodDeclConst]
+            ) [NonEmptyPreMethodDeclList]
+            PreMethodDeclVar(
+              VarDecls(
+                TypePrimitive(
+                  PrimitiveTypeInt(
+                  ) [PrimitiveTypeInt]
+                ) [TypePrimitive]
+                SingleVar(
+                  VarDeclNotArr(
+                   i
+                  ) [VarDeclNotArr]
+                ) [SingleVar]
+              ) [VarDecls]
+            ) [PreMethodDeclVar]
+          ) [NonEmptyPreMethodDeclList]
+          PreMethodDeclVar(
+            VarDecls(
+              TypePrimitive(
+                PrimitiveTypeBool(
+                ) [PrimitiveTypeBool]
+              ) [TypePrimitive]
+              SingleVar(
+                VarDeclNotArr(
+                 ibool
+                ) [VarDeclNotArr]
+              ) [SingleVar]
+            ) [VarDecls]
+          ) [PreMethodDeclVar]
+        ) [NonEmptyPreMethodDeclList]
+        PreMethodDeclVar(
+          VarDecls(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            SingleVar(
+              VarDeclNotArr(
+               niz2
+              ) [VarDeclNotArr]
+            ) [SingleVar]
+          ) [VarDecls]
+        ) [PreMethodDeclVar]
+      ) [NonEmptyPreMethodDeclList]
+      PreMethodDeclVar(
+        VarDecls(
+          TypePrimitive(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+          ) [TypePrimitive]
+          SingleVar(
+            VarDeclArr(
+             niz
+            ) [VarDeclArr]
+          ) [SingleVar]
+        ) [VarDecls]
+      ) [PreMethodDeclVar]
+    ) [NonEmptyPreMethodDeclList]
+    PreMethodDeclVar(
+      VarDecls(
+        TypePrimitive(
+          PrimitiveTypeInt(
+          ) [PrimitiveTypeInt]
+        ) [TypePrimitive]
+        SingleVar(
+          VarDeclNotArr(
+           a
+          ) [VarDeclNotArr]
+        ) [SingleVar]
+      ) [VarDecls]
+    ) [PreMethodDeclVar]
+  ) [NonEmptyPreMethodDeclList]
+  MethodDecls(
+    MethodDecl(
+      MethodSignature(
+        NotVoidType(
+          TypePrimitive(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+          ) [TypePrimitive]
+        ) [NotVoidType]
+       sum
+      ) [MethodSignature]
+      YesFormalParams(
+        MultiFormalParam(
+          TypePrimitive(
+            PrimitiveTypeInt(
+            ) [PrimitiveTypeInt]
+          ) [TypePrimitive]
+          VarDeclNotArr(
+           z
+          ) [VarDeclNotArr]
+          SingleFormalParam(
+            TypePrimitive(
+              PrimitiveTypeInt(
+              ) [PrimitiveTypeInt]
+            ) [TypePrimitive]
+            VarDeclNotArr(
+             d
+            ) [VarDeclNotArr]
+          ) [SingleFormalParam]
+        ) [MultiFormalParam]
+      ) [YesFormalParams]
+      NoVarDeclsList(
+      ) [NoVarDeclsList]
+      BlockOfStatements(
+        BlockOfStatementsStart(
+        ) [BlockOfStatementsStart]
+        NonEmptyStatementListStmt(
+          EmptyStatementList(
+          ) [EmptyStatementList]
+          StatementWithoutLabel(
+            ReturnStmt(
+              MultiAddOpExpr(
+                SingleFactorTerm(
+                  FactorDesignator(
+                    DesignatorIdent(
+                     z
+                      DesignationNone(
+                      ) [DesignationNone]
+                    ) [DesignatorIdent]
+                  ) [FactorDesignator]
+                ) [SingleFactorTerm]
+                AddOpPlus(
+                ) [AddOpPlus]
+                LastTerm(
+                  SingleFactorTerm(
+                    FactorDesignator(
+                      DesignatorIdent(
+                       d
+                        DesignationNone(
+                        ) [DesignationNone]
+                      ) [DesignatorIdent]
+                    ) [FactorDesignator]
+                  ) [SingleFactorTerm]
+                ) [LastTerm]
+              ) [MultiAddOpExpr]
+            ) [ReturnStmt]
+          ) [StatementWithoutLabel]
+        ) [NonEmptyStatementListStmt]
+      ) [BlockOfStatements]
+    ) [MethodDecl]
+    MethodDecls(
+      MethodDecl(
+        MethodSignature(
+          VoidType(
+          ) [VoidType]
+         main
+        ) [MethodSignature]
+        NoFormalParams(
+        ) [NoFormalParams]
+        NoVarDeclsList(
+        ) [NoVarDeclsList]
+        BlockOfStatements(
+          BlockOfStatementsStart(
+          ) [BlockOfStatementsStart]
+          EmptyStatementList(
+          ) [EmptyStatementList]
+        ) [BlockOfStatements]
+      ) [MethodDecl]
+      NoMethodDecls(
+      ) [NoMethodDecls]
+    ) [MethodDecls]
+  ) [MethodDecls]
+) [Program]
+INFO  02:17:32,735 - ===================================
+INFO  02:17:32,748 - Deklarisan(a) promenljiva IntVarArgsArrayBuiltIn
+INFO  02:17:32,748 - Deklarisan(a) promenljiva CharVarArgsArrayBuiltIn
+INFO  02:17:32,748 - Deklarisan(a) konstanta jedan na liniji 2
+INFO  02:17:32,748 - Deklarisan(a) promenljiva i na liniji 4
+INFO  02:17:32,748 - Deklarisan(a) promenljiva ibool na liniji 5
+INFO  02:17:32,748 - Deklarisan(a) promenljiva niz2 na liniji 7
+INFO  02:17:32,748 - Deklarisan(a) promenljiva niz na liniji 9
+INFO  02:17:32,748 - Deklarisan(a) promenljiva a na liniji 10
+INFO  02:17:32,749 - Deklarisan(a) metoda sum na liniji 12
+INFO  02:17:32,749 - Obradjuje se funkcija sum na liniji 12
+INFO  02:17:32,749 - Deklarisan(a) promenljiva z na liniji 12
+INFO  02:17:32,749 - Deklarisan(a) promenljiva d na liniji 12
+INFO  02:17:32,749 - Gotova obrada funkcije sum na liniji 12
+INFO  02:17:32,750 - Deklarisan(a) metoda main na liniji 18
+INFO  02:17:32,750 - Obradjuje se funkcija main na liniji 18
+INFO  02:17:32,750 - Gotova obrada funkcije main na liniji 18

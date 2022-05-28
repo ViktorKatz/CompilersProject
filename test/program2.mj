@@ -1,7 +1,4 @@
-//Test 302
-
-program test302
-
+program MJAUProgram
 const int jedan = 1;
 
 int i;
@@ -11,31 +8,17 @@ int niz2;
 
 int niz[];
 int a;
-
-{
-	
-	int sum(int... args)
-	int z,d;
+{	
+	int sum(int z, int d)
 	{
-		z = args[0];
-		d = args[1];
 		return z + d;
 	}
 	
-	void printArgs(int num, char... args)
-		int i;
-	{
-		i = 0;
-		do{
-			print(args[i]);	
-			i++;
-		}while(i < num);
-	}
-	int inkrement(int a, int... inc) 
+	int inkrement(int a, int inc) 
 		int pom; 
 	{
-		if(inc[0] == jedan) pom = 1;
-		else if(inc[0] == 2) pom = a;
+		if(inc == jedan) pom = 1;
+		else if(inc == 2) pom = a;
 
 		return sum(a,pom);
 	}
@@ -44,6 +27,7 @@ int a;
 		print('v');
 		return false;
 	}	
+
 	
 	void main()
 	{
@@ -52,6 +36,7 @@ int a;
 			
 		ibool = false;
 		i = 0;
+		
 		do{
 			if(i == 2) ibool = true;
 			i++;
@@ -59,12 +44,14 @@ int a;
 		
 		if(ibool)
 			if(i == 5) print(1);
-			else print(-1); 	
+			else print(-1); 
+			
 		a = 2;	
 		niz = new int[3];
 		niz[0] = 1 * a;
 		niz[1] = 2 * a;
-		niz[2] = sum(niz[1], niz[0]) * a + 1;
+		niz[2] = sum(niz[1], niz[0]);
+		
 		if(verify() || niz[2] == 4) print(ord('A')); 
 		else print(ord('a'));
 		
@@ -83,9 +70,6 @@ int a;
 		if(i == 3 && verify()) print(-4);
 		else print(4);  
 		
-		//read(niz[0]);
-		//read(niz[1]);
-		//read(niz[2]);
 		print(eol);
 		
 		print(sum (sum(niz[0], niz[1]), niz[2])); 
@@ -112,7 +96,5 @@ int a;
 		}while (i < 3);
 		print(niz2);
 		print(eol);
-		printArgs(5,'t','e','s','t','B');
 	}
 }
-
